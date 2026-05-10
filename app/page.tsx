@@ -1,6 +1,8 @@
 import Layout from "../components/Layout";
 import HeroV2 from "../components/HeroV2";
 import ProjectGridV2 from "../components/ProjectGridV2";
+import SkillsOrbit from "../components/SkillsOrbit";
+import TestimonialsV2 from "../components/TestimonialsV2";
 import Contact from "../components/Contact";
 
 export default function Home() {
@@ -14,10 +16,13 @@ export default function Home() {
         <ProjectGridV2 />
       </div>
 
-      {/* Skills Section Placeholder */}
-      <section id="skills" className="py-32 bg-[#0a0a0a] flex items-center justify-center">
-        <h2 className="text-huge font-bold text-white/5 opacity-20 uppercase tracking-tighter">SKILLS_ORBIT</h2>
-      </section>
+      <div id="skills">
+        <SkillsOrbit />
+      </div>
+
+      <div id="testimonials">
+        <TestimonialsV2 />
+      </div>
 
       <div id="contact">
         <Contact />

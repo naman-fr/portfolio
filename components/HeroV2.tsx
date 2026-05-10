@@ -6,6 +6,8 @@ import { Float, MeshDistortMaterial, Sphere, PerspectiveCamera } from "@react-th
 import { motion } from "framer-motion";
 import gsap from "gsap";
 
+import MagneticButton from "./MagneticButton";
+
 function Blob() {
   const mesh = useRef<any>();
   useFrame((state) => {
@@ -77,9 +79,9 @@ export default function HeroV2() {
           transition={{ delay: 1, duration: 1 }}
           className="mt-12"
         >
-          <button onClick={scrollToProjects} className="btn-magnetic">
+          <MagneticButton onClick={scrollToProjects}>
             EXPLORE_WORK
-          </button>
+          </MagneticButton>
         </motion.div>
       </div>
 
