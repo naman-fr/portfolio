@@ -13,6 +13,10 @@ const config: Config = {
         terminal: "#00FF41",
         neural: "#7C3AED",
         amber: "#F59E0B",
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        accent: "var(--color-accent)",
+        base: "var(--color-base)",
       },
       fontFamily: {
         mono: ["var(--font-mono)", "JetBrains Mono", "SF Mono", "Monaco", "Cascadia Code", "Fira Code", "monospace"],

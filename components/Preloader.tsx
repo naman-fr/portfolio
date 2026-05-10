@@ -6,21 +6,26 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const interval = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 100) {
+        const next = prev + Math.random() * 10;
+        if (next >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 500);
+          setTimeout(() => setLoading(false), 800);
           return 100;
         }
-        return prev + Math.random() * 15;
+        return next;
       });
-    }, 100);
+    }, 150);
 
     return () => clearInterval(interval);
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>

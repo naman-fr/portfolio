@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
     <ErrorBoundary>
       <Preloader />
       <SmoothScroll>
-        <div className="relative min-h-screen bg-[#0a0a0a] selection:bg-primary selection:text-base">
+        <div className="relative min-h-screen bg-[#0a0a0a] selection:bg-primary selection:text-black">
           <div className="noise-overlay" />
           <CustomCursor />
           

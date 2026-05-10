@@ -5,6 +5,12 @@
 :root {
   --font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Cascadia Code', 'Fira Code', 'Menlo', monospace;
   --font-sans: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  
+  --color-base: #0a0a0a;
+  --color-primary: #00ff88;
+  --color-secondary: #ff00ff;
+  --color-accent: #ffff00;
+  --color-glass: rgba(255, 255, 255, 0.03);
 }
 
 @supports (font-variation-settings: normal) {
