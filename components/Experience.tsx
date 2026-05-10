@@ -1,114 +1,88 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { resumeData } from "../data/resume";
-import RadarBackground from "./RadarBackground";
-import CodeRain from "./CodeRain";
-
-import NeuralBackground from "./NeuralBackground";
-
-const visualThemes: Record<string, React.ReactNode> = {
-  radar: <RadarBackground />,
-  script: <CodeRain />,
-  circuit: <CodeRain />,
-  robotics: <NeuralBackground />,
-  network: <NeuralBackground />,
-  code: <CodeRain />,
-};
 
 export default function Experience() {
-  const [activeTheme, setActiveTheme] = useState<string | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { margin: "-100px" });
+  const isInView = useInView(sectionRef, { margin: "-100px", once: false });
 
   return (
     <section
       id="experience"
       ref={sectionRef}
-      className="min-h-screen py-20 px-4 relative"
+      className="min-h-screen py-32 px-4 relative bg-[#0a0a0a]"
     >
-      {activeTheme && (
-        <div className="fixed inset-0 -z-10 opacity-20">
-          {visualThemes[activeTheme]}
-        </div>
-      )}
+      <div className="max-w-7xl mx-auto">
+        <header className="mb-24 space-y-4">
+          <span className="text-primary font-mono text-sm tracking-[0.4em] uppercase">[ 03:_CAREER_LOGS ]</span>
+          <h2 className="text-huge font-bold leading-none tracking-tighter uppercase">HISTORY</h2>
+        </header>
 
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className="text-5xl md:text-6xl font-mono font-bold text-terminal mb-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          &gt; EXPERIENCE
-        </motion.h2>
-
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-terminal via-neural to-terminal opacity-30" />
-
+        <div className="relative space-y-32">
           {resumeData.experience.map((exp, index) => {
-            const isLeft = index % 2 === 0;
+            const isEven = index % 2 === 0;
             
             return (
               <motion.div
                 key={exp.id}
-                className="relative mb-16"
-                initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
-                onMouseEnter={() => setActiveTheme(exp.visualTheme)}
-                onMouseLeave={() => setActiveTheme(null)}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.8 }}
+                className="group relative"
               >
-                <div
-                  className={`flex flex-col md:flex-row items-center gap-8 ${
-                    isLeft ? "md:flex-row-reverse" : ""
-                  }`}
-                >
-                  {/* Timeline Node */}
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-terminal rounded-full border-4 border-obsidian z-10 neon-glow" />
+                {/* Horizontal Connector Line (Desktop) */}
+                <div className="hidden lg:block absolute top-12 left-0 w-full h-[1px] bg-white/5 group-hover:bg-primary/20 transition-colors" />
 
-                  {/* Content Card */}
-                  <motion.div
-                    className={`flex-1 glass rounded-lg p-6 ${
-                      isLeft ? "md:text-right md:mr-auto md:max-w-[45%]" : "md:text-left md:ml-auto md:max-w-[45%]"
-                    }`}
-                    whileHover={{ scale: 1.02, borderColor: "#00FF41" }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <div className="flex items-center gap-2 mb-2 flex-wrap">
-                      <span className="text-terminal font-mono text-sm">
+                <div className="flex flex-col lg:flex-row gap-12 lg:items-start relative z-10">
+                  {/* Timeline Metadata */}
+                  <div className="lg:w-1/3 space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-[1px] bg-primary/50" />
+                      <span className="text-primary font-mono text-xs tracking-widest uppercase">
                         {exp.timeline}
                       </span>
-                      <span className="text-gray-400">•</span>
-                      <span className="text-neural font-mono">{exp.company}</span>
                     </div>
-                    
-                    <h3 className="text-2xl font-mono font-bold text-white mb-3">
-                      {exp.role}
+                    <h3 className="text-3xl font-bold text-white tracking-tight">
+                      {exp.company.toUpperCase()}
                     </h3>
+                    <p className="text-primary/60 font-mono text-xs uppercase tracking-widest">
+                      {exp.role}
+                    </p>
+                  </div>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {exp.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-terminal/20 text-terminal text-xs font-mono rounded-full border border-terminal/50"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  {/* Achievements & Tech */}
+                  <div className="lg:w-2/3 glass-premium p-8 lg:p-12 rounded-2xl border border-white/5 hover:border-primary/20 transition-colors">
+                    <div className="space-y-8">
+                      <ul className="space-y-6">
+                        {exp.achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-start gap-6 group/item">
+                            <span className="text-primary/40 font-mono text-xs mt-1">[{i.toString().padStart(2, '0')}]</span>
+                            <p className="text-gray-400 group-hover/item:text-white transition-colors leading-relaxed">
+                              {achievement}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="pt-8 border-t border-white/5 flex flex-wrap gap-3">
+                        {exp.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-white/5 text-white/50 text-[10px] font-mono rounded tracking-widest uppercase border border-white/10"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-
-                    <ul className="space-y-2 text-gray-300">
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-terminal mt-1">▹</span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
+                  </div>
+                </div>
+                
+                {/* Index Indicator */}
+                <div className="hidden lg:block absolute -left-16 top-0 text-huge font-bold text-white/[0.02] pointer-events-none">
+                  {(index + 1).toString().padStart(2, '0')}
                 </div>
               </motion.div>
             );

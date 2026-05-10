@@ -8,7 +8,6 @@ export default function NeuralBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (isRecruiterMode) return; // Skip animation in recruiter mode
     
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -24,7 +23,7 @@ export default function NeuralBackground() {
     window.addEventListener("resize", resize);
 
     const nodes: Array<{ x: number; y: number; vx: number; vy: number }> = [];
-    const nodeCount = 50;
+    const nodeCount = 100;
 
     for (let i = 0; i < nodeCount; i++) {
       nodes.push({
@@ -36,8 +35,7 @@ export default function NeuralBackground() {
     }
 
     const draw = () => {
-      ctx.fillStyle = "#0A0A0A";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       nodes.forEach((node) => {
         node.x += node.vx;
@@ -48,7 +46,7 @@ export default function NeuralBackground() {
 
         ctx.beginPath();
         ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "#00FF41";
+        ctx.fillStyle = "#00ff88";
         ctx.fill();
       });
 
@@ -62,8 +60,8 @@ export default function NeuralBackground() {
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(0, 255, 65, ${1 - distance / 150})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(0, 255, 136, ${1 - distance / 150})`;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         });
@@ -84,8 +82,8 @@ export default function NeuralBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-0"
-      style={{ background: "#0A0A0A" }}
+      className="fixed inset-0 -z-50"
+      style={{ background: "transparent" }}
     />
   );
 }

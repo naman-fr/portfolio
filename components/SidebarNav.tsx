@@ -5,11 +5,12 @@ import { motion } from "framer-motion";
 
 const sections = [
   { id: "hero", label: "01" },
-  { id: "experience", label: "02" },
-  { id: "projects", label: "03" },
+  { id: "projects", label: "02" },
+  { id: "experience", label: "03" },
   { id: "skills", label: "04" },
   { id: "achievements", label: "05" },
-  { id: "contact", label: "06" },
+  { id: "testimonials", label: "06" },
+  { id: "contact", label: "07" },
 ];
 
 export default function SidebarNav() {
@@ -48,12 +49,12 @@ export default function SidebarNav() {
           }}
         >
           <span className={`text-[10px] font-mono transition-all duration-300 ${
-            activeSection === section.id ? "text-terminal opacity-100" : "text-white opacity-0 group-hover:opacity-50"
+            activeSection === section.id ? "text-primary opacity-100" : "text-white opacity-0 group-hover:opacity-50"
           }`}>
             {section.label}
           </span>
           <div className={`h-1.5 transition-all duration-300 rounded-full ${
-            activeSection === section.id ? "w-12 bg-terminal" : "w-3 bg-white/20 group-hover:bg-white/40"
+            activeSection === section.id ? "w-12 bg-primary" : "w-3 bg-white/20 group-hover:bg-white/40"
           }`} />
         </a>
       ))}

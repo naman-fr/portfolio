@@ -39,10 +39,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${jetbrainsMono.variable} ${inter.variable} font-sans bg-obsidian text-white antialiased overflow-x-hidden`}>
         <DisplayModeProvider>
-          <div className="h-screen overflow-y-auto scroll-snap-y scroll-snap-mandatory">
-            <SidebarNav />
-            {children}
-          </div>
+          <SidebarNav />
+          {children}
         </DisplayModeProvider>
       </body>
     </html>

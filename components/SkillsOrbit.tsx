@@ -54,7 +54,14 @@ function CentralNode() {
   );
 }
 
-const skills = ["PYTORCH", "LANGGRAPH", "DOCKER", "K8S", "FASTAPI", "THREE.JS", "GSAP", "ROS2"];
+import { resumeData } from "../data/resume";
+
+const skills = [
+  ...resumeData.skills.languages.slice(0, 3),
+  ...resumeData.skills.frameworks.slice(0, 3),
+  ...resumeData.skills.infrastructure.slice(0, 3),
+  "HADOOP", "HDFS", "BIG_DATA"
+].map(s => s.toUpperCase());
 
 export default function SkillsOrbit() {
   return (

@@ -18,46 +18,64 @@ export default function CustomCursor() {
         x: e.clientX,
         y: e.clientY,
         duration: 0.1,
+        ease: "power2.out",
       });
       gsap.to(follower, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.3,
+        duration: 0.5,
+        ease: "power3.out",
       });
     };
 
     const handleHover = () => {
       gsap.to(follower, {
-        scale: 4,
-        backgroundColor: "rgba(0, 255, 136, 0.1)",
-        border: "1px solid rgba(0, 255, 136, 0.5)",
-        duration: 0.3,
+        scale: 2.5,
+        borderRadius: "4px",
+        backgroundColor: "rgba(0, 255, 136, 0.05)",
+        borderColor: "rgba(0, 255, 136, 0.8)",
+        duration: 0.4,
+        ease: "elastic.out(1, 0.3)",
+      });
+      gsap.to(cursor, {
+        scale: 0,
+        duration: 0.2,
       });
     };
 
     const handleUnhover = () => {
       gsap.to(follower, {
         scale: 1,
+        borderRadius: "50%",
         backgroundColor: "transparent",
-        border: "1px solid rgba(255, 255, 255, 0.2)",
-        duration: 0.3,
+        borderColor: "rgba(255, 255, 255, 0.4)",
+        duration: 0.4,
+        ease: "power2.out",
+      });
+      gsap.to(cursor, {
+        scale: 1,
+        duration: 0.2,
       });
     };
 
     window.addEventListener("mousemove", moveCursor);
 
-    const interactiveElements = document.querySelectorAll("a, button, .interactive");
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleHover);
-      el.addEventListener("mouseleave", handleUnhover);
-    });
+    const refreshListeners = () => {
+      const interactiveElements = document.querySelectorAll("a, button, [role='button'], .project-card");
+      interactiveElements.forEach((el) => {
+        el.addEventListener("mouseenter", handleHover);
+        el.addEventListener("mouseleave", handleUnhover);
+      });
+    };
+
+    refreshListeners();
+    // Re-bind on dynamic content changes
+    const observer = new MutationObserver(refreshListeners);
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleHover);
-        el.removeEventListener("mouseleave", handleUnhover);
-      });
+      observer.disconnect();
     };
   }, []);
 
@@ -65,11 +83,11 @@ export default function CustomCursor() {
     <>
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-[10000] mix-blend-difference"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-primary rounded-full pointer-events-none z-[10000] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
       />
       <div
         ref={followerRef}
-        className="fixed top-0 left-0 w-8 h-8 border border-white/20 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+        className="fixed top-0 left-0 w-8 h-8 border border-white/40 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference transition-[border-radius] duration-500"
       />
     </>
   );

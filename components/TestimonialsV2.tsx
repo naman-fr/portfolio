@@ -34,7 +34,6 @@ export default function TestimonialsV2() {
   return (
     <section id="testimonials" className="py-32 bg-[#0a0a0a] overflow-hidden border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 mb-16">
-        <span className="text-accent font-mono text-sm tracking-[0.4em] uppercase">[ 05:_TRANSMISSIONS ]</span>
       </div>
 
       <div ref={containerRef} className="relative flex whitespace-nowrap">
