@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Trophy, FileText } from "lucide-react";
 import { useDisplayMode } from "../contexts/DisplayModeContext";
@@ -16,12 +16,12 @@ interface Metric {
 export default function MetricsBar() {
   const { isRecruiterMode } = useDisplayMode();
 
-  const metrics: Metric[] = [
+  const metrics: Metric[] = useMemo(() => [
     { icon: TrendingUp, label: "Uptime", value: 3.0, suffix: " Years", color: "text-terminal" },
     { icon: Trophy, label: "Hackathons Won", value: 2, suffix: "+", color: "text-neural" },
     { icon: Users, label: "Students Mentored", value: 150, suffix: "+", color: "text-terminal" },
     { icon: FileText, label: "AI Platforms Built", value: 4, suffix: "", color: "text-amber" },
-  ];
+  ], []);
 
   const [counters, setCounters] = useState<number[]>(metrics.map(() => 0));
   const [hasAnimated, setHasAnimated] = useState(false);

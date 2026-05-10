@@ -45,7 +45,7 @@ export default function TestimonialsV2() {
               className="glass-premium p-12 rounded-3xl min-w-[400px] flex flex-col justify-between border-white/10"
             >
               <p className="text-2xl font-bold text-white tracking-tight leading-tight">
-                "{t.text}"
+                &quot;{t.text}&quot;
               </p>
               <div className="mt-8 flex items-center gap-4">
                 <div className="w-8 h-8 rounded-full bg-accent/20 border border-accent/40" />

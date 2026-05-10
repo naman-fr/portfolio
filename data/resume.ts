@@ -97,11 +97,14 @@ export const resumeData = {
     {
       title: "AMFD: Multi-Agent Diagnosis",
       domain: "Industrial AI / LangGraph",
+      category: "Systems",
       tech: ["LangGraph", "ColBERT", "BM25", "Kafka", "Streamlit"],
       description: "Autonomous fault diagnosis system using a supervisor-specialist agent architecture. Processes vibration/RPM signals through a safety-gated LangGraph workflow.",
       highlight: "F1-score > 0.95 on bearing fault classification; BM25 + ColBERT RAG.",
       type: "Systems",
       github: "https://github.com/naman-fr/Autonomous-Manufacturing-Fault-Diagnosis-and-Self-Healing",
+    },
+    {
       title: "Pricing-RAG (AutoStream)",
       domain: "Agentic AI",
       category: "Agentic",

@@ -105,7 +105,7 @@ export default function Contact() {
                 <div className="space-y-1">
                   {terminalLogs.map((log, i) => (
                     <motion.div key={i} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} className="text-white/60">
-                      <span className="text-primary/40 mr-2">>>></span> {log}
+                      <span className="text-primary/40 mr-2">&gt;&gt;&gt;</span> {log}
                     </motion.div>
                   ))}
                 </div>
@@ -119,7 +119,7 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="p-12 space-y-8 bg-white/[0.01]">
               <div className="space-y-4">
-                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">01 // IDENTIFIER</label>
+                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">{"01 // IDENTIFIER"}</label>
                 <input
                   type="text"
                   value={formData.name}
@@ -130,7 +130,7 @@ export default function Contact() {
                 />
               </div>
               <div className="space-y-4">
-                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">02 // GATEWAY</label>
+                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">{"02 // GATEWAY"}</label>
                 <input
                   type="email"
                   value={formData.email}
@@ -141,7 +141,7 @@ export default function Contact() {
                 />
               </div>
               <div className="space-y-4">
-                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">03 // PAYLOAD</label>
+                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">{"03 // PAYLOAD"}</label>
                 <textarea
                   className="w-full bg-transparent border-b border-white/10 p-4 font-mono text-white focus:outline-none focus:border-primary transition-colors h-32 resize-none placeholder:text-white/10"
                   value={formData.message}
@@ -163,7 +163,7 @@ export default function Contact() {
 
               {status === "success" && (
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-primary text-[10px] font-mono text-center tracking-widest">
-                  // TRANSMISSION_SUCCESSFUL
+                  {"// TRANSMISSION_SUCCESSFUL"}
                 </motion.p>
               )}
             </form>

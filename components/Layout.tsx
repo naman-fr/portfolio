@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ErrorBoundary from "./ErrorBoundary";
 import SmoothScroll from "./SmoothScroll";
 import CustomCursor from "./CustomCursor";
+import Preloader from "./Preloader";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <ErrorBoundary>
+      <Preloader />
       <SmoothScroll>
         <div className="relative min-h-screen bg-[#0a0a0a] selection:bg-primary selection:text-base">
           <div className="noise-overlay" />
