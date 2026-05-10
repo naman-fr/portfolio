@@ -21,42 +21,56 @@ export default function Achievements() {
     <section
       id="achievements"
       ref={sectionRef}
-      className="min-h-screen py-32 px-4 bg-[#0a0a0a]"
+      className="min-h-screen py-32 px-4 bg-transparent relative z-10"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="mb-24 space-y-4">
+        <header className="mb-24 space-y-4 text-center md:text-left">
           <span className="text-primary font-mono text-sm tracking-[0.4em] uppercase">[ 05:_HONOR_LOGS ]</span>
-          <h2 className="text-huge font-bold leading-none tracking-tighter uppercase">ACHIEVEMENTS</h2>
+          <h2 className="text-huge font-bold leading-none tracking-tighter uppercase text-white">ACHIEVEMENTS</h2>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {resumeData.achievements.map((achievement, index) => {
             const Icon = iconMap[achievement.icon] || Trophy;
             
             return (
               <motion.div
                 key={achievement.title}
-                className="glass-premium rounded-2xl p-10 relative overflow-hidden group border border-white/5 hover:border-primary/30 transition-all duration-500"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
+                className="group relative h-full"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.8, ease: "backOut" }}
               >
-                <div className="relative z-10 space-y-6">
-                  <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500">
-                    <Icon className="w-8 h-8 text-primary" />
+                {/* Node Structure */}
+                <div className="glass-premium rounded-3xl p-10 h-full border border-white/5 flex flex-col items-center text-center group-hover:border-primary/20 transition-all duration-500 overflow-hidden">
+                  {/* Icon Node */}
+                  <div className="relative mb-8">
+                    <div className="w-20 h-20 rounded-full border border-primary/20 flex items-center justify-center bg-primary/5 group-hover:bg-primary/10 transition-colors duration-500">
+                      <Icon className="w-10 h-10 text-primary" />
+                    </div>
+                    {/* Pulsing Outer Ring */}
+                    <div className="absolute inset-[-10px] rounded-full border border-primary/10 group-hover:border-primary/30 animate-ping opacity-20" />
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-4 flex-1">
                     <h3 className="text-2xl font-bold text-white tracking-tight uppercase group-hover:text-primary transition-colors">
                       {achievement.title}
                     </h3>
-                    <p className="text-gray-400 text-sm font-mono leading-relaxed">
+                    <p className="text-gray-500 text-sm font-mono leading-relaxed max-w-[280px]">
                       {achievement.description}
                     </p>
                   </div>
 
                   {achievement.stat && (
-                    <div className="pt-6 border-t border-white/5">
+                    <div className="mt-10 w-full space-y-4">
+                      <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={isInView ? { width: "100%" } : {}}
+                          transition={{ duration: 2, delay: 0.5 }}
+                          className="h-full bg-gradient-to-r from-primary/20 to-primary shadow-[0_0_10px_rgba(0,255,136,0.5)]"
+                        />
+                      </div>
                       <Counter
                         value={achievement.stat}
                         suffix={achievement.stat.includes("+") ? "" : "+"}
@@ -66,8 +80,10 @@ export default function Achievements() {
                   )}
                 </div>
 
-                {/* Animated Background Element */}
-                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-primary/5 blur-[60px] group-hover:bg-primary/10 transition-colors" />
+                {/* Index Decoration */}
+                <div className="absolute top-4 right-6 font-mono text-[10px] text-white/10 italic">
+                  LOG_IDX_{index}
+                </div>
               </motion.div>
             );
           })}

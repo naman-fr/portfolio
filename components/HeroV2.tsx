@@ -41,7 +41,7 @@ export default function HeroV2() {
   };
 
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-transparent z-10">
       {/* Background Matrix/Noise */}
       <div className="absolute inset-0 z-0 opacity-30">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,255,136,0.1),_transparent_70%)]" />

@@ -65,7 +65,7 @@ const skills = [
 
 export default function SkillsOrbit() {
   return (
-    <section id="skills" className="h-screen py-32 bg-[#0a0a0a] relative overflow-hidden">
+    <section id="skills" className="h-screen py-32 bg-transparent relative overflow-hidden z-10">
       <div className="absolute inset-0 z-0">
         <Canvas>
           <PerspectiveCamera makeDefault position={[0, 0, 10]} />

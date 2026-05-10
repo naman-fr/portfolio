@@ -12,77 +12,77 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="min-h-screen py-32 px-4 relative bg-[#0a0a0a]"
+      className="min-h-screen py-32 px-4 relative bg-transparent z-10"
     >
       <div className="max-w-7xl mx-auto">
         <header className="mb-24 space-y-4">
           <span className="text-primary font-mono text-sm tracking-[0.4em] uppercase">[ 03:_CAREER_LOGS ]</span>
-          <h2 className="text-huge font-bold leading-none tracking-tighter uppercase">HISTORY</h2>
+          <h2 className="text-huge font-bold leading-none tracking-tighter uppercase text-white">HISTORY</h2>
         </header>
 
-        <div className="relative space-y-32">
+        <div className="relative space-y-24">
           {resumeData.experience.map((exp, index) => {
             const isEven = index % 2 === 0;
             
             return (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                className="group relative"
+                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: index * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className={`group relative flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}
               >
-                {/* Horizontal Connector Line (Desktop) */}
-                <div className="hidden lg:block absolute top-12 left-0 w-full h-[1px] bg-white/5 group-hover:bg-primary/20 transition-colors" />
-
-                <div className="flex flex-col lg:flex-row gap-12 lg:items-start relative z-10">
-                  {/* Timeline Metadata */}
-                  <div className="lg:w-1/3 space-y-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-[1px] bg-primary/50" />
-                      <span className="text-primary font-mono text-xs tracking-widest uppercase">
-                        {exp.timeline}
-                      </span>
-                    </div>
-                    <h3 className="text-3xl font-bold text-white tracking-tight">
-                      {exp.company.toUpperCase()}
-                    </h3>
-                    <p className="text-primary/60 font-mono text-xs uppercase tracking-widest">
-                      {exp.role}
-                    </p>
-                  </div>
-
-                  {/* Achievements & Tech */}
-                  <div className="lg:w-2/3 glass-premium p-8 lg:p-12 rounded-2xl border border-white/5 hover:border-primary/20 transition-colors">
-                    <div className="space-y-8">
-                      <ul className="space-y-6">
-                        {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start gap-6 group/item">
-                            <span className="text-primary/40 font-mono text-xs mt-1">[{i.toString().padStart(2, '0')}]</span>
-                            <p className="text-gray-400 group-hover/item:text-white transition-colors leading-relaxed">
-                              {achievement}
-                            </p>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="pt-8 border-t border-white/5 flex flex-wrap gap-3">
-                        {exp.tech.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 bg-white/5 text-white/50 text-[10px] font-mono rounded tracking-widest uppercase border border-white/10"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/* Connector Node */}
+                <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-white/5 hidden lg:block" />
                 
-                {/* Index Indicator */}
-                <div className="hidden lg:block absolute -left-16 top-0 text-huge font-bold text-white/[0.02] pointer-events-none">
-                  {(index + 1).toString().padStart(2, '0')}
+                <div className={`lg:w-1/2 ${isEven ? 'lg:text-right' : 'lg:text-left'} space-y-4`}>
+                  <div className={`flex items-center gap-4 ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}>
+                    <span className="text-primary font-mono text-sm tracking-[0.3em] font-bold">
+                      {exp.timeline}
+                    </span>
+                    <div className="flex gap-1">
+                      <div className="w-1.5 h-1.5 rounded-full bg-red-500/50" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-500/50" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                    </div>
+                  </div>
+                  <h3 className="text-4xl font-bold text-white tracking-tighter uppercase leading-none">
+                    {exp.company}
+                  </h3>
+                  <p className="text-primary/80 font-mono text-sm uppercase tracking-widest bg-primary/10 px-4 py-1 rounded-full inline-block border border-primary/20">
+                    {exp.role}
+                  </p>
+                </div>
+
+                <div className="lg:w-1/2 w-full">
+                  <div className="glass-premium p-10 rounded-3xl border border-white/10 hover:border-primary/40 transition-all duration-500 group-hover:translate-y-[-8px] relative overflow-hidden">
+                    {/* Industrial Texture */}
+                    <div className="absolute top-0 right-0 p-4 font-mono text-[8px] text-white/10 select-none">
+                      UNIT_ID: EXP_{index + 100}
+                    </div>
+                    
+                    <ul className="space-y-6">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="flex items-start gap-4 group/item">
+                          <div className="mt-2 w-1.5 h-1.5 rotate-45 border border-primary/50 bg-primary/10 group-hover/item:bg-primary transition-colors duration-300" />
+                          <p className="text-gray-400 group-hover/item:text-white transition-colors leading-relaxed text-sm">
+                            {achievement}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-10 pt-8 border-t border-white/5 flex flex-wrap gap-2">
+                      {exp.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-white/5 text-white/40 text-[9px] font-mono rounded-md tracking-tighter uppercase border border-white/10 hover:border-primary/30 hover:text-primary transition-all cursor-default"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             );
