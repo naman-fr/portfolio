@@ -1,0 +1,4261 @@
+naman-fr
+portfolio
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+portfolio
+Public
+naman-fr/portfolio
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Update README.md
+7e3f7f1
+ · 
+5 months ago
+.cursor
+Initial portfolio setup with animated metrics and README
+5 months ago
+app
+Initial portfolio setup with animated metrics and README
+5 months ago
+components
+Fix JSX apostrophe escaping in Contact section
+5 months ago
+contexts
+Initial portfolio setup with animated metrics and README
+5 months ago
+data
+Initial portfolio setup with animated metrics and README
+5 months ago
+src/data
+Initial portfolio setup with animated metrics and README
+5 months ago
+.eslintrc.json
+Initial portfolio setup with animated metrics and README
+5 months ago
+.gitignore
+Initial portfolio setup with animated metrics and README
+5 months ago
+README.md
+Update README.md
+5 months ago
+SETUP.md
+Initial portfolio setup with animated metrics and README
+5 months ago
+next.config.mjs
+Initial portfolio setup with animated metrics and README
+5 months ago
+package-lock.json
+Initial portfolio setup with animated metrics and README
+5 months ago
+package.json
+Initial portfolio setup with animated metrics and README
+5 months ago
+postcss.config.mjs
+Initial portfolio setup with animated metrics and README
+5 months ago
+tailwind.config.ts
+Initial portfolio setup with animated metrics and README
+5 months ago
+tsconfig.json
+Initial portfolio setup with animated metrics and README
+5 months ago
+Repository files navigation
+README
+Naman Gautam Portfolio
+A cutting-edge, glassmorphic portfolio website showcasing the work and achievements of Naman Gautam - Systems Engineer, AI Researcher, and Full Stack Developer.
+
+🌐 Live Demo
+👉 https://portfolio-jet-beta-13.vercel.app/
+
+Features
+Glassmorphic Terminal Aesthetic - Modern, futuristic design with translucent elements
+Interactive 3D Elements - React Three Fiber powered 3D kernel visualization
+Neural Network Background - Animated particle system with node connections
+Experience Timeline - Interactive timeline with scroll-triggered visual changes
+Bento Grid Projects - Masonry layout with micro-interactions
+3D Skills Cloud - Interactive spherical tag cloud
+Achievement Showcase - Animated badges and counters
+Responsive Design - Optimized for all screen sizes
+Tech Stack
+Framework: Next.js 14 (App Router)
+Language: TypeScript
+Styling: Tailwind CSS
+Animation: Framer Motion
+3D Graphics: React Three Fiber
+Icons: Lucide React
+Getting Started
+Install dependencies:
+npm install
+Run the development server:
+npm run dev
+Open http://localhost:3000 in your browser.
+Build for Production
+npm run build
+npm start
+Design Philosophy
+This portfolio follows a "Cyber-Physical" design strategy, bridging the gap between low-level systems engineering and high-level AI research. The visual language combines:
+
+Obsidian Black (#0A0A0A) - Deep, professional background
+Terminal Green (#00FF41) - Systems-level work
+Neural Violet (#7C3AED) - AI/ML projects
+Warning Amber (#F59E0B) - Web development
+License
+© 2025 Naman Gautam. All rights reserved.
+
+
+
+naman-fr
+Unity_Hostel_Connect
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+1
+ (1)
+Insights
+Settings
+Owner avatar
+Unity_Hostel_Connect
+Public
+naman-fr/Unity_Hostel_Connect
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+Initial Unity project upload
+8d9021c
+ · 
+3 hours ago
+.vscode
+Initial commit: Working FPS + UI + NoticeBoard system
+last month
+Assets
+Initial Unity project upload
+3 hours ago
+Packages
+Initial Unity project upload
+3 hours ago
+ProjectSettings
+Initial commit: Working FPS + UI + NoticeBoard system
+last month
+.gitattributes
+Initial commit: Working FPS + UI + NoticeBoard system
+last month
+.gitignore
+Initial commit: Working FPS + UI + NoticeBoard system
+last month
+README.md
+Create README.md
+last month
+Repository files navigation
+README
+🏢 Unity Hostel Connect
+A Smart Hostel Issue Reporting & Visualization System (Unity + C#)
+
+🚀 Overview
+Unity Hostel Connect is a 3D interactive system that simulates a hostel environment where users can navigate in first-person view and interact with a digital noticeboard displaying room-specific issues.
+
+This project demonstrates real-time UI integration, FPS controls, and structured system design within Unity.
+
+✨ Key Features
+🎮 First-Person Navigation
+Smooth WASD movement
+Mouse-based camera rotation
+Physics-based player using CharacterController
+📋 Interactive NoticeBoard UI
+Toggleable UI panel (TAB)
+Scrollable issue list using ScrollView
+Clean UI rendering with Unity Canvas system
+🔄 Seamless Input Switching
+Automatic switching between:
+
+🎮 Game Mode (movement enabled)
+🧾 UI Mode (cursor + interaction enabled)
+Prevents input conflicts between gameplay and UI
+
+🏗️ Structured Architecture
+Modular scripts:
+
+PlayerMovement.cs
+MouseLook.cs
+GameManager.cs
+Clean separation of concerns
+
+🛠 Debugging & Stability
+Custom Scene Debugger Tool
+
+Handles:
+
+Camera hierarchy validation
+UI system checks
+Input pipeline consistency
+🧠 Tech Stack
+Component	Technology
+Engine	Unity 2022
+Language	C#
+UI System	Unity Canvas + ScrollView
+Input	Unity Input System
+Version Control	Git + GitHub
+📂 Project Structure
+Assets/
+ ├── Scripts/
+ │    ├── PlayerMovement.cs
+ │    ├── MouseLook.cs
+ │    ├── GameManager.cs
+ │
+ ├── Scenes/
+ │    └── SampleScene.unity
+ │
+ ├── UI/
+ │    └── NoticeBoard (ScrollView)
+🎯 How It Works
+Player navigates hostel using FPS controls
+Press TAB to open NoticeBoard
+UI takes control → cursor unlocked
+Scroll through issues
+Press TAB again → return to gameplay
+🧪 Controls
+Action	Key
+Move	WASD
+Look Around	Mouse
+Toggle UI	TAB
+⚙️ Setup Instructions
+git clone https://github.com/your-username/Unity_Hostel_Connect.git
+Open project in Unity Hub
+Load SampleScene
+Press Play
+🔮 Future Enhancements
+🔗 Firebase integration (real-time issue updates)
+🏠 Room-based interaction (click to open noticeboard)
+🧾 Dynamic data loading per room
+🌐 Multiplayer support
+💡 Learning Outcomes
+Unity UI & Input System integration
+Scene hierarchy debugging
+Game state management
+Real-world system modeling
+📸 Preview
+(Add screenshots / demo GIF here)
+
+👨‍💻 Author
+Naman Gautam B.Tech Student | Unity Developer | Systems Enthusiast
+
+⭐ Final Note
+This project showcases a blend of game development and real-world system design, making it ideal for roles involving:
+
+Unity Development
+Interactive Systems
+Simulation & Visualization
+🚀 Built with precision, debugged with persistence, and structured for scalability.
+
+naman-fr
+array_prediction
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+array_prediction
+Public
+naman-fr/array_prediction
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+ci: fix docker-build by switching to docker compose v2 and upgrade ac…
+e7c84d3
+ · 
+4 hours ago
+.github/workflows
+ci: fix docker-build by switching to docker compose v2 and upgrade ac…
+4 hours ago
+backend
+ci: finalize comprehensive pipeline and optimize docker-stack for pro…
+4 hours ago
+frontend
+fix(frontend): migrate api client to core/api and resolve alias resol…
+4 hours ago
+.gitignore
+Initial commit
+11 months ago
+LICENSE
+Initial commit: Add radar spacing prediction code and project structure
+11 months ago
+README.md
+docs: update README with advanced industry features and architectural…
+4 hours ago
+docker-compose.yml
+ci: finalize comprehensive pipeline and optimize docker-stack for pro…
+4 hours ago
+Repository files navigation
+README
+MIT license
+Sentinel AI: Radar Array Spacing Predictor 🛰️
+A production-grade, Agentic AI platform for optimizing element spacing in 4-element radar arrays to achieve target angular accuracy.
+
+🌟 Features
+ReAct Agentic AI Interface: Advanced reasoning-based conversational assistant with modular tool-calling and stateful session memory.
+Deep Learning Model: High-performance multi-layer perceptron mapping target RMS angular error to optimal array spacings.
+Robust Physics Engine: Multi-frequency Hierarchical Robust CRT Unwrapping and CRLB (Cramer-Rao Lower Bound) theoretical benchmarking.
+Digital Twin 3D Dashboard: Immersive Next.js & Three.js interface with interactive 3D tooltips, radome rendering, and real-time radiation pattern (Array Factor) plotting.
+MLOps & Observability: Asynchronous background retraining pipeline and integrated Prometheus metrics for real-time monitoring.
+Enterprise Architecture: Domain-driven FastAPI routers and SQLAlchemy-backed SQLite persistence for conversational state.
+🚀 Quick Start
+Docker (Recommended)
+You can spin up both the FastAPI backend and Next.js frontend simultaneously using Docker Compose:
+
+docker-compose up --build
+Backend API is accessible at http://localhost:8000
+Frontend Dashboard is accessible at http://localhost:3000
+Manual Setup
+Backend:
+
+cd backend
+python -m venv venv
+# Activate venv:
+# Windows: venv\Scripts\activate
+# Unix: source venv/bin/activate
+
+pip install -r requirements.txt
+uvicorn main:app --reload
+Frontend:
+
+cd frontend
+npm install
+npm run dev
+🧪 Testing
+We use pytest for robust mathematical and API testing.
+
+cd backend
+pytest tests/
+🧠 Architecture
+backend/
+api/: Domain-driven routers for ML, Chat, and Hardware (HIL).
+db/: Persistence layer using SQLAlchemy and SQLite.
+ml/: Core physics simulation, model training, and pattern analysis.
+ml/pattern.py: Array Factor (Radiation Pattern) computation.
+ml/crlb.py: Cramer-Rao Lower Bound analytical benchmarking.
+agent.py: ReAct-based agent executor with tool-calling registry.
+main.py: FastAPI server entry point with Prometheus instrumentation.
+hil_mock.py: Hardware-in-the-loop mock service for SCPI deployment.
+frontend/
+Next.js 14 App Router
+React Three Fiber for 3D visualizations
+Tailwind CSS with custom glassmorphism tokens
+Lucide React for consistent iconography
+🎯 Use Cases
+Defense & Aerospace: Rapidly prototype radar array geometries.
+Research: Analyze CRT unwrapping and boundary constraints.
+Education: Interactive learning of phase arrays and machine learning integrations.
+🤝 Contributing
+Contributions are welcome. Please ensure your commits follow conventional commit formats.
+
+📄 License
+MIT License
+
+naman-fr
+Autonomous-Manufacturing-Fault-Diagnosis-and-Self-Healing
+Repository navigation
+Code
+Issues
+Pull requests
+5
+ (5)
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Autonomous-Manufacturing-Fault-Diagnosis-and-Self-Healing
+Public
+naman-fr/Autonomous-Manufacturing-Fault-Diagnosis-and-Self-Healing
+Your main branch isn't protected
+Protect this branch from force pushing or deletion, or require status checks before merging. View documentation.
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+Add production CI CD pipeline
+bafb5c3
+ · 
+4 hours ago
+.github
+Add production CI CD pipeline
+4 hours ago
+app
+Make quality gates pass locally
+4 hours ago
+configs
+Set up project foundation
+11 hours ago
+docs
+Wire deployment and runbook paths
+4 hours ago
+examples
+Set up project foundation
+11 hours ago
+k8s
+Add production CI CD pipeline
+4 hours ago
+scripts
+Make quality gates pass locally
+4 hours ago
+src/amfd
+Make quality gates pass locally
+4 hours ago
+tests
+Make quality gates pass locally
+4 hours ago
+web
+Add runnable backend and web console
+4 hours ago
+.gitignore
+Add runnable backend and web console
+4 hours ago
+Dockerfile
+Add production CI CD pipeline
+4 hours ago
+Makefile
+Wire deployment and runbook paths
+4 hours ago
+README.md
+Add production CI CD pipeline
+4 hours ago
+app.py
+Make quality gates pass locally
+4 hours ago
+docker-compose.yml
+Add production CI CD pipeline
+4 hours ago
+eval.py
+Make quality gates pass locally
+4 hours ago
+pyproject.toml
+Make quality gates pass locally
+4 hours ago
+requirements.txt
+Wire deployment and runbook paths
+4 hours ago
+Repository files navigation
+README
+Autonomous Manufacturing Fault Diagnosis and Self-Healing
+Production-grade reference implementation for a LangGraph-powered multi-agent system that diagnoses rotating-machinery faults from vibration/RPM signals and emits safety-gated self-healing maintenance plans.
+
+The project is intentionally deployable without an API key: deterministic signal tools run locally, while the agent/tool registry is ready for Claude, GPT, Gemini, Llama, vLLM, or any LangChain-compatible chat model through .bind_tools().
+
+Architecture Diagram
+
+What Is Included
+LangGraph StateGraph workflow with cycles, conditional edges, persistence, and a human-review branch.
+Supervisor plus specialist agents: Guardrails, DataAug, Detector, Analyzer, RAG, Prescriber, Safety.
+A2A communication through typed AgentMessage objects in the graph state.
+Six custom LangChain tools bound through bind_manufacturing_tools(llm).
+Hybrid retrieval scaffold with BM25 scoring and lightweight ColBERT-style late-interaction reranking.
+VAE-WGAN-GP augmentation hook for future trained synthetic fault generation.
+Kafka consumer scaffold for streaming SensorWindow payloads.
+Streamlit dashboard with CSV upload, Plotly visualization, RAG evidence, metrics, and JSON reports.
+MLOps assets: MLflow tracker, Prometheus metrics, Docker, Kubernetes, GitHub Actions, eval harness.
+Security layer: local guardrails, prompt-injection checks, email/phone redaction, safety validator.
+Repository Layout
+.
+|-- app/                         # Streamlit operator dashboard
+|-- configs/                     # Runtime and threshold config
+|-- docs/                        # Architecture, prompts, research notes
+|-- examples/                    # Demo sensor files
+|-- k8s/                         # Kubernetes manifests
+|-- src/amfd/                    # Python package
+|   |-- agents/                  # LangGraph workflow, prompts, tools, LLM binding
+|   |-- core/                    # Config, domain models, safety policy
+|   |-- data/                    # CSV ingestion, synthetic data, Kafka streaming
+|   |-- ml/                      # Features, anomaly scoring, augmentation hook
+|   |-- mlops/                   # MLflow tracking
+|   |-- rag/                     # Hybrid retriever
+|   |-- security/                # Guardrails and PII redaction
+|   `-- telemetry/               # Metrics helpers
+`-- tests/                       # Unit and workflow tests
+Quick Start
+python -m venv .venv
+. .venv/Scripts/activate
+pip install -r requirements.txt
+pip install -e ".[dev,backend,app,mlops]"
+pytest
+Run It Locally
+Option A: zero-extra local console
+This path runs the API and browser frontend with the same local Python environment used by the core package.
+
+$env:PYTHONPATH="src"
+python scripts/local_server.py
+Open http://127.0.0.1:8765, click Run Demo, or upload examples/bearing_sample.csv.
+
+Option B: production FastAPI backend
+uvicorn amfd.backend.api:app --host 0.0.0.0 --port 8000 --reload
+Useful checks:
+
+curl http://127.0.0.1:8000/health
+curl http://127.0.0.1:8000/api/v1/demo
+Option C: Streamlit dashboard
+streamlit run app/streamlit_app.py
+CLI Demo
+python -m amfd.run_diagnosis examples/bearing_sample.csv --machine-id PUMP-101
+Eval
+python eval.py
+Current local synthetic benchmark target:
+
+Metric	Target	Harness
+Fault-class F1 proxy	> 0.95	eval.py synthetic bearing cases
+Diagnosis latency	< 2000 ms	graph end-to-end timer
+Safety approval traceability	100%	typed report validation
+Operator explainability	100% reports include evidence	RAG + detector evidence
+These are engineering targets, not claims about the untrained baseline on CWRU/PU. Real benchmark numbers should be reported after training/evaluating against CWRU and Paderborn splits.
+
+Deployment
+docker compose up --build
+kubectl apply -f k8s/deployment.yaml
+CI/CD
+GitHub Actions runs a full correctness gate on every PR and push to main:
+
+Ruff format and lint checks.
+Mypy over src and tests.
+Pytest with coverage.
+Synthetic evaluation smoke test.
+Backend service smoke test.
+Docker image build.
+Kubernetes manifest dry-run validation.
+Release flow:
+
+Push a version tag such as v0.1.0, or run the cd workflow manually.
+The pipeline builds and pushes ghcr.io/naman-fr/amfd-api.
+Kubernetes deployment is gated behind the repository variable ENABLE_K8S_DEPLOY=true, the production environment, and a KUBE_CONFIG secret.
+Production notes:
+
+Run Streamlit separately from graph workers for high-throughput streaming use cases.
+Use Kafka for sensor windows and persist graph checkpoints to Redis/Postgres in production.
+Replace the heuristic detector with a trained CNN/transformer/TensorRT model behind the same tool interface.
+Run vLLM/TensorRT-LLM as an inference backend when using local open-weight models.
+Keep all maintenance actions advisory until integrated with plant-approved PLC/SCADA controls.
+Demo Video Script
+Open the dashboard and upload examples/bearing_sample.csv.
+Show waveform, anomaly score, root cause, and RAG evidence.
+Open the JSON report and highlight the agent trace.
+Force human review through metadata in a CLI run and show the review branch.
+Run python eval.py and show latency/F1 target output.
+Show Docker/K8s/CI files to demonstrate deployability.
+Research Alignment
+Kevin Patel, "Agentic AI for Self-Healing Production Lines: Autonomous Root Cause Analysis & Correction", JISEM, 2024. DOI: 10.52783/jisem.v9i4s.12427.
+Xian Yeow Lee, Lasitha Vidyaratne, Ahmed Farahat, Chetan Gupta, "Exploring LLM-based Agentic Frameworks for Fault Diagnosis", PHM Society, 2025. DOI: 10.36001/phmconf.2025.v17i1.4350.
+CWRU Bearing Data Center and Paderborn University Bearing Data Center are the intended benchmark data sources for seeded and naturally damaged bearing faults.
+Safety
+This project generates advisory maintenance plans only. It does not directly actuate industrial equipment. Critical actions require approval through the safety and human-review layers before plant integration.
+naman-fr
+Chigma
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Chigma
+Public
+naman-fr/Chigma
+Go to file
+t
+T
+Name		
+author
+Naman
+fix(docker): use python:3.11-slim base with lightweight API deps only
+8d664a3
+ · 
+yesterday
+.github/workflows
+fix(ci): ensure API tests run without torch, wire real command parser
+yesterday
+configs
+feat: initial modular architecture setup with YOLO11 and Drone integr…
+yesterday
+docs
+docs: add EDA notebooks, deployment guides, and CI/CD workflows
+yesterday
+mlops
+chore: setup MLOps pipeline, Docker, and Kubernetes manifests
+yesterday
+notebooks
+docs: add EDA notebooks, deployment guides, and CI/CD workflows
+yesterday
+src
+feat(ui): show parsed target and confidence in drone flight console
+yesterday
+tests
+fix(tests): guard VLM init test behind transformers availability
+yesterday
+.gitignore
+docs: add EDA notebooks, deployment guides, and CI/CD workflows
+yesterday
+Dockerfile
+fix(docker): use python:3.11-slim base with lightweight API deps only
+yesterday
+README.md
+docs: add EDA notebooks, deployment guides, and CI/CD workflows
+yesterday
+docker-compose.yml
+fix: resolve module level imports for lazy loading and update docker …
+yesterday
+pyproject.toml
+feat: complete drone autonomy telemetry dashboard and fix CI/CD modul…
+yesterday
+Repository files navigation
+README
+🏭 Chigma — GenAI-Enhanced Industrial Vision & Drone Autonomy
+Production-grade platform combining AI-powered drone autonomy, industrial defect detection, GenAI synthetic data, vision-language copilot, and full MLOps infrastructure.
+
+CI Python 3.11+ License: MIT
+
+🏗️ Architecture
+┌─────────────────────────────────────────────────────────────────────┐
+│                        CHIGMA PLATFORM                              │
+├────────────────┬────────────────┬──────────────┬────────────────────┤
+│  Module 1      │  Module 2      │  Module 3    │  Module 4          │
+│  Drone         │  Defect        │  VLM         │  MLOps             │
+│  Autonomy      │  Detection     │  Copilot     │  Pipeline          │
+│                │                │              │                    │
+│  • YOLO11 +    │  • FD-YOLO11   │  • Qwen-VL   │  • MLflow          │
+│    BoT-SORT    │  • SC-C3k2     │  • NL Queries│  • DVC             │
+│  • ORB-SLAM3   │  • FSPPF       │  • Auto      │  • Docker/K8s      │
+│  • PPO/SAC RL  │  • DySample    │    Reports   │  • Prometheus      │
+│  • MAVLink     │  • SynGen-     │              │  • Grafana         │
+│  • AirSim      │    Vision      │              │  • GitHub Actions  │
+└────────────────┴────────────────┴──────────────┴────────────────────┘
+🚀 Quick Start
+# Clone
+git clone https://github.com/chigma/chigma.git
+cd chigma
+
+# Install
+pip install -e ".[dev]"
+
+# Run API server
+python -m src.api.main
+
+# Run with Docker
+docker-compose up -d
+📋 Modules
+Module 1: Drone Autonomy
+YOLO11n real-time perception with BoT-SORT tracking
+Visual SLAM (ORB-SLAM3) for GPS-denied navigation
+PPO Reinforcement Learning agent for obstacle avoidance
+MAVLink flight controller (Antigravity A1 / PX4)
+VLM flight commands: "Fly to the red building at 30 meters"
+Module 2: Industrial Defect Detection (FD-YOLO11)
+SC-C3k2: Self-Calibrated Convolution for multi-scale features
+FSPPF: Feature-fusion Spatial Pyramid Pooling Fast
+DySample: Dynamic content-aware upsampling
++4.6% mAP improvement over baseline YOLO11s
+SynGen-Vision: Synthetic defect data via Stable Diffusion XL
+Module 3: VLM Copilot
+Natural language queries: "Show me all cracked products"
+Automated inspection report generation (HTML/PDF)
+Quality assessment with severity rating
+Root cause analysis prompts
+Module 4: MLOps Pipeline
+DVC data/model versioning
+MLflow experiment tracking + model registry
+Prometheus + Grafana monitoring
+Docker + Kubernetes deployment
+GitHub Actions CI/CD
+🔌 API Endpoints
+Endpoint	Method	Description
+/api/v1/health	GET	System health check
+/api/v1/detection/predict	POST	Run defect detection on image
+/api/v1/detection/predict/batch	POST	Batch inference
+/api/v1/vlm/query	POST	Natural language image query
+/api/v1/vlm/report	POST	Generate inspection report
+/api/v1/drone/status	GET	Drone telemetry
+/api/v1/drone/command/natural	POST	NL flight command
+/metrics	GET	Prometheus metrics
+🧪 Testing
+pytest tests/ -v --cov=src
+ruff check src/ tests/
+mypy src/
+📚 Research Papers
+Paper	Contribution
+FD-YOLO11 (IEEE Access, 2025)	SC-C3k2 + FSPPF + DySample
+SynGen-Vision (2025)	Synthetic defect data pipeline
+Survey of LVLMs (2025)	VLM architectures & benchmarks
+📄 License
+MIT License — see LICENSE for details.
+
+
+naman-fr
+shl-recommender
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+shl-recommender
+Public
+naman-fr/shl-recommender
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Update README.md
+736cde4
+ · 
+2 days ago
+app
+Fix schema for evaluator, update agent policy layer and off-topic det…
+2 days ago
+data
+SHL Assessment Recommender v1.0 - hybrid retrieval + dialogue state +…
+2 days ago
+frontend
+SHL Assessment Recommender v1.0 - hybrid retrieval + dialogue state +…
+2 days ago
+tests
+Fix schema for evaluator, update agent policy layer and off-topic det…
+2 days ago
+.env.example
+SHL Assessment Recommender v1.0 - hybrid retrieval + dialogue state +…
+2 days ago
+.gitignore
+SHL Assessment Recommender v1.0 - hybrid retrieval + dialogue state +…
+2 days ago
+Dockerfile
+SHL Assessment Recommender v1.0 - hybrid retrieval + dialogue state +…
+2 days ago
+Procfile
+SHL Assessment Recommender v1.0 - hybrid retrieval + dialogue state +…
+2 days ago
+README.md
+Update README.md
+2 days ago
+render.yaml
+SHL Assessment Recommender v1.0 - hybrid retrieval + dialogue state +…
+2 days ago
+requirements.txt
+SHL Assessment Recommender v1.0 - hybrid retrieval + dialogue state +…
+2 days ago
+Repository files navigation
+README
+SHL Assessment Recommender
+A conversational AI agent that recommends SHL assessments using hybrid retrieval (BM25 + semantic search) with dialogue state tracking.
+
+Quick Start
+pip install -r requirements.txt
+# Optional: set GEMINI_API_KEY in .env for LLM-powered responses
+uvicorn app.main:app --reload
+🚀 Live Demo The application is deployed and can be accessed at: https://shl-recommender-uw2d.onrender.com
+
+API Endpoints
+Method	Path	Description
+GET	/health	Health check → {"status": "healthy"}
+POST	/chat	Chat endpoint → {session_id, message} → {response, recommendations}
+GET	/	Frontend chat UI
+Architecture
+User → FastAPI (/chat) → Agent (Intent→Policy→Action)
+                              ↓
+                    HybridRetriever (BM25 + TF-IDF + optional SBERT/Reranker)
+                              ↓
+                    SHL Catalog (377 assessments)
+BM25: Lexical keyword matching (exact product names, tech terms)
+TF-IDF/SBERT: Semantic similarity (intent, role descriptions)
+Cross-encoder reranker: Optional precision layer (set USE_RERANKER=true)
+Dialogue state: Slot extraction + policy-driven actions (clarify/recommend/refine/compare/refuse)
+Evaluation
+python tests/test_evaluation.py
+Results: 16/16 tests | Recall@10: 0.75 | MRR: 0.65 | 0 hallucinations | 1ms latency
+
+Deployment
+Deploy to Render: push to GitHub, connect repo, deploy using render.yaml.
+
+Environment Variables
+Variable	Description	Default
+GEMINI_API_KEY	Google Gemini API key for LLM responses	(fallback mode)
+USE_SBERT	Enable sentence-transformers embeddings	false
+USE_RERANKER	Enable cross-encoder reranking	false
+
+naman-fr
+Pricing-RAG
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Pricing-RAG
+Public
+naman-fr/Pricing-RAG
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+final: production-grade agent with FAISS, caching, and LangGraph
+d44219b
+ · 
+3 weeks ago
+servicehive_autostream_agent
+final: production-grade agent with FAISS, caching, and LangGraph
+3 weeks ago
+.gitignore
+feat: AutoStream agentic RAG system with Streamlit UI
+3 weeks ago
+README.md
+final: production-grade agent with FAISS, caching, and LangGraph
+3 weeks ago
+Repository files navigation
+README
+🎬 AutoStream – Social-to-Lead Agentic Workflow
+A production-style GenAI conversational agent that converts user conversations into qualified leads using intent detection, RAG (Retrieval-Augmented Generation), and tool execution, with real-world considerations like embedding caching, quota handling, and stateful orchestration.
+
+🚀 Features
+🧠 Intent Detection
+Greeting detection
+Product/Pricing inquiry
+High-intent lead identification (conversion signals)
+📚 RAG with FAISS + Embedding Caching
+Semantic retrieval using OpenAI embeddings + FAISS
+Local embedding cache (.npy) to avoid repeated API calls
+Graceful fallback when API quota is exceeded
+Deterministic reranking for pricing/policy queries
+🧩 Agentic Workflow (ReAct-style)
+Thought → Action → Execution separation
+
+Dynamic routing:
+
+RAG retrieval
+Lead collection
+Greeting handling
+Explicit reasoning improves reliability and control
+
+⚙️ Tool Execution
+Structured slot-filling: Name → Email → Platform
+Tool triggered only after full completion
+Tool registry enables extensibility
+Email notification simulates real CRM workflow
+🌐 Interactive UI
+Streamlit-based conversational interface
+Stateful multi-turn conversations
+Live debug panel (intent + state + trace)
+📧 Email Integration
+SMTP-based email confirmation
+Async-ready design
+Non-blocking execution
+🔗 LangGraph Integration
+The agent is implemented as a LangGraph state machine:
+
+Node 1: Input ingestion
+Node 2: Planning (intent + reasoning)
+Node 3: Action execution
+This enables:
+
+Modular orchestration
+Clear separation of reasoning and execution
+Future multi-agent extensibility
+🧠 Advanced Design Decisions
+ReAct-style reasoning loop
+FAISS-based semantic retrieval
+Embedding caching to prevent API overuse
+Graceful fallback on rate-limit errors
+Structured state machine (LangGraph)
+Tool abstraction layer
+Observability via trace logs
+🏗️ Architecture Overview
+The system follows a modular agent architecture:
+
+AutoStreamAgent → core orchestrator
+IntentClassifier → LLM + heuristic hybrid
+LocalRAGRetriever → FAISS + cached embeddings
+Tools Layer → lead capture + email
+LangGraph → workflow orchestration
+Streamlit UI → interaction layer
+Key Innovation
+Instead of recomputing embeddings every run:
+
+Embeddings are cached locally
+Eliminates repeated API calls
+Prevents quota exhaustion
+Improves latency and stability
+📁 Project Structure
+.
+├── autostream_agent/
+│   ├── agent.py
+│   ├── intent.py
+│   ├── retriever.py
+│   ├── schemas.py
+│   ├── tools.py
+│   ├── emailer.py
+│   ├── config.py
+│   └── langgraph_agent.py
+├── data/
+│   ├── knowledge_base.json
+│   └── embeddings_cache.npy
+├── streamlit_app.py
+├── requirements.txt
+├── .gitignore
+└── README.md
+⚙️ Setup & Run
+1. Clone
+git clone https://github.com/naman-fr/Pricing-RAG.git
+cd Pricing-RAG
+2. Create Virtual Environment
+python -m venv venv
+venv\Scripts\Activate.ps1
+3. Install Dependencies
+pip install -r requirements.txt
+4. Configure Environment
+Create .env:
+
+OPENAI_API_KEY=your_key_here
+SMTP_EMAIL=yourgmail@gmail.com
+SMTP_PASSWORD=your_app_password
+5. Run
+streamlit run streamlit_app.py
+🧪 Demo Flow
+Ask: “pricing” → RAG response
+
+Say: “I want Pro plan” → intent shift
+
+Enter:
+
+Name
+Email
+Platform
+Lead captured + email triggered
+
+📲 WhatsApp Integration (Design)
+The system can be extended using webhooks (FastAPI):
+
+Incoming messages → webhook
+Agent processes input
+State mapped to phone number
+Response returned via Twilio API
+Production scaling:
+
+Redis (session state)
+Celery (async tasks)
+PostgreSQL (lead storage)
+🔐 Security
+.env not committed
+API keys isolated
+Credentials managed via environment variables
+🚀 Future Improvements
+Vector DB (Pinecone / Weaviate)
+Multi-agent orchestration
+Async job queues
+CRM integration
+Analytics dashboard
+👤 Author
+Naman Gautam GitHub: https://github.com/naman-fr
+
+naman-fr
+Meta-Agentic-GenAI-Fault-Diagnosis
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Meta-Agentic-GenAI-Fault-Diagnosis
+Public
+naman-fr/Meta-Agentic-GenAI-Fault-Diagnosis
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+clean initial commit
+f0ad728
+ · 
+last month
+src
+clean initial commit
+last month
+.gitignore
+clean initial commit
+last month
+app.py
+clean initial commit
+last month
+download_data.py
+clean initial commit
+last month
+prepare_data.py
+clean initial commit
+last month
+requirements.txt
+clean initial commit
+last month
+train.py
+clean initial commit
+last month
+Repository files navigation
+README
+Add a README
+Help people interested in this repository understand your project.
+
+
+naman-fr
+skill-add
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+skill-add
+Public
+naman-fr/skill-add
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+6105411
+ · 
+last month
+data
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+last month
+src
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+last month
+sync_debug
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+last month
+.env
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+last month
+README.md
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+last month
+app.py
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+last month
+internshala_session.json
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+last month
+requirements.txt
+Initial commit - Internshala Skill Matching Agent (Agentic AI)
+last month
+Repository files navigation
+README
+This is a professionally formatted, high-impact README.md version of your project. It utilizes clear hierarchies, visual cues, and structured sections to make the repository stand out.
+
+# 🚀 Internshala Skill Matching Agent
+Agentic AI + Semantic Matching + Human-in-the-Loop Automation
+
+An agentic AI system that bridges the gap between your resume and Internshala job descriptions. It detects exact and semantically similar skills, requests human validation, and autonomously updates your Internshala profile via browser automation.
+
+✨ Why This Project Exists
+Internshala often penalizes applications when a skill is missing from your profile—even if you possess a closely related skill or simply forgot to list it.
+
+This project creates an intelligent workflow that ensures your profile is always optimized for the JD you are targeting.
+
+💡 The Core Pipeline
+Resume → Skill Extraction → JD Parsing → Semantic Matching → HITL Approval → Profile Update
+
+This is not just a script; it is a practical Agentic AI Pipeline featuring:
+
+Retrieval: Extracting relevant data from PDFs/Docs.
+Reasoning: Determining skill relationships beyond keyword matching.
+Decision Support: Presenting clear choices to the user.
+Action Execution: Interacting with the web to perform tasks.
+🧠 Key Features
+Feature	Description
+🤖 Agentic Workflow	Behaves like a real assistant: reads, reasons, proposes, and waits for a "go-ahead."
+🧩 Semantic Matching	Uses Sentence Embeddings to detect "Machine Learning" as a match for "AI."
+👤 Human-in-the-Loop	You maintain 100% control. No skill is added without your manual confirmation.
+🌐 Browser Automation	Powered by Playwright to handle the heavy lifting of UI interaction.
+🔐 Persistent Sessions	Log in manually once; the system remembers you for future runs.
+🧾 Streamlit Interface	A clean, modern UI for uploading resumes and reviewing matches.
+🛠 Tech Stack
+Frontend: Streamlit
+NLP & Embeddings: Sentence Transformers
+Automation: Playwright
+Parsing: pdfminer.six, docx2txt
+Logic: Custom Ontology + Cosine Similarity matching
+📂 Project Structure
+.
+├── app.py                   # Main Streamlit application
+├── README.md                # Project documentation
+├── requirements.txt         # Dependencies
+├── internshala_session.json # Saved login session (Git ignored)
+├── sync_debug/              # Automation screenshots for debugging
+└── src/                     # Core logic modules
+    ├── approval.py          # HITL logic
+    ├── config.py            # Global settings
+    ├── internshala_adapter.py # Playwright automation scripts
+    ├── jd_parser.py         # JD text extraction
+    ├── matcher.py           # Semantic matching engine
+    ├── ontology.py          # Skill relationship mappings
+    └── resume_parser.py     # Resume extraction logic
+⚙️ Installation
+Clone the repository
+
+git clone https://github.com/naman-fr/skill-add.git
+cd skill-add
+Create and activate environment
+
+conda create -n skill_agent python=3.10 -y
+conda activate skill_agent
+Install dependencies
+
+pip install -r requirements.txt
+Install Playwright browsers
+
+python -m playwright install
+🚀 Usage Guide
+1. Run the App
+streamlit run app.py
+2. Login Flow
+First Run: A browser window will open. Log in to Internshala manually. The system will save your session to internshala_session.json.
+Later Runs: The app loads the saved session and navigates directly to your profile.
+3. The Workflow
+Upload your resume (PDF/DOCX).
+Paste the Internshala JD URL or the raw text.
+Analyze: Click the button to see the comparison.
+Review: Inspect Exact, Similar, and Missing skills.
+Approve: Check the boxes for skills you want to add.
+Sync: Click "Sync Approved Skills" and watch the automation work.
+🧪 Example Use Case
+Job Description asks for:
+
+Artificial Intelligence, Python, Automation, MS Excel, Prompt Engineering
+Your Resume contains:
+
+Python, React, Machine Learning, English Proficiency
+The Agent's Reasoning:
+
+✅ Exact Match: Python
+🔄 Similar Match: Machine Learning (suggested for Artificial Intelligence)
+⚠️ Missing: MS Excel, Automation, Prompt Engineering
+👉 Action: The agent asks if you'd like to add "Machine Learning" or "MS Excel" to your profile.
+⚠️ Notes & Security
+Browser Automation: This project interacts with the Internshala UI directly. If they update their website layout, the selectors in internshala_adapter.py may need updating.
+Session Safety: Keep internshala_session.json private. Do not commit it to GitHub.
+🔒 Recommended .gitignore
+internshala_session.json
+.env
+__pycache__/
+sync_debug/
+*.pyc
+🧩 Future Roadmap
+ Auto-apply functionality for matching internships.
+ Resume optimization suggestions based on the JD.
+ Multi-agent orchestration using LangGraph.
+ Dockerized deployment for easier setup.
+👨‍💻 Author
+Naman Gautam B.Tech CSE — IIIT Vadodara ---
+
+⭐ Support
+If this project helped you land an internship, give this repository a Star!
+
+
+naman-fr
+embedded-cage-drone
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+embedded-cage-drone
+Public
+naman-fr/embedded-cage-drone
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Add README with project details and instructions
+a251667
+ · 
+2 months ago
+REPORT
+Initial commit: Embedded EKF + LQR flight controller integration
+2 months ago
+Scripts
+Initial commit: Embedded EKF + LQR flight controller integration
+2 months ago
+custom_firmware
+Initial commit: Embedded EKF + LQR flight controller integration
+2 months ago
+.gitignore
+Initial commit: Embedded EKF + LQR flight controller integration
+2 months ago
+README.md
+Add README with project details and instructions
+2 months ago
+Repository files navigation
+README
+🚁 Embedded Cage Drone — Real-Time Flight Control (ArduPilot)
+📌 Overview
+This project implements a real-time embedded flight control system inside the ArduPilot firmware using Software-In-The-Loop (SITL). The work focuses on low-latency control, sensor fusion, and deterministic execution at the flight-controller level.
+
+Unlike high-level simulations, the controller is integrated directly into the autopilot scheduler, replicating real embedded flight systems.
+
+⚙️ System Architecture
+Control Pipeline:
+
+IMU (Gyro + Accelerometer)
+        ↓
+EKF-based State Estimation
+        ↓
+Controller (PID / Adaptive PID / LQR)
+        ↓
+Motor Output (Roll Torque)
+Runs inside ArduPilot FAST_TASK scheduler (~400 Hz)
+Uses microsecond-level timing (AP_HAL)
+Maintains real-time deterministic execution
+🧠 Embedded Algorithms Implemented
+1. EKF-based State Estimation
+Fuses gyro and accelerometer data
+Reduces drift while preserving responsiveness
+Mathematical model:
+
+roll = roll + (gyro - bias) * dt
+roll_acc = atan2(ay, az)
+roll = (1 - α) * roll + α * roll_acc
+2. PID Controller (Baseline)
+u(t) = Kp·e + Ki∫e dt + Kd·de/dt
+3. Adaptive PID
+Gain scheduling based on error magnitude
+Kp = Kp0 (1 + λ|e|)
+Kd = Kd0 (1 + γ|e|)
+4. LQR Controller (Final)
+State vector:
+
+x = [roll, roll_rate]
+Control law:
+
+u = -(k1 * roll + k2 * roll_rate)
+Derived from cost minimization:
+
+J = ∫ (xᵀQx + uᵀRu) dt
+🔧 Firmware Integration
+Added custom module inside:
+ArduCopter/custom_control.cpp
+Integrated into scheduler:
+FAST_TASK(run_custom_controller)
+No modification to core flight control logic (safe integration)
+📁 Repository Structure
+embedded-cage-drone/
+│
+├── custom_firmware/     # All embedded control code
+├── REPORT/              # Final project report
+├── scripts/             # Build + analysis scripts
+├── results/             # Logs, screenshots, outputs
+└── README.md
+🚀 How to Run
+1. Clone ArduPilot
+git clone https://github.com/ArduPilot/ardupilot.git
+cd ardupilot
+2. Replace firmware files
+Copy files from:
+
+custom_firmware/
+into:
+
+ardupilot/ArduCopter/
+3. Build
+./waf copter
+4. Run SITL
+sim_vehicle.py -v ArduCopter --console --map
+🌪️ Disturbance Testing
+Run inside MAVProxy:
+
+param set SIM_WIND_SPD 5
+param set SIM_WIND_TURB 2
+param set SIM_WIND_DIR 90
+📊 Results
+Condition	Observation
+No Wind	Stable control
+Moderate Wind	Increased control effort
+Strong Wind	Bounded response
+⏱️ Real-Time Performance
+Loop Frequency ≈ 400 Hz
+dt ≈ 0.0025 s
+Low jitter under CPU pinning + RT scheduling
+🔍 Key Contributions
+Embedded controller inside real autopilot firmware
+EKF-based sensor fusion (low-latency)
+LQR implementation in embedded C++
+Real-time scheduling + CPU affinity tuning
+MAVLink telemetry with rate limiting
+Disturbance-based robustness validation
+⚠️ Note
+This project is built on top of ArduPilot (open-source): https://github.com/ArduPilot/ardupilot
+
+Only custom embedded modules are included in this repository.
+
+👨‍💻 Authors
+Naman Gautam
+Team ES67
+IIIT Vadodara
+📎 Report
+Full technical report available in:
+
+REPORT/
+⭐ Highlights
+Real embedded systems work (not just simulation)
+
+Firmware-level integration
+
+Control theory + systems implementation
+
+Suitable for:
+
+Embedded Systems
+Robotics
+Autonomous Systems
+UAV Control
+
+naman-fr
+Cancer-Detection-in-Histapathological-Images
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Cancer-Detection-in-Histapathological-Images
+Public
+naman-fr/Cancer-Detection-in-Histapathological-Images
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Fix formatting issues in README.md
+f9527e6
+ · 
+2 months ago
+Presentation.pdf
+Initial commit: SAWL-Net implementation for stable and reproducible h…
+2 months ago
+README.md
+Fix formatting issues in README.md
+2 months ago
+SAWL_DELTA_colab.pdf
+Initial commit: SAWL-Net implementation for stable and reproducible h…
+2 months ago
+SAWL_Implementation__Stability_Aware_and_Reproducible_Enhancements_to_Statistical_Wave_Attention_for_Histopathology_Classification.pdf
+Initial commit: SAWL-Net implementation for stable and reproducible h…
+2 months ago
+sawl_breakhis_delta.ipynb
+Initial commit: SAWL-Net implementation for stable and reproducible h…
+2 months ago
+sawl_lc2500.ipynb
+Initial commit: SAWL-Net implementation for stable and reproducible h…
+2 months ago
+Repository files navigation
+README
+SAWL-Net: Stability-Aware & Reproducible Histopathology Classification 🔬🧬
+Python 3.8+ TensorFlow 2.x License: MIT DRDO-Inspired
+
+🚀 The Mission
+Medical AI often fails in production due to numerical instability and "black-box" decisions. SAWL-Net (Statistical-Wave Attention Lightweight Network) is a resource-efficient architecture that solves this. By fusing Pearson/Spearman/Cosine similarities with Wavelet-inspired Conv1D modules, we achieve near-perfect classification on histopathology benchmarks while staying lightweight enough for edge deployment.
+
+Why this implementation? Unlike vanilla models, we treat engineering-level safeguards (dtype-safety, robust ranking, and exponential remapping) as core architectural features to ensure 100% reproducible results.
+
+📊 Performance at a Glance
+Results obtained using our deterministic 70/10/20 stratified splits:
+
+Dataset	Accuracy	F1-Score	AUC (Macro)
+LC25000 (Lung & Colon)	~100%	1.00	1.00
+BreakHis (Breast Cancer)	97.0%	0.96	0.98
+NCT-CRC-HE-100K	99%+	0.99	1.00
+🏗️ Core Architecture
+The model uses a MobileNetV2 backbone (2.3M parameters) enhanced by a dual-branch attention strategy:
+
+Statistical Attention Path: Computes channel-wise similarity (Pearson & Spearman) against an aggregate reference map to identify high-confidence features.
+Wavelet-inspired Conv1D: Treats channel outputs as 1D amplitude sequences to detect local inter-channel motifs.
+Calibrated Exponential Remapping: A grid-tuned mapping function that prevents gradient saturation and ensures stable training.
+🛡️ Stability & Reproducibility (The "Secret Sauce")
+This repo isn't just code; it's a reproducible research harness[cite: 492, 653]:
+
+Dtype-Safe Ops: All rank and correlation computations are cast to float32 with safe-division (
+ϵ
+=
+1
+×
+10
+−
+8
+) to avoid NaNs.
+Robust Spearman Ranking: Implements batched double-argsort with tie-handling for stable rank estimates.
+Interpretability: Built-in Grad-CAM pipeline to visualize which tissue regions are driving the model's decisions.
+🛠️ Project Structure
+SAWL/
+├── sawl_lc2500.ipynb        # 100% Accuracy Pipeline (Lung/Colon)
+├── sawl_breakhis_delta.ipynb # High-epoch Stability Testing (Breast Cancer)
+├── Presentation.pdf         # Technical breakdown for stakeholders
+├── SAWL_Implementation.pdf  # Full methodology & stability analysis
+└── README.md                # You are here
+
+naman-fr
+EGFL
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+EGFL
+Public
+naman-fr/EGFL
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Revise README for clarity and detail enhancement
+e638df3
+ · 
+2 months ago
+EGFL_colab.ipynb
+Initial commit: EGFL-based vulnerability detection framework
+2 months ago
+Poster_Format__1_ (2).pdf
+Initial commit: EGFL-based vulnerability detection framework
+2 months ago
+README.md
+Revise README for clarity and detail enhancement
+2 months ago
+colab_code.pdf
+Initial commit: EGFL-based vulnerability detection framework
+2 months ago
+design_report.pdf
+Initial commit: EGFL-based vulnerability detection framework
+2 months ago
+ppt_design.pdf
+Initial commit: EGFL-based vulnerability detection framework
+2 months ago
+Repository files navigation
+README
+EGFL-Based Smart Contract Vulnerability Detection 🛡️⛓️
+Python 3.8+ PyTorch License: MIT
+
+🚀 Overview
+EGFL (Enhanced Graph Feature Learning) is an advanced vulnerability detection framework designed for the Ethereum ecosystem. Unlike traditional tools that rely on manual pattern matching, this project utilizes a dual-branch deep learning architecture to analyze EVM Bytecode.
+
+By transforming bytecode into Control Flow Graphs (CFGs), the model captures both the linear execution flow (sequential) and the complex branching logic (structural). This implementation further integrates a Semantic Augmentation Layer to identify high-level design flaws that evade standard opcode-based detection.
+
+📊 Performance Highlights (Held-out Test Set)
+Our model achieves state-of-the-art results through fused representation learning:
+
+Metric	Value
+Accuracy	99.82%
+Precision	99.87%
+Recall	99.94%
+F1-Score	0.999
+AUC	1.0
+🏗️ Technical Architecture
+The framework utilizes a multi-stage pipeline to transform raw Solidity code into a security classification:
+
+1. Preprocessing & CFG Generation
+Compilation: Solidity files (.sol) are compiled via solc-select to generate uniform EVM bytecode.
+Graph Construction: A custom parser converts bytecode into basic blocks. Edges are established via control-flow analysis, and the graph is ordered using Breadth-First Search (BFS) to align with semantic execution.
+2. Dual-Branch Feature Extraction
+Global Sequential Branch: Employs a 1D Convolutional Layer (feature-aware module) to filter noise, followed by Multi-Head Self-Attention (8 heads) to capture long-range dependencies across distant code regions.
+Local Structural Branch: Utilizes a 2-layer Graph Convolutional Network (GCN) with ReLU activation and batch normalization to propagate context through connected blocks.
+3. Semantic Augmentation & Fusion
+Semantic Layer: Analyzes variable dependencies and invariant deviations (e.g., oracle-reliance or storage access patterns).
+Attention-Based Fusion: Merges global (
+F
+g
+l
+o
+b
+a
+l
+) and local (
+F
+l
+o
+c
+a
+l
+) features using a learned attention coefficient (
+α
+): 
+F
+e
+n
+h
+=
+α
+⋅
+F
+g
+l
+o
+b
+a
+l
++
+(
+1
+−
+α
+)
+⋅
+F
+l
+o
+c
+a
+l
+Classifier: A Multi-Layer Perceptron (MLP) with Sigmoid activation for final vulnerability classification.
+🔍 Vulnerabilities Covered
+The model is highly effective against the "Big Six" smart contract exploits:
+
+Reentrancy: Detecting recursive call patterns before balance updates.
+Integer Overflow/Underflow: Identifying arithmetic operations lacking proper range checks.
+Timestamp/Block Dependence: Spotting logic that relies on manipulatable on-chain values.
+Delegatecall: Flagging dangerous context-sharing between contracts.
+Unchecked External Calls: Highlighting failed call returns that aren't handled.
+Logic-Level Design Flaws: Identifying unreachable states or missing guard conditions.
+🛠️ Project Structure
+EGFL/
+├── EGFL_colab.ipynb      # Core Implementation (PyTorch & Word2Vec)
+├── design_report.pdf     # Full Research Report & Methodology
+├── colab_code.pdf        # Detailed code logs and execution traces
+├── Poster_Format.pdf     # Project Visualization
+├── ppt_design.pdf        # Technical Presentation
+└── README.md             # Project Documentation
+
+naman-fr
+LRU_Cache
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+LRU_Cache
+Public
+naman-fr/LRU_Cache
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+update
+54eb026
+ · 
+2 months ago
+LRU.pdf
+update
+2 months ago
+README.md
+Initial commit: LRU Cache and Event Scheduler assignment
+2 months ago
+lru_cache.hpp
+Initial commit: LRU Cache and Event Scheduler assignment
+2 months ago
+main.cpp
+Initial commit: LRU Cache and Event Scheduler assignment
+2 months ago
+main.tex
+Initial commit: LRU Cache and Event Scheduler assignment
+2 months ago
+scheduler.hpp
+Initial commit: LRU Cache and Event Scheduler assignment
+2 months ago
+Repository files navigation
+README
+Data Structures & Systems Design Assignment
+Files
+lru_cache.hpp
+scheduler.hpp
+main.cpp
+best_solution_lru_scheduler.tex
+
+Compile
+g++ -std=c++17 main.cpp -o assignment
+
+Run
+./assignment
+
+Features
+LRU Cache
+
+O(1) get operation
+O(1) put operation
+Hash map + doubly linked list
+Event Scheduler
+
+canAttendAll(events)
+minRoomsRequired(events)
+assignRooms(events)
+Algorithms Used
+
+LRU Cache Hash Map + Doubly Linked List
+
+Meeting Rooms Greedy Algorithm + Min Heap
+
+
+naman-fr
+namanai_assignment
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+namanai_assignment
+Public
+naman-fr/namanai_assignment
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Create README.md
+1ab8f85
+ · 
+2 months ago
+ddr_output
+Initial AI DDR system submission
+2 months ago
+README.md
+Create README.md
+2 months ago
+Repository files navigation
+README
+AI Diagnostic Report Generation System
+This project converts inspection reports and thermal reports into a structured diagnostic report (DDR) using an AI workflow.
+
+Features
+OCR extraction from PDFs
+Semantic clustering using Sentence Transformers
+Feature extraction for areas and issues
+Inspection + thermal data fusion
+Severity scoring and root cause inference
+Automated report generation
+Outputs
+DDR_structured.json
+DDR_report.pdf
+DDR_markdown.md
+Architecture
+Inspection + Thermal Reports
+→ OCR Extraction
+→ Sentence Segmentation
+→ Semantic Clustering
+→ Feature Extraction
+→ Severity Scoring
+→ Root Cause Inference
+→ Diagnostic Report Generation
+
+Demo
+See the Loom video for a walkthrough.
+
+Tech Stack
+Python
+spaCy
+Sentence Transformers
+PyMuPDF
+pdfplumber
+pytesseract
+ReportLab
+
+
+naman-fr
+armatrix_task
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+armatrix_task
+Public
+naman-fr/armatrix_task
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+Fix CORS for Vercel frontend
+1541958
+ · 
+2 months ago
+backend
+Fix CORS for Vercel frontend
+2 months ago
+frontend
+Setup gitignore
+2 months ago
+.gitignore
+Setup gitignore
+2 months ago
+README.md
+Update deployment links in README
+2 months ago
+Repository files navigation
+README
+Armatrix Team Page — Full Stack Assignment
+Overview
+This project implements a Team Page for Armatrix, consisting of a FastAPI backend and a Next.js frontend.
+
+The application allows displaying, creating, editing, and deleting team members via a REST API. The frontend fetches this data and renders an animated, responsive team interface designed to resemble a modern robotics company website.
+
+The goal of this implementation is to demonstrate:
+
+Full-stack engineering ability
+Clean API design
+Responsive UI implementation
+Thoughtful visual design
+Deployment of production-ready services
+Architecture
+team-page-project
+│
+├── backend
+│   ├── .venv
+│   ├── app
+│   │   ├── __pycache__
+│   │   ├── data.json
+│   │   ├── main.py
+│   │   ├── models.py
+│   │   └── storage.py
+│   │
+│   ├── README.md
+│   └── requirements.txt
+│
+├── frontend
+│   ├── components
+│   │   ├── Header.jsx
+│   │   ├── RobotAnimator.jsx
+│   │   ├── TeamCard.jsx
+│   │   ├── TeamForm.jsx
+│   │   └── TeamModal.jsx
+│   │
+│   ├── pages
+│   │   ├── _app.js
+│   │   ├── index.js
+│   │   └── team.js
+│   │
+│   ├── public
+│   │
+│   ├── styles
+│   │   └── globals.css
+│   │
+│   ├── node_modules
+│   ├── next.config.js
+│   └── package.json
+│
+└── .gitignore
+Backend
+Framework: FastAPI
+Language: Python
+
+Responsibilities:
+
+Store team members
+Provide REST endpoints
+Handle CRUD operations
+API Endpoints
+Method	Endpoint	Description
+GET	/team	Fetch team members
+GET	/team/meta	Pagination metadata
+POST	/team	Add team member
+PUT	/team/{id}	Update team member
+DELETE	/team/{id}	Delete team member
+Team Member Schema
+id
+name
+role
+bio
+photo_url
+linkedin
+skills
+created_at
+updated_at
+Data is stored in-memory for simplicity.
+
+Frontend
+Framework: Next.js (React)
+
+Features implemented:
+
+Responsive team grid
+Animated UI
+Modal profile view
+Add / edit / delete members
+Search functionality
+Pagination
+Robotic themed UI
+UI design draws inspiration from the Armatrix brand aesthetic while maintaining creative freedom.
+
+Tech Stack
+Frontend
+React
+Next.js
+CSS animations
+SVG components
+Backend
+Python
+FastAPI
+Pydantic
+Uvicorn
+Deployment
+Frontend → Vercel
+Backend → Render
+Local Setup
+Clone Repository
+git clone https://github.com/naman-fr/armatrix_task.git
+cd armatrix_task
+Backend Setup
+Navigate to backend folder:
+
+cd backend
+Create virtual environment:
+
+python -m venv .venv
+Activate environment (Windows):
+
+.venv\Scripts\activate
+Install dependencies:
+
+pip install -r requirements.txt
+Run server:
+
+uvicorn main:app --reload
+Backend runs at:
+
+http://localhost:8000
+API documentation:
+
+http://localhost:8000/docs
+Frontend Setup
+Navigate to frontend folder:
+
+cd frontend
+Install dependencies:
+
+npm install
+Run development server:
+
+npm run dev
+Frontend runs at:
+
+http://localhost:3000
+Environment Variables
+Create a file inside frontend
+
+frontend/.env.local
+Add:
+
+NEXT_PUBLIC_API_URL=http://localhost:8000
+Deployment
+Backend Deployment (Render)
+Go to https://render.com
+Create New Web Service
+Connect GitHub repository
+Configure:
+Root Directory: backend
+Build Command: pip install -r requirements.txt
+Start Command: uvicorn main:app --host 0.0.0.0 --port 10000
+After deployment you will get:
+
+https://your-backend-name.onrender.com
+Test:
+
+https://your-backend-name.onrender.com/docs
+Frontend Deployment (Vercel)
+Go to https://vercel.com
+Import GitHub repository
+Set root directory:
+frontend
+Add environment variable:
+
+NEXT_PUBLIC_API_URL=https://your-backend-name.onrender.com
+Deploy.
+
+Design Decisions
+In-Memory Backend Storage
+Used for simplicity and faster setup for the assignment.
+
+Modular Frontend Components
+The UI is broken into reusable components:
+
+Header
+TeamCard
+TeamModal
+TeamForm
+RobotAnimator
+UI Design
+The interface uses:
+
+futuristic gradients
+animated cards
+robotic UI elements
+subtle hover interactions
+to reflect a robotics startup aesthetic.
+
+Possible Future Improvements
+If expanded further the system could include:
+
+authentication
+PostgreSQL database
+image uploads
+role-based admin panel
+caching layer
+server-side rendering optimizations
+Live Links
+Frontend
+
+(https://armatrix-task.vercel.app)
+Backend
+
+(https://armatrix-task.onrender.com)
+Author
+Naman Gautam
+
+naman-fr
+flight_booking
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+flight_booking
+Public
+naman-fr/flight_booking
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+commit week 2
+007b290
+ · 
+9 months ago
+ariano-flight-booking
+commit week 2
+9 months ago
+client-app/src
+commit week 2
+9 months ago
+server
+commit week 2
+9 months ago
+.gitignore
+Initial commit: Flight Booking System
+9 months ago
+README.md
+commit week 2
+9 months ago
+ariano-flight-booking-complete.zip
+commit week 2
+9 months ago
+Repository files navigation
+README
+Ariano Flight Booking System
+A comprehensive flight booking system built with Node.js, Express, React, and MySQL. This system provides a complete solution for managing airlines, flights, bookings, customers, and administrative operations.
+
+Features
+For Customers
+User registration and authentication
+Password reset with security questions
+Flight search and booking
+Multiple passenger booking
+Booking history and management
+Flight rating and reviews
+Grievance submission
+Profile management
+For Airlines
+Airline profile management
+Flight management
+Booking management
+Revenue tracking
+For Administrators
+User management (customers and airlines)
+Airline management
+Flight management
+Booking management
+Grievance handling
+System analytics and reports
+Revenue reports
+Technology Stack
+Backend
+Node.js - Runtime environment
+Express.js - Web framework
+MySQL - Database
+Sequelize - ORM
+JWT - Authentication
+bcryptjs - Password hashing
+CORS - Cross-origin resource sharing
+Helmet - Security middleware
+Frontend
+React - UI library
+Redux Toolkit - State management
+React Router - Routing
+Axios - HTTP client
+Material-UI - UI components
+Prerequisites
+Node.js (v14 or higher)
+MySQL (v8.0 or higher)
+npm or yarn
+Installation
+1. Clone the repository
+git clone <repository-url>
+cd ariano-flight-booking
+2. Backend Setup
+Install dependencies
+cd server
+npm install
+Database Setup
+Create a MySQL database:
+CREATE DATABASE ariano_flight_booking;
+Copy environment variables:
+cp .env.example .env
+Update .env file with your database credentials:
+DB_HOST=localhost
+DB_USER=your_mysql_username
+DB_PASSWORD=your_mysql_password
+DB_NAME=ariano_flight_booking
+JWT_SECRET=your_super_secret_jwt_key_here
+Run the database schema:
+# Option 1: Using the SQL file
+mysql -u your_username -p ariano_flight_booking < database-schema.sql
+
+# Option 2: Using Sequelize (auto-generates tables)
+npm run db:sync
+Start the backend server
+npm start
+The server will run on http://localhost:5000
+
+3. Frontend Setup
+Install dependencies
+cd client-app
+npm install
+Start the development server
+npm start
+The application will be available at http://localhost:3000
+
+API Endpoints
+Authentication
+POST /api/auth/login - User login
+POST /api/auth/register - Customer registration
+POST /api/auth/forgot-password - Request password reset
+POST /api/auth/reset-password - Reset password
+POST /api/auth/change-password - Change password
+Flights
+GET /api/flights/search - Search flights
+GET /api/flights/:flightId - Get flight details
+GET /api/flights/admin/all - Get all flights (Admin)
+POST /api/flights - Create flight (Admin)
+PUT /api/flights/:flightId - Update flight (Admin)
+DELETE /api/flights/:flightId - Delete flight (Admin)
+Bookings
+POST /api/bookings - Create booking
+GET /api/bookings/user - Get user bookings
+GET /api/bookings/:bookingId - Get booking details
+PUT /api/bookings/:bookingId/cancel - Cancel booking
+GET /api/bookings/admin/all - Get all bookings (Admin)
+PUT /api/bookings/admin/:bookingId/status - Update booking status (Admin)
+Customer
+GET /api/customer/profile - Get customer profile
+PUT /api/customer/profile - Update customer profile
+POST /api/customer/rating - Submit flight rating
+GET /api/customer/ratings - Get user ratings
+POST /api/customer/grievance - Submit grievance
+GET /api/customer/grievances - Get user grievances
+GET /api/customer/flight-history - Get flight history
+GET /api/customer/stats - Get customer statistics
+Admin
+GET /api/admin/users - Get all users
+PUT /api/admin/users/:userId/status - Update user status
+DELETE /api/admin/users/:userId - Delete user
+POST /api/admin/airlines - Create airline
+GET /api/admin/airlines - Get all airlines
+PUT /api/admin/airlines/:airId - Update airline
+DELETE /api/admin/airlines/:airId - Delete airline
+GET /api/admin/customers - Get all customers
+PUT /api/admin/customers/:usrId - Update customer
+GET /api/admin/grievances - Get all grievances
+PUT /api/admin/grievances/:grvId/respond - Respond to grievance
+GET /api/admin/stats - Get system statistics
+GET /api/admin/reports/revenue - Get revenue report
+GET /api/admin/reports/popular-routes - Get popular routes
+Database Schema
+The system uses the following main tables:
+
+users - User accounts
+customers - Customer profiles
+airlines - Airline profiles
+flights - Flight information
+bookings - Booking records
+passengers - Passenger information
+tickets - Ticket details
+ratings - Flight ratings
+grievances - Customer complaints
+controls - System control parameters
+Default Admin Account
+After running the database schema, you can login with:
+
+Username: ADM01
+Password: admin123 (hashed in database)
+Scripts
+Backend Scripts
+npm start          # Start production server
+npm run dev        # Start development server with nodemon
+npm run db:sync    # Sync database tables
+npm run db:reset   # Reset database (WARNING: Deletes all data)
+Frontend Scripts
+npm start          # Start development server
+npm run build      # Build for production
+npm run test       # Run tests
+npm run eject      # Eject from Create React App
+Security Features
+JWT-based authentication
+Password hashing with bcrypt
+Input validation and sanitization
+CORS protection
+Helmet security headers
+Rate limiting (can be added)
+SQL injection prevention through Sequelize ORM
+Contributing
+Fork the repository
+Create a feature branch (git checkout -b feature/AmazingFeature)
+Commit your changes (git commit -m 'Add some AmazingFeature')
+Push to the branch (git push origin feature/AmazingFeature)
+Open a Pull Request
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Support
+For support, email support@arianoairlines.com or create an issue in the repository.
+
+Roadmap
+ Email notifications
+ Payment gateway integration
+ Mobile app development
+ Multi-language support
+ Advanced analytics dashboard
+ API documentation with Swagger
+ Real-time flight updates
+ Loyalty program
+ Third-party integrations (weather, maps, etc.)
+
+
+
+naman-fr
+radar
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+radar
+Public
+naman-fr/radar
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+764293a
+ · 
+11 months ago
+__pycache__
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+README.md
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+app.py
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+cli_interface.py
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+example_usage.py
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+quick_start.py
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+radar_optimizer.py
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+radar_spacing_optimizer.py
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+requirements.txt
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+test_optimizer.py
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+web_interface.py
+Initial commit: Advanced Radar Array Spacing Optimizer with AI/ML
+11 months ago
+Repository files navigation
+README
+📡 Advanced Radar Array Spacing Optimizer
+A comprehensive AI/ML-powered solution for optimizing radar array spacing with advanced features including web interface, command-line tools, and detailed analysis.
+
+🚀 Features
+AI/ML Optimization: Neural network-based spacing prediction with numerical refinement
+Multi-Frequency Support: Optimize for frequency ranges and multiple frequency points
+Angle of Arrival (AoA) Range: Support for arbitrary AoA ranges and step sizes
+Noise Modeling: Realistic phase measurement noise simulation
+Web Interface: User-friendly Streamlit-based web application
+Command Line Interface: Full-featured CLI for automation and scripting
+Comprehensive Analysis: Detailed performance metrics and visualization
+Export Capabilities: JSON and CSV export with timestamps
+Physical Constraints: Automatic enforcement of physical limitations
+📋 Requirements
+pip install -r requirements.txt
+Dependencies
+numpy >= 1.21.0 - Numerical computations
+scipy >= 1.7.0 - Scientific computing and optimization
+tensorflow >= 2.8.0 - AI/ML model training and inference
+streamlit >= 1.22.0 - Web interface
+plotly >= 5.10.0 - Interactive visualizations
+pandas >= 1.4.0 - Data manipulation
+tqdm >= 4.64.0 - Progress tracking
+🎯 Quick Start
+Web Interface (Recommended)
+streamlit run app.py
+Open your browser to http://localhost:8501 and configure your parameters in the sidebar.
+
+Command Line Interface
+# Basic optimization
+python cli_interface.py --target_error 0.1 --freq_min 1e9 --freq_max 1.8e9
+
+# Train new model and optimize
+python cli_interface.py --train --target_error 0.05 --num_samples 5000
+
+# Full configuration
+python cli_interface.py \
+    --freq_min 1e9 \
+    --freq_max 2e9 \
+    --num_freqs 5 \
+    --aoa_min -45 \
+    --aoa_max 45 \
+    --aoa_step 1.0 \
+    --noise_std 0.02 \
+    --target_error 0.1 \
+    --train \
+    --num_samples 3000 \
+    --epochs 150 \
+    --output results.json
+📊 Input Parameters
+Frequency Configuration
+freq_min: Minimum frequency in Hz (default: 1e9 Hz)
+freq_max: Maximum frequency in Hz (default: 1.8e9 Hz)
+num_freqs: Number of frequency points (default: 3)
+Angle of Arrival (AoA)
+aoa_min: Minimum AoA in degrees (default: -60°)
+aoa_max: Maximum AoA in degrees (default: 60°)
+aoa_step: AoA step size in degrees (default: 0.5°)
+Noise and Error
+noise_std: Phase measurement noise standard deviation (default: 0.01)
+target_error: Desired RMS error in degrees (default: 0.1°)
+AI Model Settings
+num_samples: Number of training samples (default: 2000)
+epochs: Training epochs (default: 100)
+batch_size: Training batch size (default: 32)
+📈 Output Results
+Optimized Spacings
+d1, d2, d3: Individual spacing values in meters
+Total Array Length: Sum of all spacings
+Performance Metrics
+Target Error: User-specified target RMS error
+Achieved Error: Actual achieved RMS error
+Bias: Mean estimation error
+Precision: Standard deviation of estimation error
+Max Error: Maximum absolute error
+Std Error: Standard deviation of errors
+Analysis Visualizations
+Error distribution histogram
+Cumulative error plot
+Estimated vs True AoA scatter plot
+Array geometry visualization
+🔧 Advanced Usage
+Programmatic Usage
+from radar_optimizer import RadarArrayOptimizer
+import numpy as np
+
+# Initialize optimizer
+optimizer = RadarArrayOptimizer()
+
+# Configure parameters
+freqs = np.linspace(1e9, 1.8e9, 3)
+angles = np.arange(-60, 61, 0.5)
+noise_std = 0.01
+target_error = 0.1
+
+# Train model (if needed)
+X, Y = optimizer.generate_dataset(2000, freqs, noise_std, angles)
+optimizer.train_model(X, Y, "model.h5", epochs=100)
+
+# Optimize spacings
+spacings, achieved_error = optimizer.optimize_spacings(
+    target_error, freqs, angles, noise_std
+)
+
+# Analyze performance
+analysis = optimizer.analyze_performance(spacings, freqs, angles, noise_std)
+
+print(f"Optimized spacings: {spacings}")
+print(f"Achieved error: {achieved_error:.3f}°")
+Custom Frequency Ranges
+# L-band radar
+freqs = np.linspace(1.2e9, 1.4e9, 5)
+
+# X-band radar
+freqs = np.linspace(8e9, 12e9, 7)
+
+# Multi-band operation
+freqs = np.concatenate([
+    np.linspace(1e9, 1.2e9, 3),  # L-band
+    np.linspace(2e9, 2.4e9, 3)   # S-band
+])
+🧠 AI/ML Architecture
+Neural Network Model
+Input: 8 features (error, frequency range, noise, AoA range, etc.)
+Architecture: Deep network with residual connections
+Layers: 256→256→128→64→3 neurons
+Activation: ReLU with Softplus output
+Regularization: Batch normalization and dropout
+Training Process
+Dataset Generation: Monte Carlo simulation with random spacings
+Feature Engineering: Comprehensive feature set including physical constraints
+Model Training: Adam optimizer with early stopping and learning rate scheduling
+Optimization: AI prediction + numerical refinement using L-BFGS-B
+Phase Unwrapping
+Chinese Remainder Theorem (CRT): Resolves phase ambiguity
+Multi-frequency: Leverages frequency diversity for robust estimation
+Robust Estimation: Handles noise and measurement errors
+📁 File Structure
+radar-spacing-optimizer/
+├── radar_optimizer.py      # Core optimization engine
+├── app.py                  # Streamlit web interface
+├── cli_interface.py        # Command line interface
+├── requirements.txt        # Python dependencies
+├── README.md              # This file
+└── examples/              # Example configurations
+    ├── l_band_radar.py
+    ├── x_band_radar.py
+    └── multi_band_radar.py
+🎨 Web Interface Features
+Interactive Configuration
+Real-time parameter adjustment
+Physical constraint validation
+Configuration summary display
+Results Visualization
+Interactive plots with Plotly
+Performance metrics dashboard
+Array geometry visualization
+Export Options
+JSON report with full analysis
+CSV file with spacing data
+Timestamped file naming
+🔍 Performance Analysis
+Error Metrics
+RMS Error: Root mean square estimation error
+Bias: Systematic error in estimation
+Precision: Random error component
+Max Error: Worst-case estimation error
+Monte Carlo Simulation
+1000+ random trials per analysis
+Comprehensive error distribution
+Statistical significance validation
+Physical Validation
+Wavelength constraint enforcement
+Maximum spacing limits
+Array geometry verification
+🚀 Deployment
+Local Development
+# Install dependencies
+pip install -r requirements.txt
+
+# Run web interface
+streamlit run app.py
+
+# Run CLI
+python cli_interface.py --help
+Cloud Deployment
+# Deploy to Streamlit Cloud
+streamlit deploy app.py
+
+# Docker deployment
+docker build -t radar-optimizer .
+docker run -p 8501:8501 radar-optimizer
+📚 Examples
+Example 1: L-band Radar
+python cli_interface.py \
+    --freq_min 1.2e9 \
+    --freq_max 1.4e9 \
+    --num_freqs 5 \
+    --aoa_min -30 \
+    --aoa_max 30 \
+    --target_error 0.05 \
+    --train
+Example 2: X-band Radar
+python cli_interface.py \
+    --freq_min 8e9 \
+    --freq_max 12e9 \
+    --num_freqs 7 \
+    --aoa_min -45 \
+    --aoa_max 45 \
+    --noise_std 0.005 \
+    --target_error 0.02
+Example 3: High Precision
+python cli_interface.py \
+    --freq_min 1e9 \
+    --freq_max 2e9 \
+    --num_freqs 10 \
+    --aoa_min -60 \
+    --aoa_max 60 \
+    --aoa_step 0.1 \
+    --noise_std 0.001 \
+    --target_error 0.01 \
+    --num_samples 10000 \
+    --epochs 200
+🤝 Contributing
+Fork the repository
+Create a feature branch
+Make your changes
+Add tests if applicable
+Submit a pull request
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+🙏 Acknowledgments
+Chinese Remainder Theorem for phase unwrapping
+TensorFlow/Keras for AI/ML capabilities
+Streamlit for web interface
+Plotly for interactive visualizations
+📞 Support
+For questions, issues, or contributions, please open an issue on GitHub or contact the development team.
+
+Note: This tool is designed for research and educational purposes. Always validate results with physical measurements and consider real-world constraints in your specific application.
+
+naman-fr
+PassGod
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+PassGod
+Public
+naman-fr/PassGod
+Go to file
+t
+T
+Name		
+author
+Naman-fr
+Correct registration
+b53e543
+ · 
+11 months ago
+backend
+Correct registration
+11 months ago
+docs
+Added app icon configuration and updated pubspec.yaml for mobile app
+11 months ago
+frontend
+Initial commit: Project setup and UI/UX improvements
+11 months ago
+mobile
+Correct registration
+11 months ago
+.gitignore
+Added app icon configuration and updated pubspec.yaml for mobile app
+11 months ago
+LICENSE
+Added app icon configuration and updated pubspec.yaml for mobile app
+11 months ago
+README.md
+Updated badges to show current project status
+11 months ago
+Repository files navigation
+README
+MIT license
+PASSGOD Logo
+
+PASSGOD
+Universal Password Manager for Web, Mobile, and Social Accounts
+
+Last Commit License Stars
+
+📖 Table of Contents
+About
+Features
+Tech Stack
+Getting Started
+Security
+Contributing
+License
+Support
+ℹ️ About
+PassGod is a robust and user-friendly application designed to help you securely manage your digital credentials and monitor online breaches. It offers a comprehensive suite of features including a secure password vault, social account management, proactive breach monitoring using Have I Been Pwned (HIBP) API, and activity notifications. Available as both a web application and a mobile app, PassGod ensures your online security is always within reach.
+
+✨ Features
+🔐 Secure Password Vault: Safely store and manage all your passwords with full Create, Read, Update, and Delete (CRUD) functionalities. Passwords are encrypted for maximum security.
+📱 Social Account Management: Organize and monitor your social media accounts. Add, edit, and delete social profiles with platform-specific details and an "Other" option for custom platforms.
+🚨 Breach Monitoring: Stay informed about potential data breaches. PassGod proactively checks for compromised passwords and emails using the Have I Been Pwned (HIBP) API, alerting you if your data is found in known breaches.
+🔔 Activity Notifications: Keep track of important account activities and security alerts through an integrated notification system.
+👤 User Profile Management: Easily update your personal information and change your password directly from the settings page.
+🌐 Cross-Platform Accessibility: Access your secure data from anywhere with dedicated web and mobile (Flutter) applications.
+✨ Modern UI/UX: Enjoy a captivating and intuitive user experience across all platforms, designed for ease of use and visual appeal.
+🛠️ Tech Stack
+Backend
+Python: Primary language for the backend logic.
+FastAPI: Modern, fast (high-performance) web framework for building APIs.
+SQLAlchemy: Python SQL toolkit and Object Relational Mapper (ORM).
+cryptography: For secure encryption and decryption of sensitive data.
+requests: For making HTTP requests to external APIs like HIBP.
+SQLite: Default database for local development.
+PostgreSQL: Recommended for production deployments.
+Frontend (Web)
+React: A JavaScript library for building user interfaces.
+TypeScript: A superset of JavaScript that adds static types.
+Tailwind CSS: A utility-first CSS framework for rapid UI development.
+React Router: For declarative routing in the web application.
+Frontend (Mobile)
+Flutter: Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
+provider: For state management in Flutter.
+go_router: For declarative routing in the mobile application.
+🚀 Getting Started
+Prerequisites
+Git: For cloning the repository.
+Python 3.8+: For the backend.
+Node.js & npm (or yarn): For the web frontend.
+Flutter SDK: For the mobile application.
+Visual Studio with "Desktop development with C++" and "C++ ATL" components (for Windows desktop Flutter development).
+Backend Setup
+Navigate to the backend directory:
+cd backend
+Create and activate a Python virtual environment:
+python -m venv venv
+# On Windows
+.\venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
+Install backend dependencies:
+pip install -r requirements.txt
+Create a .env file in the backend directory with the following content. Replace placeholders with your actual keys.
+SECRET_KEY="YOUR_FERNET_SECRET_KEY" # Generate using `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"`
+HIBP_API_KEY="YOUR_HIBP_API_KEY"   # Obtain from https://haveibeenpwned.com/API/Key
+DATABASE_URL="sqlite:///./sql_app.db" # Or your PostgreSQL connection string
+Run database migrations:
+alembic upgrade head
+Start the backend server:
+uvicorn app.main:app --reload
+The backend API will be available at http://localhost:8000.
+Frontend (Web) Setup
+Navigate to the frontend directory:
+cd frontend
+Install frontend dependencies:
+npm install
+# or
+yarn install
+Start the development server:
+npm run dev
+# or
+yarn dev
+The web application will typically open in your browser at http://localhost:3000.
+Frontend (Mobile) Setup
+Navigate to the mobile directory:
+cd mobile
+Get Flutter dependencies:
+flutter pub get
+Run the application:
+flutter run
+🔒 Security
+End-to-end AES-256 encryption
+Argon2 password hashing
+Biometric unlock & recovery codes
+Two-Factor Authentication
+Breach monitoring & phishing detection
+🤝 Contributing
+We welcome contributions! If you'd like to contribute, please fork the repository and create a pull request with your changes.
+
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+💬 Support
+For support, please open an issue in the GitHub repository or contact the maintainers.
+
+naman-fr
+sentinel_threat
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+sentinel_threat
+Public
+naman-fr/sentinel_threat
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Update README.md
+7c7bd19
+ · 
+11 months ago
+ai
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+core
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+dashboard
+Fix: Remove key parameter from expander component in dashboard alerts…
+11 months ago
+distributed
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+docs
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+security
+Fix: Remove key parameter from expander component in dashboard alerts…
+11 months ago
+.gitignore
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+CONTRIBUTING.md
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+Dockerfile
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+LICENSE
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+README.md
+Update README.md
+11 months ago
+docker-compose.yml
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+main.py
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+prometheus.yml
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+requirements.txt
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+test_data.py
+Initial commit: Real-time threat detection system with dashboard
+11 months ago
+Repository files navigation
+README
+Contributing
+MIT license
+Security
+License: MIT
+CI
+Kafka
+Redis
+Streamlit
+TensorFlow
+
+Sentinel Threat Detection System
+🚀 Real-time, distributed threat detection with Machine Learning & Sensor Fusion
+
+GitHub stars GitHub issues Support • Getting Started • Architecture • Features • Screenshots • Contributing
+
+🛡️ Sentinel Threat Detection System
+A real-time, distributed threat detection system that leverages machine learning and sensor fusion to identify and respond to security threats.
+
+🌟 Features
+Real-time Threat Detection: Process and analyze security threats in real-time using distributed computing
+Interactive Dashboard: Beautiful Streamlit-based dashboard for threat visualization and monitoring
+Distributed Processing: Scalable architecture using Kafka for message processing
+Zero Trust Security: Built-in zero trust security model for enhanced protection
+Machine Learning Integration: Advanced ML models for threat detection and classification
+Sensor Fusion: Combine data from multiple sensors for accurate threat assessment
+Real-time Alerts: Instant notification system for detected threats
+Historical Analysis: Track and analyze threat patterns over time
+🏗️ Architecture
+The system consists of several key components:
+
+Threat Detection Engine: Core C++ engine for high-performance threat detection
+Distributed Processing Cluster: Python-based distributed processing system
+Real-time Dashboard: Streamlit-based visualization interface
+Message Queue: Kafka-based message processing
+Data Storage: Redis for real-time data caching
+Zero Trust Manager: Security layer implementing zero trust principles
+🚀 Getting Started
+Prerequisites
+Python 3.8+
+C++17 compatible compiler
+Kafka
+Redis
+CMake 3.15+
+Installation
+Clone the repository:
+git clone https://github.com/naman-fr/sentinel_threat.git
+cd sentinel_threat
+Create and activate a virtual environment:
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install Python dependencies:
+pip install -r requirements.txt
+Build the C++ components:
+mkdir build && cd build
+cmake ..
+make
+Configuration
+Configure Kafka:
+# Start Zookeeper
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+# Start Kafka
+bin/kafka-server-start.sh config/server.properties
+Configure Redis:
+redis-server
+Update configuration files in config/ directory with your settings.
+Running the System
+Start the main system:
+python main.py
+Launch the dashboard:
+streamlit run dashboard/app.py
+📊 Dashboard
+The dashboard provides real-time visualization of:
+
+Active threats
+Threat severity metrics
+Geographic threat distribution
+Historical threat patterns
+System health status
+Real-time alerts
+🔧 Development
+Project Structure
+sentinel_threat/
+├── core/                 # C++ core components
+├── dashboard/           # Streamlit dashboard
+├── distributed/         # Distributed processing
+├── security/           # Security components
+├── tests/              # Test suite
+├── config/             # Configuration files
+└── docs/               # Documentation
+Running Tests
+python -m pytest tests/
+🤝 Contributing
+Fork the repository
+Create your feature branch (git checkout -b feature/AmazingFeature)
+Commit your changes (git commit -m 'Add some AmazingFeature')
+Push to the branch (git push origin feature/AmazingFeature)
+Open a Pull Request
+📝 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+🙏 Acknowledgments
+TensorFlow for ML capabilities
+Apache Kafka for distributed messaging
+Redis for caching
+Streamlit for the dashboard interface
+📞 Support
+For support, please open an issue in the GitHub repository or contact the maintainers.
+
+🔄 Updates
+Stay tuned for updates and new features. Follow the repository to get notified of changes.
+
+
+
+naman-fr
+pred
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+pred
+Public
+naman-fr/pred
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+docs: fix Mermaid diagram syntax in README
+96704a7
+ · 
+11 months ago
+templates
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+.gitignore
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+Dockerfile
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+README.md
+docs: fix Mermaid diagram syntax in README
+11 months ago
+blockchain_log.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+broker.yml
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+crb.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+dashboard.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+iot_utils.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+predict.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+predictions_log.json
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+publisher.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+requirements.txt
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+simple_broker.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+simulate.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+train.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+unwrap.py
+Initial commit: Radar Phase-Unwrapping Spacing Prediction System
+11 months ago
+Repository files navigation
+README
+🚀 Radar Phase-Unwrapping Spacing Prediction System
+Radar Banner
+
+A modular, production-grade system for real-time radar phase-unwrapping and range prediction, featuring robust signal processing, machine learning, blockchain-style logging, and a beautiful live dashboard.
+
+🌟 Key Features
+Real-Time Range Prediction from multi-frequency radar phase data
+Robust Phase Unwrapping using weighted Chinese Remainder Theorem (CRT)
+Ensemble Machine Learning (Random Forest, Huber Regression)
+Live Dashboard with interactive plots and system status
+Blockchain Logger for tamper-evident prediction history
+MQTT & AWS IoT streaming support
+Dockerized Deployment for easy production use
+Cramér–Rao Bound (CRB) Analysis for theoretical performance
+Extensible & Modular: plug-and-play components
+🏗️ System Architecture
+
+Simulate Phases: Generates synthetic radar phase data (simulate.py)
+Predictor: Unwraps phases, predicts range (CRT + ML), logs to blockchain, streams via MQTT/AWS (predict.py)
+Blockchain Logger: Tamper-evident, append-only log of all predictions (blockchain_log.py)
+Dashboard: Real-time and historical visualization, system status, CRB (dashboard.py)
+MQTT Broker: Lightweight, local message broker (simple_broker.py)
+AWS IoT/S3: Optional cloud integration for IoT and backup (iot_utils.py)
+🖥️ Dashboard Visualizations
+Current Distance: Real-time predicted range
+Phase Measurements: Latest multi-frequency phase values
+Cramér–Rao Bound: Theoretical lower bound on range error
+Distance History: Interactive time-series plot
+Phase History: Per-frequency phase evolution
+System Status: Live health, last update, total predictions
+Solution Overview: System explanation and architecture
+Dashboard Example
+
+⚙️ Quickstart
+Install dependencies
+pip install -r requirements.txt
+Start the MQTT broker
+python simple_broker.py
+Run the predictor
+python predict.py
+Launch the dashboard
+python dashboard.py
+# Visit http://localhost:5000
+(Optional) Simulate phase data
+python publisher.py
+🧠 How It Works
+Phase Simulation: Generates noisy, wrapped phases for multiple radar frequencies.
+Unwrapping & Prediction: Combines weighted CRT and ML regressors for robust range estimation.
+Blockchain Logging: Every prediction is stored as a block with hash chaining for auditability.
+Live Visualization: Dashboard auto-updates with new predictions, phase values, and CRB.
+Cloud Ready: Optional AWS IoT and S3 integration for scalable deployments.
+🧩 Modular Components
+simulate.py: Synthetic phase/range data generator
+unwrap.py: Weighted CRT phase unwrapping
+train.py: ML model training (RandomForest, Huber)
+predict.py: Real-time prediction, logging, streaming
+blockchain_log.py: Blockchain-style logger
+dashboard.py: Dash/Plotly web dashboard
+simple_broker.py: Local MQTT broker
+iot_utils.py: MQTT/AWS IoT utilities
+Dockerfile: Containerized deployment
+🧪 Advanced Usage
+Custom Frequencies: Edit FREQS in dashboard.py and predict.py for your radar setup.
+Model Retraining: Run train.py to generate new ML models with custom data.
+Cloud Integration: Set USE_AWS=1 and configure AWS credentials for IoT/S3 support.
+Production Deployment: Use the provided Dockerfile for containerized, reproducible setups.
+📊 Theoretical Insights
+Cramér–Rao Bound (CRB): Quantifies the best possible accuracy for unbiased range estimators, given phase noise and frequency setup.
+Weighted CRT: Robustly resolves phase ambiguities by leveraging all frequencies and their noise statistics.
+Ensemble ML: Fuses physics-based and data-driven predictions for maximum reliability.
+🔒 Blockchain Logger
+Every prediction is stored as a block with:
+
+Index, timestamp, data (distance, phases), previous hash, and block hash
+Tamper-evident, append-only JSON ledger (predictions_log.json)
+Enables full audit trail and reproducibility
+☁️ Cloud & Docker
+AWS IoT/S3: Optional, for scalable, secure cloud deployments
+Docker: Build and run the entire system in a container:
+docker build -t radar-predictor .
+docker run -p 5000:5000 radar-predictor
+📚 References & Further Reading
+Chinese Remainder Theorem in Radar
+Cramér–Rao Bound
+Dash by Plotly
+MQTT Protocol
+🤝 Contributing
+Pull requests, issues, and suggestions are welcome! Please open an issue or PR on GitHub.
+
+📝 License
+MIT License
+
+
+
+naman-fr
+doa
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+doa
+Public
+naman-fr/doa
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Initial commit: DOA Estimation Web Application
+6342e32
+ · 
+last year
+templates
+Initial commit: DOA Estimation Web Application
+last year
+.gitignore
+Initial commit: DOA Estimation Web Application
+last year
+README.md
+Initial commit: DOA Estimation Web Application
+last year
+app.py
+Initial commit: DOA Estimation Web Application
+last year
+classical_doa.py
+Initial commit: DOA Estimation Web Application
+last year
+main.py
+Initial commit: DOA Estimation Web Application
+last year
+ml_models.py
+Initial commit: DOA Estimation Web Application
+last year
+music_doa.py
+Initial commit: DOA Estimation Web Application
+last year
+requirements.txt
+Initial commit: DOA Estimation Web Application
+last year
+simulation.py
+Initial commit: DOA Estimation Web Application
+last year
+Repository files navigation
+README
+Direction of Arrival (DOA) Estimation
+This project implements and compares various methods for Direction of Arrival (DOA) estimation using a Uniform Linear Array (ULA). It includes both classical and machine learning approaches.
+
+Features
+Classical DOA estimation methods:
+Arcsine method
+Two-baseline method
+Least-squares phase unwrapping
+MUSIC algorithm
+Machine Learning approach using MLP
+Interactive visualization of results
+Performance comparison between methods
+Installation
+Clone the repository
+Install dependencies:
+pip install -r requirements.txt
+Usage
+Run the main script:
+
+python main.py
+Project Structure
+main.py: Main script for running comparisons
+classical_doa.py: Classical DOA estimation methods
+music_doa.py: MUSIC algorithm implementation
+ml_models.py: Machine learning models
+simulation.py: Signal simulation utilities
+Configuration
+Key parameters can be adjusted in main.py:
+
+Array geometry (sensor spacing)
+Signal parameters (wavelength, SNR)
+Number of snapshots
+Training parameters for ML model
+Results
+The script generates:
+
+Performance metrics (MAE, MSE, Max Error)
+Comparative plots of different methods
+Real-time visualization of estimation results
+
+naman-fr
+Energy-Aware-Task-Scheduler
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Energy-Aware-Task-Scheduler
+Public
+naman-fr/Energy-Aware-Task-Scheduler
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Update README.md
+e227304
+ · 
+last year
+.github/workflows
+Initial commit with energy-aware task scheduler project
+last year
+energy_aware_scheduler
+real time
+last year
+venv
+Initial commit with energy-aware task scheduler project
+last year
+README.md
+Update README.md
+last year
+scheduler.pdf
+Add files via upload
+last year
+Repository files navigation
+README
+Energy-Aware Task Scheduler Simulator and Dashboard
+This project is a comprehensive energy-aware task scheduling system designed for high-performance computing (HPC) environments, particularly targeting DGX GB200-style nodes. It combines a discrete-event simulator, real-time telemetry integration, and a Kubernetes scheduler plugin with a web-based operational dashboard.
+
+Features
+Simulator
+Discrete-event simulation using SimPy to model power, thermal, and job dynamics on HPC nodes.
+Node modeling with CPU and GPU counts, thermal parameters, and fan speed.
+Job modeling with workload characteristics and scheduling.
+Thermal dynamics simulation with discrete temperature updates.
+Modular, production-quality Python code with type hints and logging.
+Unit tests covering core components to ensure reliability.
+Real-Time Telemetry
+GPU telemetry using NVIDIA Management Library (NVML) via pynvml for power, temperature, and clock speed.
+CPU telemetry using psutil for CPU utilization and frequency.
+Asynchronous telemetry collection with background polling threads.
+Telemetry data exposed via REST API endpoints for integration with dashboards.
+Kubernetes Scheduler Plugin
+Energy-aware scheduling decisions integrated into Kubernetes via a custom scheduler plugin.
+Collaborative scheduling and telemetry integration for optimized resource usage.
+Web Dashboard
+React-based frontend providing real-time visualization of:
+Node status (CPU/GPU counts, temperatures, fan speeds).
+Task details and scheduling decisions.
+Telemetry charts for power, temperature, and utilization over time.
+Integration with backend APIs to fetch live telemetry and scheduling data.
+Responsive UI with charts powered by Recharts.
+Deployment
+Dockerfile and Helm chart for containerized deployment on Kubernetes clusters.
+Prometheus exporter for metrics collection and monitoring.
+CI/CD pipeline configured via GitHub Actions.
+Project Structure
+simulator/ - Core simulation modules modeling nodes, jobs, and thermal dynamics.
+hpc_extension/ - HPC-specific scheduling algorithms, ML schedulers, and integration adapters.
+telemetry/ - NVML and CPU telemetry collectors with asynchronous polling.
+k8s_plugin/ - Kubernetes scheduler plugin, telemetry integration, and REST API server.
+web_dashboard/ - React frontend source code and static assets.
+tests/ - Unit and integration tests for simulator and telemetry components.
+helm/ - Helm chart templates for Kubernetes deployment.
+grafana/ - Grafana dashboard JSON for monitoring visualization.
+Dockerfile - Container image build configuration.
+.github/workflows/ - CI/CD pipeline definitions.
+Setup and Usage
+Prerequisites
+Python 3.8+
+Node.js and npm
+Docker and Kubernetes cluster (for deployment)
+Backend Setup
+Create and activate a Python virtual environment:
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install Python dependencies:
+pip install -r requirements.txt
+Run the backend server:
+python -m energy_aware_scheduler.k8s_plugin.server
+Frontend Setup
+Navigate to the web dashboard directory:
+cd energy_aware_scheduler/web_dashboard
+Install npm dependencies:
+npm install
+Start the development server:
+npm start
+Access the dashboard at http://localhost:3000.
+Deployment
+Build and deploy using the provided Dockerfile and Helm chart for Kubernetes environments.
+Use Prometheus and Grafana for monitoring and visualization.
+Testing
+Run unit tests with:
+pytest
+Next Steps and Enhancements
+Extend simulator with real workload profiles and fault tolerance.
+Enhance ML scheduler with advanced reinforcement learning models.
+Improve telemetry integration with historical data storage and analysis.
+Expand dashboard with additional metrics and alerting capabilities.
+Optimize Kubernetes scheduler plugin for multi-cluster and cloud bursting scenarios.
+Contributing
+Contributions are welcome! Please submit issues and pull requests via GitHub.
+
+License
+This project is licensed under the MIT License.
+
+
+naman-fr
+dashboard
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+dashboard
+Public
+naman-fr/dashboard
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Merge branch 'main' of https://github.com/naman-fr/dashboard
+7f33684
+ · 
+last year
+assets
+Initial commit - Real-Time Data & Analytics Dashboard
+last year
+components
+Initial commit - Real-Time Data & Analytics Dashboard
+last year
+config
+Initial commit - Real-Time Data & Analytics Dashboard
+last year
+dashboard
+updation
+last year
+data
+Initial commit - Real-Time Data & Analytics Dashboard
+last year
+models
+Initial commit - Real-Time Data & Analytics Dashboard
+last year
+README.md
+Update README.md
+last year
+app.py
+Initial commit - Real-Time Data & Analytics Dashboard
+last year
+Repository files navigation
+README
+Real-Time Data & Analytics Dashboard
+A professional real-time dashboard using Python and Dash, showcasing simulated data streams, anomaly detection, and predictive forecasting. Designed to highlight data science and software engineering skills in a visually appealing and modular web app.
+
+📌 Overview
+This project visualizes live data updates, detects anomalies using moving averages and z-scores, and forecasts future trends with regression models. It serves as a portfolio-grade showcase of real-time analytics in a polished dashboard format.
+
+🚀 Features
+✅ Real-time data visualization
+📈 Anomaly detection using z-scores
+🔮 Forecasting via linear regression and LSTM neural networks
+📄 New "About Project" page explaining data analytics and project details for users unfamiliar with the project
+🎨 Modern, clean UI with enhanced responsiveness, colors, spacing, and interactive effects (Bootstrap + Custom CSS)
+🧱 Modular codebase with scalability in mind
+🧪 Simulated live data engine for demo purposes
+🗂️ Project Structure
+dashboard/
+├── app.py                    # 🔷 Main application entry point
+├── assets/
+│   └── custom.css            # 🎨 Custom styles for UI
+├── config/
+│   └── settings.json         # ⚙️ Configurable settings for refresh rate, port, etc.
+├── components/
+│   ├── figures.py            # 📊 Generates graphs and plots
+│   ├── layouts.py            # 🧩 Layout and UI structure, including new About Project tab
+│   └── __pycache__/          # 🗂️ Python cache files
+├── data/
+│   ├── fetching.py           # 🔄 Simulates real-time data fetching
+│   ├── processing.py         # 🧠 Anomaly detection, moving averages
+│   └── __pycache__/          # 🗂️ Python cache files
+├── models/
+│   ├── forecasting.py        # 🔮 Linear regression and LSTM for future value prediction
+│   └── __pycache__/          # 🗂️ Python cache files
+└── README.md                 # 📘 Project documentation (this file)
+🧠 Data Science Enhancements
+Rolling Average: Smooths time series to detect trends.
+Z-Score Anomaly Detection: Flags statistically deviant points.
+Forecasting: Linear regression and LSTM neural network models predict future values.
+User Controls: Interactive sliders for forecast size, anomaly threshold, data source selection, and tab switching.
+New About Page: Provides a detailed explanation of the data analytics implemented and project purpose for new users.
+🛠️ Installation
+Prerequisites
+Python 3.8+
+pip
+Setup
+git clone https://github.com/naman-fr/dashboard.git
+cd dashboard
+python -m venv venv
+venv\Scripts\activate         # On Windows
+# source venv/bin/activate    # On macOS/Linux
+
+pip install -r requirements.txt
+🚀 Running the App
+Run the dashboard app with:
+
+python app.py
+Then open your browser and navigate to http://localhost:8050 to view the dashboard.
+
+Navigate through the tabs to explore real-time analysis, forecasting, and the new About Project page.
+
+🎨 UI Improvements
+The user interface has been enhanced with:
+
+Improved responsiveness for different screen sizes
+Better color scheme and contrast
+Smooth transitions and hover effects on interactive elements
+Accessibility improvements with aria labels on controls
+🤝 Contribution
+Contributions and feedback are welcome to further improve this dashboard project.
+
+naman-fr
+Banking-System
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Banking-System
+Public
+naman-fr/Banking-System
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+whole project commit
+ec305d9
+ · 
+last year
+__pycache__
+whole project commit
+last year
+node_modules
+whole project commit
+last year
+static
+whole project commit
+last year
+templates
+whole project commit
+last year
+venv
+whole project commit
+last year
+README.md
+whole project commit
+last year
+app.py
+whole project commit
+last year
+package-lock.json
+whole project commit
+last year
+package.json
+whole project commit
+last year
+Repository files navigation
+README
+Banking System Web Application
+Project Overview
+This is a web-based banking system application built using Flask (Python) as the backend framework and MySQL as the database. The frontend uses HTML templates styled with Tailwind CSS. The application provides functionalities for both regular users and administrators to manage banking operations such as account management, deposits, withdrawals, transfers, loan applications, and transaction history.
+
+Features
+User registration and login with secure password hashing (bcrypt)
+Admin registration and login with access to admin dashboard
+User dashboard displaying account details and recent transactions
+Deposit and withdrawal requests with admin approval workflow
+Money transfer between users
+Loan application and management with admin approval
+Daily interest calculation on accounts (automated via scheduler)
+Password reset via email verification
+Transaction history with downloadable PDF statements
+Contact and About pages
+Secure session management and input validation
+Technology Stack
+Backend: Python, Flask
+Database: MySQL
+Frontend: HTML, Tailwind CSS, JavaScript
+Password hashing: bcrypt
+Scheduler: APScheduler for background jobs
+PDF generation: ReportLab
+Email handling: smtplib (for password reset notifications)
+Installation
+Clone the repository:
+
+git clone <repository-url>
+cd <repository-directory>
+Set up a Python virtual environment and activate it:
+
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+Install Python dependencies:
+
+pip install -r requirements.txt
+Install Node.js dependencies for Tailwind CSS (optional, if you want to build CSS):
+
+npm install
+Configure MySQL database:
+
+Create a database named banking_system.
+Set up the required tables as per the application schema.
+Update database connection credentials in app.py if needed.
+Set the Flask secret key in app.py:
+
+app.secret_key = 'your_secret_key_here'
+Running the Application
+Run the Flask application with:
+
+python app.py
+By default, the app runs in debug mode on http://127.0.0.1:5000/.
+
+Usage
+Access the home page to login or sign up as a user.
+Admins can login or sign up via /admin/login and /admin/signup.
+Users can view their dashboard, apply for loans, transfer money, and manage their accounts.
+Admins can approve or reject deposits, withdrawals, and loans, and manage users.
+Transaction history can be viewed and downloaded as PDF statements.
+Folder Structure
+/app.py                 # Main Flask application
+/package.json           # Node.js dependencies for Tailwind CSS
+/package-lock.json      # Lock file for Node.js dependencies
+/static/                # Static assets (CSS, JS)
+/templates/             # HTML templates for different pages
+Notes
+Ensure MySQL server is running and accessible.
+Tailwind CSS is used for styling; you may need to build CSS if you modify styles.
+The admin registration requires a secure admin code (SECURE_BANK_ADMIN by default).
+Passwords are securely hashed using bcrypt.
+Daily interest is calculated automatically at midnight using APScheduler.
+License
+This project is licensed under the MIT License.
+
+naman-fr
+Algo-Visualizer
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Algo-Visualizer
+Public
+naman-fr/Algo-Visualizer
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Create README.md
+3a81668
+ · 
+last year
+css
+Initial commit
+last year
+js
+Initial commit
+last year
+pages
+Initial commit
+last year
+README.md
+Create README.md
+last year
+index.html
+Initial commit
+last year
+style.css
+Initial commit
+last year
+Repository files navigation
+README
+CPU Scheduling Visualizer
+An interactive web-based application for visualizing and comparing different CPU scheduling algorithms with real-time process execution flow and performance metrics.
+
+CPU Scheduling Visualizer
+
+Features
+Interactive Visualization: Real-time rendering of process execution with animated timeline
+Multiple Algorithms: Support for 10 different CPU scheduling algorithms
+Performance Metrics: Calculate and display key performance metrics (turnaround time, waiting time, etc.)
+Process Management: Add, remove, and edit processes with custom parameters
+Real-time Animation: Animated representation of process states and flow
+Gantt Charts: Visual representation of process execution sequence
+Preset Scenarios: Load predefined process sets for quick comparison
+Recommendations Engine: Get algorithm suggestions based on workload characteristics
+History Tracking: Save and revisit past simulations with detailed metrics
+State Timeline: Track process state changes throughout execution
+Process Timeline: Individual timelines for each process
+Customizable Speed: Adjust animation speed for detailed analysis
+Save/Load: Export and import process configurations
+Dark Theme: Premium dark UI design for better visualization experience
+Supported Algorithms
+First-Come, First-Served (FCFS): Non-preemptive scheduling based on arrival order
+Shortest Job First (SJF): Non-preemptive scheduling prioritizing shorter burst times
+Longest Job First (LJF): Non-preemptive scheduling prioritizing longer burst times
+Shortest Remaining Time First (SRTF): Preemptive version of SJF
+Longest Remaining Time First (LRTF): Preemptive version of LJF
+Highest Response Ratio Next (HRRN): Non-preemptive scheduling using response ratio
+Round Robin (RR): Time-slice based scheduling with configurable quantum
+Priority Scheduling (Non-Preemptive): Scheduling based on priority values
+Priority Scheduling (Preemptive): Preemptive version of priority scheduling
+Multi-Level Feedback Queue (MLFQ): Multi-queue system with configurable time slices
+Installation
+Clone the repository:
+
+git clone https://github.com/yourusername/cpu-scheduling-visualizer.git
+Open the project directory:
+
+cd cpu-scheduling-visualizer
+Open index.html in your preferred web browser.
+
+Usage
+Adding Processes
+Enter arrival time, burst time, priority, and optional I/O burst time
+Click "Add Process" button
+Repeat for all desired processes
+Running a Simulation
+Select the desired scheduling algorithm from the dropdown
+Configure algorithm-specific parameters if needed (e.g., quantum time for Round Robin)
+Click "Run Simulation" button
+View the generated Gantt chart, metrics table, and animation
+Using Presets
+Click on any preset button in the "Load Presets" section
+Choose from:
+Simple FCFS
+Mixed Workload
+Priority Tasks
+RR Heavy
+Saving and Loading Process Sets
+Click "Save Processes" to download your current process configuration as a JSON file
+Click "Load Processes" to import a previously saved configuration
+Project Structure
+index.html: Main application page
+css/styles.css: Styling for the application
+js/: JavaScript files
+main.js: Core application logic
+scheduler.js: Implementation of scheduling algorithms
+gantt.js: Gantt chart visualization
+animation.js: Real-time process animation
+ui.js: User interface interactions
+recommendation.js: Algorithm recommendation system
+particles-config.js: Background particle animation configuration
+process_timeline.js: Process timeline visualization
+state_timeline.js: Process state timeline visualization
+pages/: Additional application pages
+learn.html: Educational content about scheduling algorithms
+algorithm-details.html: Detailed algorithm descriptions
+compare.html: Algorithm comparison tools
+history.html: Past simulation history
+recommendations.html: Algorithm recommendations
+parameter-tuning.html: Algorithm parameter tuning
+event-log.html: Detailed execution log
+applications.html: Real-world applications
+focus-mode.html: Distraction-free view
+explain.html: Step-by-step explanation
+Technologies Used
+HTML5
+CSS3
+JavaScript (ES6+)
+Chart.js for data visualization
+Particles.js for background effects
+Bootstrap for responsive components
+Features In-Depth
+Animated Process Execution
+The real-time execution flow provides a visual representation of how processes move through different states (waiting, running, finished). This helps in understanding the dynamic behavior of scheduling algorithms.
+
+Gantt Chart
+The Gantt chart displays the execution timeline of processes, showing when each process runs, with color-coding for easy identification. It also highlights context switches and preemption points.
+
+Performance Metrics
+For each simulation, the application calculates and displays:
+
+Average Turnaround Time
+Average Waiting Time
+CPU Utilization
+Throughput
+Individual process metrics (completion time, turnaround time, waiting time)
+Process Timeline
+Individual timelines show when each process is in the ready queue, executing on the CPU, or completed.
+
+History Tracking
+The application saves details of past simulations, allowing you to:
+
+Compare different algorithms with the same process set
+Track performance across different configurations
+Review detailed metrics for each simulation run
+License
+MIT License
+
+Acknowledgments
+Developed as an educational tool for understanding CPU scheduling algorithms
+Inspired by various operating systems textbooks and courses
+
+
+naman-fr
+Nutrifit
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+1
+ (1)
+Insights
+Settings
+Owner avatar
+Nutrifit
+Public
+naman-fr/Nutrifit
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Initial commit
+8c5efa9
+ · 
+last year
+Frontend
+Initial commit
+last year
+backend
+Initial commit
+last year
+README.md
+Initial commit
+last year
+Repository files navigation
+README
+Nutrifit
+A web application focused on providing personalized diet plans, fitness routines, and treatment information.
+
+Project Structure
+/backend: Contains the Node.js backend server code.
+/Frontend: Contains the React frontend application code.
+Setup
+Backend:
+Navigate to the /backend directory.
+Install dependencies: npm install
+Start the server: node index.js (or nodemon index.js)
+Frontend:
+Navigate to the /Frontend directory.
+Install dependencies: npm install
+Start the development server: npm start
+Features
+User Authentication (Login/Signup)
+Homepage with overview
+Fitness section with Beginner, Intermediate, Advanced plans
+Workout details page
+Diet information section
+Treatment search and information
+(Add more details about features, technologies used, or setup instructions as needed)
+
+naman-fr
+PTC
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+PTC
+Public
+naman-fr/PTC
+Go to file
+t
+T
+Name		
+naman-fr
+naman-fr
+Initial commit
+1addea1
+ · 
+last year
+app
+Initial commit
+last year
+database
+Initial commit
+last year
+models
+Initial commit
+last year
+public
+Initial commit
+last year
+.gitignore
+Initial commit
+last year
+README.md
+Initial commit
+last year
+jsconfig.json
+Initial commit
+last year
+next.config.mjs
+Initial commit
+last year
+package-lock.json
+Initial commit
+last year
+package.json
+Initial commit
+last year
+postcss.config.mjs
+Initial commit
+last year
+Repository files navigation
+README
+This is a Next.js project bootstrapped with create-next-app.
+
+Getting Started
+First, run the development server:
+
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+Open http://localhost:3000 with your browser to see the result.
+
+You can start editing the page by modifying app/page.js. The page auto-updates as you edit the file.
+
+This project uses next/font to automatically optimize and load Geist, a new font family for Vercel.
+
+Learn More
+To learn more about Next.js, take a look at the following resources:
+
+Next.js Documentation - learn about Next.js features and API.
+Learn Next.js - an interactive Next.js tutorial.
+You can check out the Next.js GitHub repository - your feedback and contributions are welcome!
+
+Deploy on Vercel
+The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js.
+
+Check out our Next.js deployment documentation for more details.
+
+
+DhRUVwol
+vqe-molecular-simulator
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+vqe-molecular-simulator
+Public
+DhRUVwol/vqe-molecular-simulator
+Go to file
+t
+T
+Name		
+DhRUVwol
+DhRUVwol
+Update README.md
+22ef1bc
+ · 
+2 months ago
+app
+first commit
+last year
+backend
+first commit
+last year
+public
+Initial commit from Create Next App
+last year
+.gitignore
+first commit
+last year
+README.md
+Update README.md
+2 months ago
+eslint.config.mjs
+Initial commit from Create Next App
+last year
+next.config.ts
+first commit
+last year
+package-lock.json
+first commit
+last year
+package.json
+first commit
+last year
+postcss.config.mjs
+Initial commit from Create Next App
+last year
+tsconfig.json
+Initial commit from Create Next App
+last year
+Repository files navigation
+README
+Quantum Molecule Simulator
+This project is a Quantum Molecule Simulator built using Next.js and Qiskit. It combines quantum computing and machine learning to simulate molecular properties and predict behaviors, providing an innovative platform for researchers and students.
+
+Project Overview
+Our platform enables users to:
+
+Simulate molecular energy curves using quantum algorithms like VQE (Variational Quantum Eigensolver).
+Predict molecular behavior using a trained machine learning model.
+Visualize molecular structures and energy plots.
+Explore curated lists of elements and molecules with detailed insights.
+This project was developed during a hackathon by Team Bytes.
+
+Features
+Quantum Simulations: Leverage IBM Quantum services or local simulators to compute molecular properties.
+Machine Learning Predictions: Predict molecular behavior based on complexity, qubits, and other features.
+Interactive UI: A user-friendly interface to explore curated molecules and run simulations.
+Caching: Efficient caching of results to reduce redundant computations.
+Visualization: Generate molecular images and energy plots for better understanding.
+Getting Started
+Prerequisites
+Node.js (v16 or later)
+Python (v3.9 or later)
+MongoDB (for caching simulation results)
+IBM Quantum API Token (optional for quantum hardware simulations)
+Installation
+Clone the repository:
+
+git clone https://github.com/your-repo/quantum-molecule-simulator.git
+cd quantum-molecule-simulator
+Install dependencies:
+
+npm install
+Set up the backend:
+
+Navigate to the backend folder:
+cd backend
+Create a .env file and add the following:
+MONGODB_ATLAS_URI=<your-mongodb-uri>
+IBMQ_API_TOKEN=<your-ibm-quantum-api-token>
+Install Python dependencies:
+pip install -r requirements.txt
+Start the backend server:
+
+python main.py
+Start the frontend:
+
+npm run dev
+Open http://localhost:3000 in your browser.
+
+Usage
+Curated List: Browse a collection of elements and molecules with detailed descriptions.
+Simulations: Navigate to the simulation page to run quantum simulations or make predictions.
+Details Page: View detailed information about a specific molecule or element.
+Team
+Frontend Development: Designed and implemented the UI using React and TailwindCSS.
+Backend Development: Built the API for simulations and predictions using FastAPI and Qiskit.
+Machine Learning: Developed the ML model for molecular behavior predictions.
+Visualization: Created molecular images and energy plots for better insights.
+Live Demonstration
+
+Screenshot 2025-12-11 at 8 15 16 PM
+Screenshot 2025-12-11 at 8 14 23 PM
+Screenshot 2025-12-11 at 8 13 31 PM
+Learn More
+Qiskit Documentation - Learn about quantum computing with Qiskit.
+Next.js Documentation - Learn about building web applications with Next.js.
+Deploy on Vercel
+The project is deployed on Vercel Platform
+
+License
+This project is licensed under the MIT License.
+
+
+
+Mandy2211
+Collaborative-code-editorr
+Repository navigation
+Code
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+Collaborative-code-editorr
+Public
+forked from Dcodr-Coding-Club/Hack-the-Future
+Mandy2211/Collaborative-code-editorr
+Go to file
+t
+T
+This branch is 8 commits ahead of Dcodr-Coding-Club/Hack-the-Future:main.
+Name		
+aryanKaga
+aryanKaga
+PASSING TO CONTRIBUTORS
+8cb2d92
+ · 
+last year
+editorbackend
+PASSING TO CONTRIBUTORS
+last year
+my-code-editor
+PASSING TO CONTRIBUTORS
+last year
+.gitignore
+auth And UI
+last year
+PROBLEMS.md
+Create PROBLEMS.md
+last year
+README.md
+Update README.md
+last year
+proto01.pdf
+Add files via upload
+last year
+Repository files navigation
+README
+Hack the Future | Horizon 2025, IIITV-ICD
+Welcome to Hack the Future, the 36-hour online hackathon organized by Coding Club DCodr as part of Horizon 2025, the annual technical fest of IIITV-ICD. This is your chance to collaborate, innovate, and build creative solutions to real-world problems.
+
+Once the hackathon begins, please follow the instructions below carefully.
+
+Instructions for Participants
+✅ Step 1: Fork the Repository
+Once problem statements are available. Click the Fork button at the top right corner to create a copy of this repository in your GitHub account.
+Clone the forked repository to your local machine using the command:
+git clone <your-forked-repo-link>
+✅ Step 2: Select a Problem Statement
+Review the provided problem statements in the PROBLEMS.md.
+Choose any one problem statement to work on.
+Work directly on the main branch to ensure your final work is on the main branch, as the organizers will evaluate your project every 6 hours.
+✅ Step 3: Project Development
+Develop your project locally.
+Commit your changes frequently with meaningful messages:
+git add .
+git commit -m "Initial commit with base project setup"
+Push your changes to your forked repository:
+git push origin main
+✅ Step 4: Submission
+Create a Pull Request (PR) to this repository before the hackathon ends.
+Your repository should contain:
+README.md: Instructions to run your project.
+Source code and necessary files.
+Documentation (if any).
+4-5 Page PPT Presentation summarizing your solution to make it easier for judges to evaluate.
+Slide 1: Title, team name, and problem statement.
+Slide 2: Objective and solution overview.
+Slide 3: Key features and technologies used.
+Slide 4: solutions implemented.
+Slide 5: Challenges faced.
+⚠️ Note: Only PRs submitted before the hackathon deadline will be considered. Late submissions will not be accepted.
+
+🔍 Evaluation Criteria
+Innovation & Creativity: Uniqueness and originality of the solution.
+Functionality & Implementation: Proper execution and working functionality.
+Code Quality: Clean, readable, and maintainable code.
+Presentation & Documentation: Clear instructions and explanations.
+⏱️ Hackathon Timeline
+Start: [28/03/2025 5PM]
+End: [30/03/2025 5AM]
+Duration: 36 hours (continuous online mode)
+🚀 Good luck and happy hacking! 🎯
+
+Mandy2211
+2-D-terrariagame
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+2-D-terrariagame
+Public
+Mandy2211/2-D-terrariagame
+Go to file
+t
+T
+Name		
+Mandy2211
+Mandy2211
+Update README.md
+5a5b3f0
+ · 
+last year
+__pycache__
+Initial commit
+last year
+assets
+Initial commit
+last year
+Controls.txt
+Initial commit
+last year
+README.md
+Update README.md
+last year
+camera.py
+Initial commit
+last year
+main.py
+Initial commit
+last year
+menu.py
+Initial commit
+last year
+player.py
+Initial commit
+last year
+world.py
+Initial commit
+last year
+Repository files navigation
+README
+🌍 2D Terraria-Inspired Game
+🎮 Overview
+This is a 2D sandbox game inspired by Terraria, where players can explore, mine, craft, and build in a procedurally generated pixel 2-d-world. Players can interact with the environment, gather resources and shape the world as they desire.
+
+🛠 Features
+✅ Procedurally Generated Terrain – Each world is unique!
+✅ Mining & Crafting – Collect resources and craft tools, weapons, and structures.
+✅ Building & Exploration – Create houses, explore caves, and shape the land.
+✅ Day-Night Cycle – Adapt to different challenges based on the time of day.
+📦 Installation & Running the Game
+Clone the Repository
+git clone https://github.com/Mandy2211/2-D-terrariagame.git
+cd 2-D-terrariagame
+Run the Game
+With Pygame:
+python main.py
+🖥 Technologies Used
+Programming Language: Python
+Libraries: Pygame
+Rendering: 2D Sprite-based Graphics
+💡 Future Improvements
+🔹 Multiplayer Support
+🔹 Enemies
+🔹 Customizable Player Skins
+🔹 NPCs & Trading System
+
+👨‍💻 Contributing
+Contributions are welcome! If you’d like to improve the game, feel free to:
+
+Fork this repository
+Create a new branch
+Commit your changes
+Push and submit a pull request
+📜 License
+This project is licensed under the MIT License
+
+
+Mandy2211
+linux-command-terminal
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Owner avatar
+linux-command-terminal
+Public
+Mandy2211/linux-command-terminal
+Go to file
+t
+T
+Name		
+Mandy2211
+Mandy2211
+Update README.md
+fd79c3c
+ · 
+last year
+README.md
+Update README.md
+last year
+fileDirectory.cpp
+Add files via upload
+2 years ago
+Repository files navigation
+README
+linux-command-terminal
+Welcome to the Linux Command Terminal project! This project is a basic terminal (or shell) that lets you type and run simple Linux commands, just like you would in a real terminal on your computer. It's a great way to learn how terminals work behind the scenes!
+
+#About This Project This project creates a small version of a Linux terminal created using data structures where you can type commands, see results, and even handle files and directories. It’s designed to help beginners understand how terminals work by building a simple version themselves.
+
+#Features Run basic Linux commands. Change directories, list files, and view file contents. Handle special commands like cd, exit, and pwd.
