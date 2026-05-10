@@ -48,103 +48,105 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="min-h-screen py-20 px-4 relative flex items-center justify-center"
+      className="min-h-screen py-32 px-4 relative flex items-center justify-center bg-[#0a0a0a]"
     >
       <div className="max-w-4xl w-full">
         <motion.div
-          className="glass rounded-lg overflow-hidden border-terminal/30 border-2"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          className="glass-premium rounded-3xl overflow-hidden border-white/10"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="bg-terminal/10 p-4 border-b border-terminal/30 flex items-center justify-between">
+          <div className="bg-white/5 p-6 border-b border-white/10 flex items-center justify-between">
             <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500/50" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-              <div className="w-3 h-3 rounded-full bg-green-500/50" />
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <div className="w-2 h-2 rounded-full bg-secondary" />
+              <div className="w-2 h-2 rounded-full bg-accent" />
             </div>
-            <div className="font-mono text-xs text-terminal">CONTACT_PROTOCOL_v4.2</div>
+            <div className="font-mono text-[10px] tracking-widest text-white/40">CONNECT_PROTOCOL_v6.0</div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="p-8 border-r border-terminal/30 bg-black/40">
-              <h2 className="text-4xl font-mono font-bold text-terminal mb-6 uppercase tracking-tighter">
-                Secure Channel
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <Mail className="w-5 h-5 text-terminal" />
+            <div className="p-12 border-r border-white/5 bg-white/[0.02]">
+              <h2 className="text-huge font-bold text-white mb-8 leading-none tracking-tighter">HELLO.</h2>
+              <div className="space-y-8">
+                <div className="flex items-center gap-6 group">
+                  <div className="p-3 rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:text-base transition-all duration-300">
+                    <Mail className="w-5 h-5 text-primary group-hover:text-base" />
+                  </div>
                   <div>
-                    <div className="text-[10px] font-mono text-terminal/60">ENDPOINT</div>
-                    <div className="font-mono text-sm">{resumeData.profile.contact.email}</div>
+                    <div className="text-[10px] font-mono text-white/40 tracking-widest mb-1">ENDPOINT</div>
+                    <div className="font-mono text-sm group-hover:text-primary transition-colors">{resumeData.profile.contact.email}</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <Linkedin className="w-5 h-5 text-terminal" />
+                <div className="flex items-center gap-6 group">
+                   <div className="p-3 rounded-full bg-secondary/10 border border-secondary/20 group-hover:bg-secondary group-hover:text-base transition-all duration-300">
+                    <Linkedin className="w-5 h-5 text-secondary group-hover:text-base" />
+                  </div>
                   <div>
-                    <div className="text-[10px] font-mono text-terminal/60">NETWORK</div>
-                    <div className="font-mono text-sm">namangautam-691158299</div>
+                    <div className="text-[10px] font-mono text-white/40 tracking-widest mb-1">NETWORK</div>
+                    <div className="font-mono text-sm group-hover:text-secondary transition-colors">namangautam-691158299</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <Github className="w-5 h-5 text-terminal" />
-                  <div>
-                    <div className="text-[10px] font-mono text-terminal/60">REPO</div>
-                    <div className="font-mono text-sm">naman-fr</div>
+                <div className="flex items-center gap-6 group">
+                   <div className="p-3 rounded-full bg-accent/10 border border-accent/20 group-hover:bg-accent group-hover:text-base transition-all duration-300">
+                    <Github className="w-5 h-5 text-accent group-hover:text-base" />
                   </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <MapPin className="w-5 h-5 text-terminal" />
                   <div>
-                    <div className="text-[10px] font-mono text-terminal/60">GEO</div>
-                    <div className="font-mono text-sm">{resumeData.profile.contact.location}</div>
+                    <div className="text-[10px] font-mono text-white/40 tracking-widest mb-1">REPO</div>
+                    <div className="font-mono text-sm group-hover:text-accent transition-colors">naman-fr</div>
                   </div>
                 </div>
               </div>
 
               {/* Terminal Logs Widget */}
-              <div className="mt-12 p-4 bg-black/60 rounded border border-terminal/20 font-mono text-[10px] h-36 overflow-hidden">
-                <div className="text-terminal/40 mb-2">{"// SYSTEM LOGS"}</div>
-                {terminalLogs.map((log, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
-                    {log}
-                  </motion.div>
-                ))}
+              <div className="mt-16 p-6 bg-black/40 rounded-2xl border border-white/5 font-mono text-[10px] h-40 overflow-hidden relative">
+                <div className="text-white/20 mb-4 tracking-[0.2em]">{"// SYSTEM_STATUS"}</div>
+                <div className="space-y-1">
+                  {terminalLogs.map((log, i) => (
+                    <motion.div key={i} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} className="text-white/60">
+                      <span className="text-primary/40 mr-2">>>></span> {log}
+                    </motion.div>
+                  ))}
+                </div>
                 {status === "sending" && (
-                  <motion.div animate={{ opacity: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }}>
+                  <motion.div animate={{ opacity: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="text-primary mt-1">
                     &gt; _
                   </motion.div>
                 )}
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-8 space-y-4">
-              <div className="space-y-2">
-                <label className="block text-xs font-mono text-terminal/60">IDENTIFIER (NAME)</label>
+            <form onSubmit={handleSubmit} className="p-12 space-y-8 bg-white/[0.01]">
+              <div className="space-y-4">
+                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">01 // IDENTIFIER</label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-black/40 border border-terminal/30 rounded p-3 font-mono text-terminal focus:outline-none focus:border-terminal transition-colors"
+                  placeholder="NAME_HERE"
+                  className="w-full bg-transparent border-b border-white/10 p-4 font-mono text-white focus:outline-none focus:border-primary transition-colors placeholder:text-white/10"
                   required
                 />
               </div>
-              <div className="space-y-2">
-                <label className="block text-xs font-mono text-terminal/60">GATEWAY (EMAIL)</label>
+              <div className="space-y-4">
+                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">02 // GATEWAY</label>
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-black/40 border border-terminal/30 rounded p-3 font-mono text-terminal focus:outline-none focus:border-terminal transition-colors"
+                  placeholder="EMAIL@PROTOCOL.COM"
+                  className="w-full bg-transparent border-b border-white/10 p-4 font-mono text-white focus:outline-none focus:border-primary transition-colors placeholder:text-white/10"
                   required
                 />
               </div>
-              <div className="space-y-2">
-                <label className="block text-xs font-mono text-terminal/60">PAYLOAD (MESSAGE)</label>
+              <div className="space-y-4">
+                <label className="block text-[10px] font-mono text-white/40 tracking-widest uppercase">03 // PAYLOAD</label>
                 <textarea
-                  className="w-full bg-black/40 border border-terminal/30 rounded p-3 font-mono text-terminal focus:outline-none focus:border-terminal transition-colors h-32 resize-none"
+                  className="w-full bg-transparent border-b border-white/10 p-4 font-mono text-white focus:outline-none focus:border-primary transition-colors h-32 resize-none placeholder:text-white/10"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="DESCRIBE_YOUR_OBJECTIVE"
                   required
                 />
               </div>
@@ -152,26 +154,16 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full py-4 bg-terminal text-black font-mono font-bold uppercase tracking-widest hover:bg-terminal/90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="btn-magnetic w-full !rounded-xl"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {status === "sending" ? "TRANSMITTING..." : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    EXECUTE_SEND
-                  </>
-                )}
+                {status === "sending" ? "TRANSMITTING..." : "EXECUTE_CONNECT"}
               </motion.button>
 
               {status === "success" && (
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-terminal text-xs font-mono text-center">
-                  MESSAGE TRANSMITTED SUCCESSFULLY.
-                </motion.p>
-              )}
-              {status === "error" && (
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-xs font-mono text-center">
-                  TRANSMISSION FAILED. CHECK LOGS.
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-primary text-[10px] font-mono text-center tracking-widest">
+                  // TRANSMISSION_SUCCESSFUL
                 </motion.p>
               )}
             </form>
