@@ -311,10 +311,9 @@ export default function NeuralBackground() {
     );
 
     // ── Hex Grid ─────────────────────────────────────────────────────────────
-    const hexCells: HexCell[] = makeHexGrid(canvas.width, canvas.height);
+    let hexCells: HexCell[] = makeHexGrid(canvas.width, canvas.height);
 
     // ── Floating Words ────────────────────────────────────────────────────────
-    const words: FloatingWord[] = Array.from({ length: 25 }, () => makeWord());
     function makeWord(): FloatingWord {
       const maxLife = randBetween(220, 500);
       return {
@@ -330,6 +329,7 @@ export default function NeuralBackground() {
         maxLife,
       };
     }
+    let words: FloatingWord[] = Array.from({ length: 25 }, () => makeWord());
 
     // ── Glitch Bars ───────────────────────────────────────────────────────────
     const glitchBars: GlitchBar[] = [];
@@ -359,8 +359,15 @@ export default function NeuralBackground() {
         gc.beginPath(); gc.moveTo(0, y); gc.lineTo(canvas.width, y); gc.stroke();
       }
     };
+    const handleResize = () => {
+      resize();
+      rebuildGrid();
+      hexCells = makeHexGrid(canvas.width, canvas.height);
+    };
+
     rebuildGrid();
-    window.addEventListener("resize", rebuildGrid);
+    window.addEventListener("resize", handleResize);
+    window.removeEventListener("resize", rebuildGrid); // Clean up the old listener if it was added
 
     // ─────────────────────────────────────────────────────────────────────────
     // Draw Layers
@@ -550,6 +557,11 @@ export default function NeuralBackground() {
 
         node.x += node.vx;
         node.y += node.vy;
+        
+        // Jitter to keep it alive
+        node.vx += (Math.random() - 0.5) * 0.01;
+        node.vy += (Math.random() - 0.5) * 0.01;
+
         node.vx *= 0.975;
         node.vy *= 0.975;
         node.pulsePhase += node.pulseSpeed;
@@ -785,9 +797,9 @@ export default function NeuralBackground() {
 
     // Layer 11: CRT scanlines & vignette
     function drawCRTOverlay() {
+      ctx.fillStyle = "rgba(0,0,0,0.05)";
       for (let y = 0; y < canvas.height; y += 4) {
-        ctx.fillStyle = "rgba(0,0,0,0.05)";
-        ctx.fillRect(0, y, canvas.width, 1);
+        ctx.fillRect(0, y, canvas.width, 1.5);
       }
       // Vignette
       const vig = ctx.createRadialGradient(
@@ -957,8 +969,7 @@ export default function NeuralBackground() {
     // ── Cleanup ──────────────────────────────────────────────────────────────
     return () => {
       cancelAnimationFrame(animId);
-      window.removeEventListener("resize", resize);
-      window.removeEventListener("resize", rebuildGrid);
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseleave", onMouseLeave);
     };
