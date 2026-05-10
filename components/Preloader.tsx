@@ -10,19 +10,24 @@ export default function Preloader() {
 
   useEffect(() => {
     setMounted(true);
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        const next = prev + Math.random() * 10;
-        if (next >= 100) {
-          clearInterval(interval);
-          setTimeout(() => setLoading(false), 800);
-          return 100;
-        }
-        return next;
-      });
-    }, 150);
+    let currentProgress = 0;
+    let frameId: number;
 
-    return () => clearInterval(interval);
+    const updateProgress = () => {
+      currentProgress += Math.random() * 0.5;
+      if (currentProgress >= 100) {
+        currentProgress = 100;
+        setProgress(100);
+        setTimeout(() => setLoading(false), 800);
+        return;
+      }
+      setProgress(currentProgress);
+      frameId = requestAnimationFrame(updateProgress);
+    };
+
+    frameId = requestAnimationFrame(updateProgress);
+
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   if (!mounted) return null;

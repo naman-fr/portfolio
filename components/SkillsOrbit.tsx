@@ -31,7 +31,6 @@ function OrbitingIcon({ index, total, label }: { index: number; total: number; l
           position={[0, 0.8, 0]}
           fontSize={0.3}
           color="white"
-          font="/fonts/inter-bold.woff" // Fallback to standard font
           anchorX="center"
           anchorY="middle"
         >
