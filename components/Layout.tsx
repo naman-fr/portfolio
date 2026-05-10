@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <ErrorBoundary>
       <Preloader />
-      <div className="relative min-h-screen bg-[#0a0a0a] selection:bg-primary selection:text-black">
+      <div className="relative min-h-screen bg-transparent selection:bg-primary selection:text-black">
         <NeuralBackground />
         <div className="noise-overlay" />
         <CustomCursor />

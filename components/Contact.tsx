@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { resumeData } from "../data/resume";
 import { Github, Linkedin, Mail, Phone, MapPin, Send } from "lucide-react";
 

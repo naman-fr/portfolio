@@ -106,10 +106,15 @@ export default function Certifications() {
                   </div>
 
                   <div className="pt-4 flex items-center justify-between">
-                    <button className="text-[9px] font-mono text-white/40 flex items-center gap-2 hover:text-primary transition-colors">
+                    <a 
+                      href={resumeData.profile.contact.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[9px] font-mono text-white/40 flex items-center gap-2 hover:text-primary transition-colors"
+                    >
                       <ExternalLink className="w-3 h-3" />
                       VALIDATE_LINK
-                    </button>
+                    </a>
                     <div className="flex gap-1">
                       <div className="w-1 h-4 bg-primary/20 rounded-full" />
                       <div className="w-1 h-4 bg-primary/40 rounded-full" />
