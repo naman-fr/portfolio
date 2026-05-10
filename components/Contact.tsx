@@ -103,7 +103,7 @@ export default function Contact() {
               <div className="mt-16 p-8 bg-black/60 rounded-3xl border border-white/10 font-mono text-[10px] h-48 overflow-hidden relative group/monitor">
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-primary/20 animate-scan pointer-events-none" />
                 <div className="text-white/20 mb-6 flex justify-between">
-                  <span>// SYSTEM_LOGS</span>
+                  <span>{"// SYSTEM_LOGS"}</span>
                   <span className="animate-pulse">ONLINE</span>
                 </div>
                 <div className="space-y-2">
