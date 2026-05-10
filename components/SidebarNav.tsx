@@ -9,8 +9,7 @@ const sections = [
   { id: "projects", label: "03" },
   { id: "skills", label: "04" },
   { id: "achievements", label: "05" },
-  { id: "publications", label: "06" },
-  { id: "contact", label: "07" },
+  { id: "contact", label: "06" },
 ];
 
 export default function SidebarNav() {

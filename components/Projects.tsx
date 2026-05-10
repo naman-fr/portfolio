@@ -1,43 +1,49 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState, useMemo } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { resumeData } from "../data/resume";
-import { Terminal, Cpu, Atom, Gamepad2, Database, FlaskConical, Code, Layers, FileCode } from "lucide-react";
+import { 
+  Terminal, Cpu, Atom, Gamepad2, Database, 
+  FlaskConical, Code, Layers, FileCode, 
+  BrainCircuit, Bot, Globe, ShieldCheck,
+  ChevronRight, ExternalLink, Github
+} from "lucide-react";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 import CodePeekDrawer from "./CodePeekDrawer";
 
 const iconMap: Record<string, any> = {
+  Agentic: Bot,
+  "AI/ML": BrainCircuit,
+  Embedded: Cpu,
   Systems: Terminal,
-  Research: FlaskConical,
-  Industrial: Cpu,
-  Simulation: Gamepad2,
-  Conversational: Code,
-  Blockchain: Database,
+  WebDev: Globe,
 };
 
-const colorMap: Record<string, string> = {
-  Systems: "terminal",
-  Research: "neural",
-  Industrial: "neural",
-  Simulation: "amber",
-  Conversational: "terminal",
-  Blockchain: "neural",
+const categoryColors: Record<string, string> = {
+  Agentic: "text-terminal border-terminal/30 bg-terminal/5",
+  "AI/ML": "text-neural border-neural/30 bg-neural/5",
+  Embedded: "text-amber border-amber/30 bg-amber/5",
+  Systems: "text-terminal border-terminal/30 bg-terminal/5",
+  WebDev: "text-cyan-400 border-cyan-400/30 bg-cyan-400/5",
 };
 
 const techColors: Record<string, string> = {
-  Python: "bg-blue-500/20 text-blue-300 border-blue-500/50",
-  React: "bg-cyan-500/20 text-cyan-300 border-cyan-500/50",
-  "C++": "bg-purple-500/20 text-purple-300 border-purple-500/50",
-  C: "bg-blue-600/20 text-blue-400 border-blue-600/50",
-  PyTorch: "bg-orange-500/20 text-orange-300 border-orange-500/50",
-  Docker: "bg-blue-400/20 text-blue-200 border-blue-400/50",
-  Kubernetes: "bg-blue-300/20 text-blue-100 border-blue-300/50",
+  Python: "text-blue-300 border-blue-500/30",
+  React: "text-cyan-300 border-cyan-500/30",
+  "C++": "text-purple-300 border-purple-500/30",
+  C: "text-blue-400 border-blue-600/30",
+  PyTorch: "text-orange-300 border-orange-500/30",
+  LangGraph: "text-emerald-300 border-emerald-500/30",
+  FAISS: "text-yellow-300 border-yellow-500/30",
+  Docker: "text-blue-200 border-blue-400/30",
+  Kubernetes: "text-blue-100 border-blue-300/30",
 };
 
 export default function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { margin: "-100px" });
+  const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [codePeekOpen, setCodePeekOpen] = useState(false);
   const [codePeekData, setCodePeekData] = useState<{
@@ -47,208 +53,209 @@ export default function Projects() {
     title: string;
   } | null>(null);
 
-  return (
-    <section
-      id="projects"
-      ref={sectionRef}
-      className="min-h-screen py-20 px-4"
-    >
-      <div className="max-w-7xl mx-auto">
-        <motion.h2
-          className="text-5xl md:text-6xl font-mono font-bold text-terminal mb-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          &gt; PROJECTS
-        </motion.h2>
+  const categories = ["All", "Agentic", "AI/ML", "Embedded", "Systems", "WebDev"];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-          {resumeData.projects.map((project, index) => {
-            const Icon = iconMap[project.type] || Code;
-            const colorClass = colorMap[project.type] || "terminal";
-            
-            return (
-              <motion.div
-                key={project.title}
-                className={`glass rounded-lg p-6 relative overflow-hidden group ${
-                  index === 0 ? "md:col-span-2" : ""
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === "All") return resumeData.projects;
+    return resumeData.projects.filter(p => p.category === activeCategory);
+  }, [activeCategory]);
+
+  return (
+    <section id="projects" ref={sectionRef} className="min-h-screen py-24 px-4 relative">
+      <div className="max-w-7xl mx-auto">
+        <header className="mb-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            className="inline-block px-3 py-1 rounded-full border border-terminal/30 bg-terminal/5 text-terminal text-xs font-mono mb-4"
+          >
+            MODULE_03: DEPLOYED_ASSETS
+          </motion.div>
+          <motion.h2
+            className="text-5xl md:text-7xl font-mono font-bold text-white mb-6 tracking-tighter"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
+          >
+            ENGINEERING_LOGS
+          </motion.h2>
+
+          {/* Project Stats Summary */}
+          <motion.div 
+            className="flex justify-center gap-8 mb-12 text-[10px] font-mono text-gray-500 uppercase tracking-[0.2em]"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="flex flex-col gap-1">
+              <span className="text-terminal text-lg">{resumeData.projects.length}</span>
+              <span>Total_Assets</span>
+            </div>
+            <div className="w-[1px] bg-white/10" />
+            <div className="flex flex-col gap-1">
+              <span className="text-neural text-lg">
+                {resumeData.projects.filter(p => p.category === "Agentic" || p.category === "AI/ML").length}
+              </span>
+              <span>Intelligence_Nodes</span>
+            </div>
+            <div className="w-[1px] bg-white/10" />
+            <div className="flex flex-col gap-1">
+              <span className="text-amber text-lg">
+                {resumeData.projects.filter(p => p.category === "Embedded" || p.category === "Systems").length}
+              </span>
+              <span>Low_Level_Cores</span>
+            </div>
+          </motion.div>
+          
+          {/* Category Filter */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-2 mt-8"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.3 }}
+          >
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-1.5 rounded-full font-mono text-sm border transition-all duration-300 ${
+                  activeCategory === cat
+                    ? "bg-terminal text-obsidian border-terminal shadow-[0_0_15px_rgba(0,255,159,0.4)]"
+                    : "bg-transparent text-gray-500 border-white/10 hover:border-terminal/50 hover:text-terminal"
                 }`}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ scale: 1.02, borderColor: `var(--color-${colorClass})` }}
               >
-                {/* Special terminal effect for Linux Terminal project */}
-                {project.title.includes("Terminal") && (
-                  <div className="absolute inset-0 bg-obsidian/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="font-mono text-terminal text-sm">
-                      <div className="flex items-center gap-2">
-                        <span>naman@linux:~$</span>
-                        <span className="animate-pulse">_</span>
+                {cat.toUpperCase()}
+              </button>
+            ))}
+          </motion.div>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => {
+              const Icon = iconMap[project.category || "WebDev"] || Code;
+              const catStyle = categoryColors[project.category || "WebDev"];
+              
+              return (
+                <motion.div
+                  layout
+                  key={project.title}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="group relative flex flex-col h-full"
+                >
+                  <div className="flex-1 glass rounded-xl p-8 border border-white/5 group-hover:border-terminal/40 transition-all duration-500 bg-obsidian/40 backdrop-blur-xl relative overflow-hidden">
+                    {/* Background ID / Tech Grid */}
+                    <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity pointer-events-none">
+                      <Icon className="w-32 h-32" />
+                    </div>
+
+                    {/* Category Tag */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className={`flex items-center gap-2 px-3 py-1 rounded-md border text-[10px] font-mono tracking-widest ${catStyle}`}>
+                        <Icon className="w-3 h-3" />
+                        {project.category?.toUpperCase()}
+                      </div>
+                      <div className="flex gap-3">
+                        {project.github && (
+                          <a 
+                            href={project.github} 
+                            target="_blank" 
+                            rel="noreferrer"
+                            className="text-gray-500 hover:text-white transition-colors"
+                          >
+                            <Github className="w-5 h-5" />
+                          </a>
+                        )}
+                        <ExternalLink className="w-4 h-4 text-gray-600" />
                       </div>
                     </div>
-                  </div>
-                )}
 
-                {/* Quantum animation for Quantum project */}
-                {project.title.includes("Quantum") && (
-                  <motion.div
-                    className="absolute top-4 right-4"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  >
-                    <Atom className="w-8 h-8 text-neural" />
-                  </motion.div>
-                )}
+                    <h3 className="text-2xl font-mono font-bold text-white mb-3 group-hover:text-terminal transition-colors">
+                      {project.title}
+                    </h3>
 
-                <div className="flex items-start gap-4 mb-4">
-                  <div
-                    className={`p-3 rounded-lg border ${
-                      colorClass === "terminal"
-                        ? "bg-terminal/20 border-terminal/50"
-                        : colorClass === "neural"
-                        ? "bg-neural/20 border-neural/50"
-                        : "bg-amber/20 border-amber/50"
-                    }`}
-                  >
-                    <Icon
-                      className={`w-6 h-6 ${
-                        colorClass === "terminal"
-                           ? "text-terminal"
-                           : colorClass === "neural"
-                           ? "text-neural"
-                           : "text-amber"
-                      }`}
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-mono font-bold text-white mb-1">
-                        {project.title}
-                      </h3>
-                      {project.github && (
-                        <motion.a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-terminal transition-colors"
-                          whileHover={{ scale: 1.2, rotate: 12 }}
-                        >
-                          <Code className="w-5 h-5" />
-                        </motion.a>
-                      )}
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+                      {project.description}
+                    </p>
+
+                    {/* Metrics / Highlights */}
+                    <div className="bg-white/[0.03] border border-white/5 rounded-lg p-4 mb-6">
+                      <div className="flex items-start gap-3">
+                        <ShieldCheck className="w-4 h-4 text-terminal shrink-0 mt-0.5" />
+                        <span className="text-xs font-mono text-gray-300">
+                          {project.highlight}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-xs text-gray-400 font-mono">
-                      {project.domain}
-                    </span>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className={`px-2 py-0.5 text-[10px] font-mono rounded border border-white/10 text-gray-500 bg-white/5 ${
+                            techColors[tech] || ""
+                          }`}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Industry Specs Label */}
+                    {project.industrySpecs && (
+                      <div className="text-[10px] font-mono text-terminal/60 flex items-center gap-2 mt-auto pt-4 border-t border-white/5">
+                        <ChevronRight className="w-3 h-3" />
+                        {project.industrySpecs}
+                      </div>
+                    )}
+
+                    {/* Expansion Trigger */}
+                    {(project.title.toLowerCase().includes("embedded") || 
+                      project.title.toLowerCase().includes("sawl") ||
+                      project.title.toLowerCase().includes("rag") ||
+                      project.title.toLowerCase().includes("vbs")) && (
+                      <button
+                        onClick={() => setSelectedProject(selectedProject === project.title ? null : project.title)}
+                        className="absolute bottom-4 right-8 text-[10px] font-mono text-gray-600 hover:text-terminal transition-colors flex items-center gap-1"
+                      >
+                        [ VIEW_SCHEMATIC ]
+                      </button>
+                    )}
                   </div>
-                </div>
 
-                <p className="text-gray-300 text-sm mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-
-                <div className="mb-4">
-                  <span
-                    className={`text-xs font-mono px-2 py-1 rounded ${
-                      colorClass === "terminal"
-                        ? "text-terminal bg-terminal/20"
-                        : colorClass === "neural"
-                        ? "text-neural bg-neural/20"
-                        : "text-amber bg-amber/20"
-                    }`}
-                  >
-                    {project.highlight}
-                  </span>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <motion.span
-                      key={tech}
-                      className={`px-2 py-1 text-xs font-mono rounded border ${
-                        techColors[tech] || "bg-white/10 text-gray-300 border-white/20"
-                      }`}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      transition={{ type: "spring", stiffness: 400 }}
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-
-                {/* Action buttons */}
-                <div className="flex gap-2 mt-4 pt-4 border-t border-white/10">
-                  {(project.title.toLowerCase().includes("vbs") || 
-                    project.title.toLowerCase().includes("sawl-net") ||
-                    project.title.toLowerCase().includes("chigma") ||
-                    project.title.toLowerCase().includes("amfd")) && (
-                    <motion.button
-                      onClick={() => setSelectedProject(
-                        selectedProject === project.title ? null : project.title
-                      )}
-                      className="flex-1 px-3 py-2 text-xs font-mono glass rounded-lg hover:bg-terminal/20 text-terminal border border-terminal/50 flex items-center justify-center gap-2"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Layers className="w-3 h-3" />
-                      Architecture
-                    </motion.button>
-                  )}
-                  {(project as any).codeSnippet && (
-                    <motion.button
-                      onClick={() => {
-                        setCodePeekData({
-                          code: (project as any).codeSnippet.code,
-                          language: (project as any).codeSnippet.language,
-                          explanation: (project as any).codeSnippet.explanation,
-                          title: project.title,
-                        });
-                        setCodePeekOpen(true);
-                      }}
-                      className="flex-1 px-3 py-2 text-xs font-mono glass rounded-lg hover:bg-neural/20 text-neural border border-neural/50 flex items-center justify-center gap-2"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <FileCode className="w-3 h-3" />
-                      Code
-                    </motion.button>
-                  )}
-                </div>
-
-                {/* Architecture Diagram */}
-                {selectedProject === project.title && (
-                  project.title.toLowerCase().includes("vbs") ? (
-                    <ArchitectureDiagram type="vbs" />
-                  ) : project.title.toLowerCase().includes("sawl-net") ? (
-                    <ArchitectureDiagram type="sawl" />
-                  ) : project.title.toLowerCase().includes("chigma") ? (
-                    <ArchitectureDiagram type="chigma" />
-                  ) : project.title.toLowerCase().includes("amfd") ? (
-                    <ArchitectureDiagram type="amfd" />
-                  ) : null
-                )}
-              </motion.div>
-            );
-          })}
+                  {/* Architecture Schematic Overlay */}
+                  <AnimatePresence>
+                    {selectedProject === project.title && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden bg-obsidian/80 backdrop-blur-2xl rounded-b-xl border-x border-b border-terminal/30 mt-[-1px] z-10"
+                      >
+                        <div className="p-6">
+                           {project.title.toLowerCase().includes("vbs") ? (
+                            <ArchitectureDiagram type="vbs" />
+                          ) : project.title.toLowerCase().includes("sawl") ? (
+                            <ArchitectureDiagram type="sawl" />
+                          ) : project.title.toLowerCase().includes("drone") ? (
+                            <ArchitectureDiagram type="amfd" />
+                          ) : project.title.toLowerCase().includes("rag") ? (
+                            <ArchitectureDiagram type="chigma" />
+                          ) : null}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
       </div>
-
-      {/* Code Peek Drawer */}
-      {codePeekData && (
-        <CodePeekDrawer
-          isOpen={codePeekOpen}
-          onClose={() => {
-            setCodePeekOpen(false);
-            setCodePeekData(null);
-          }}
-          code={codePeekData.code}
-          language={codePeekData.language}
-          explanation={codePeekData.explanation}
-          projectTitle={codePeekData.title}
-        />
-      )}
     </section>
   );
 }

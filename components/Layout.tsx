@@ -29,6 +29,8 @@ const logDebug = (location: string, message: string, data: any, hypothesisId: st
   fetch('http://127.0.0.1:7242/ingest/4c46af64-f425-4826-8dc9-6d583fd34651',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch((e)=>console.error('[DEBUG] Log fetch failed:',e));
 };
 // #endregion
+import SystemStatusBar from "./SystemStatusBar";
+
 export default function Layout({ children }: LayoutProps) {
   // #region agent log
   logDebug('components/Layout.tsx:28','Layout component initialized',{childrenType:typeof children},'B');
@@ -79,16 +81,18 @@ export default function Layout({ children }: LayoutProps) {
         <RecruiterModeToggle />
         <CommandPalette open={commandPaletteOpen} onOpenChange={setCommandPaletteOpen} />
         
-        <main className={`relative z-10 ${isRecruiterMode ? 'max-w-4xl mx-auto' : ''}`}>
+        <main className={`relative z-10 pb-20 ${isRecruiterMode ? 'max-w-4xl mx-auto' : ''}`}>
           {children}
         </main>
+
+        <SystemStatusBar />
 
       {/* Floating Dock Navigation */}
       <motion.nav
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50"
+        className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50"
       >
         <div className="glass rounded-full px-6 py-4 flex items-center gap-4 shadow-2xl">
           {navItems.map((item) => {
