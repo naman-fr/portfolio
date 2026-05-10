@@ -4,7 +4,7 @@ import ProjectGridV2 from "../components/ProjectGridV2";
 import Experience from "../components/Experience";
 import SkillsOrbit from "../components/SkillsOrbit";
 import Achievements from "../components/Achievements";
-import TestimonialsV2 from "../components/TestimonialsV2";
+import Certifications from "../components/Certifications";
 import Contact from "../components/Contact";
 
 export default function Home() {
@@ -30,8 +30,8 @@ export default function Home() {
         <Achievements />
       </div>
 
-      <div id="testimonials" className="section-snap">
-        <TestimonialsV2 />
+      <div id="certifications" className="section-snap">
+        <Certifications />
       </div>
 
       <div id="contact" className="section-snap">

@@ -35,7 +35,7 @@ export default function Layout({ children }: LayoutProps) {
             <a href="#experience" className="hover:text-primary transition-colors">HISTORY</a>
             <div className="w-2 h-2 bg-primary rounded-full" />
             <a href="#skills" className="hover:text-primary transition-colors">TECH</a>
-            <a href="#achievements" className="hover:text-primary transition-colors">HONORS</a>
+            <a href="#certifications" className="hover:text-primary transition-colors">CREDENTIALS</a>
             <a href="#contact" className="hover:text-primary transition-colors">CONNECT</a>
           </div>
         </motion.nav>

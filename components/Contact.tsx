@@ -68,7 +68,12 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="p-12 border-r border-white/5 bg-white/[0.02]">
-              <h2 className="text-huge font-bold text-white mb-8 leading-none tracking-tighter">HELLO.</h2>
+              <div className="mb-12">
+                <h2 className="text-5xl font-bold text-white mb-4 leading-none tracking-tighter">HELLO.</h2>
+                <p className="text-primary/60 font-mono text-[10px] uppercase tracking-[0.3em]">
+                  [ INITIALIZE_COMM_SEQUENCE ]
+                </p>
+              </div>
               <div className="space-y-8">
                 <div className="flex items-center gap-6 group">
                   <div className="p-3 rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:text-base transition-all duration-300">

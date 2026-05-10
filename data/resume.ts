@@ -208,30 +208,82 @@ export const resumeData = {
   },
   certifications: [
     {
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      year: 2024,
+      id: "cert-01",
+      title: "Introduction to Data Engineering and Bigdata",
+      org: "HCL GUVI",
+      date: "May 2026",
+      id_code: "428Q44Pj5u357Y107p",
+      skills: ["Apache Hadoop", "Big Data", "HDFS", "Apache Spark"],
+      icon: "cloud"
     },
     {
-      name: "Gen AI Academy – Completion Certificate",
-      issuer: "Google",
-      year: 2024,
+      id: "cert-02",
+      title: "Introduction to Model Context Protocol",
+      org: "Anthropic",
+      date: "May 2026",
+      id_code: "fhju9eus2cyv",
+      skills: ["Model Context Protocol (MCP)", "AI Tool Integration"],
+      icon: "zap"
     },
     {
-      name: "Introduction to Data Engineering & Bigdata",
-      issuer: "IBM / Industry",
-      year: 2024,
+      id: "cert-03",
+      title: "Introduction to Cloud 101",
+      org: "Amazon Web Services (AWS)",
+      date: "Mar 2026",
+      skills: ["Amazon Web Services (AWS)", "Cloud Fundamentals"],
+      icon: "cloud"
     },
     {
-      name: "Fundamentals of Deep Learning",
-      issuer: "NVIDIA",
-      year: 2023,
+      id: "cert-04",
+      title: "Fundamentals of Deep Learning",
+      org: "NVIDIA",
+      date: "Oct 2025",
+      id_code: "HG4meUwFS5mWBHyhwAg2yQ",
+      skills: ["Deep Learning", "Neural Networks"],
+      icon: "zap"
     },
     {
-      name: "Introduction to Cloud 101",
-      issuer: "IBM",
-      year: 2023,
+      id: "cert-05",
+      title: "Data Analytics Job Simulation",
+      org: "Deloitte",
+      date: "May 2025",
+      id_code: "TKbt2w3XSKhkExZK7",
+      skills: ["Data Analytics", "Data Interpretation", "Forensic Technology"],
+      icon: "award"
     },
+    {
+      id: "cert-06",
+      title: "Gen AI Academy – Completion Certificate",
+      org: "Google Cloud Security",
+      date: "Jun 2025",
+      id_code: "2025H2S04GENAI-A400105",
+      skills: ["Generative AI", "Vertex AI", "LLM", "RAG", "Streamlit"],
+      icon: "award"
+    },
+    {
+      id: "cert-07",
+      title: "HackerRank Problem Solving (Intermediate)",
+      org: "HackerRank",
+      date: "May 2025",
+      skills: ["Problem Solving", "C++", "Data Structures", "Algorithms"],
+      icon: "trophy"
+    },
+    {
+      id: "cert-08",
+      title: "Postman API Fundamentals Student Expert",
+      org: "Postman",
+      date: "Jul 2025",
+      skills: ["API", "API Development", "Postman"],
+      icon: "zap"
+    },
+    {
+      id: "cert-09",
+      title: "AWS Certified Solutions Architect",
+      org: "GeeksforGeeks",
+      date: "Aug 2025",
+      skills: ["AWS Lambda", "CloudFormation", "IAM"],
+      icon: "cloud"
+    }
   ],
   achievements: [
     {
