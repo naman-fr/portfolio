@@ -37,11 +37,6 @@ export async function POST(req: Request) {
     const apiKey = getLocalEnvKey('RESEND_API_KEY');
     const isDev = process.env.NODE_ENV === 'development';
 
-    if (isDev) {
-      console.log('[DEBUG] API_KEY_PRESENT:', !!apiKey);
-      console.log('[DEBUG] NODE_ENV:', process.env.NODE_ENV);
-    }
-
     if (!apiKey) {
       if (isDev) {
         console.log('--- DEVELOPMENT MODE: MOCKING EMAIL ---');
