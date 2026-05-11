@@ -12,18 +12,26 @@ export async function POST(req: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    if (process.env.NODE_ENV === 'development') {
-      console.log('DEBUG: RESEND_API_KEY detected:', !!apiKey);
+    const isDev = process.env.NODE_ENV === 'development';
+
+    if (isDev) {
+      console.log('[DEBUG] API_KEY_PRESENT:', !!apiKey);
+      console.log('[DEBUG] NODE_ENV:', process.env.NODE_ENV);
     }
+
     if (!apiKey) {
-      if (process.env.NODE_ENV === 'development') {
+      if (isDev) {
         console.log('--- DEVELOPMENT MODE: MOCKING EMAIL ---');
-        console.log(`To: namangautam172@gmail.com`);
-        console.log(`From: ${name} <${email}>`);
-        console.log(`Message: ${message}`);
-        return NextResponse.json({ success: true, message: 'DEV_MOCK_SUCCESS' });
+        return NextResponse.json({ 
+          success: true, 
+          message: 'DEV_MOCK_SUCCESS',
+          debug: 'Key missing but mocked in dev' 
+        });
       }
-      return NextResponse.json({ error: 'SYSTEM_ERROR: SMTP_GATEWAY_NOT_CONFIGURED' }, { status: 500 });
+      return NextResponse.json({ 
+        error: 'SYSTEM_ERROR: SMTP_GATEWAY_NOT_CONFIGURED',
+        details: 'Missing RESEND_API_KEY in environment variables'
+      }, { status: 500 });
     }
 
     const resend = new Resend(apiKey);
