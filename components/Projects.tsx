@@ -57,7 +57,7 @@ export default function Projects() {
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === "All") return resumeData.projects;
-    return resumeData.projects.filter(p => p.category === activeCategory);
+    return resumeData.projects.filter(p => p.categories?.includes(activeCategory));
   }, [activeCategory]);
 
   return (
@@ -94,14 +94,14 @@ export default function Projects() {
             <div className="w-[1px] bg-white/10" />
             <div className="flex flex-col gap-1">
               <span className="text-neural text-lg">
-                {resumeData.projects.filter(p => p.category === "Agentic" || p.category === "AI/ML").length}
+                {resumeData.projects.filter(p => p.categories?.some(c => c === "Agentic" || c === "AI/ML")).length}
               </span>
               <span>Intelligence_Nodes</span>
             </div>
             <div className="w-[1px] bg-white/10" />
             <div className="flex flex-col gap-1">
               <span className="text-amber text-lg">
-                {resumeData.projects.filter(p => p.category === "Embedded" || p.category === "Systems").length}
+                {resumeData.projects.filter(p => p.categories?.some(c => c === "Embedded" || c === "Systems")).length}
               </span>
               <span>Low_Level_Cores</span>
             </div>
@@ -133,8 +133,9 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => {
-              const Icon = iconMap[project.category || "WebDev"] || Code;
-              const catStyle = categoryColors[project.category || "WebDev"];
+              const primaryCategory = project.categories?.[0] || "WebDev";
+              const Icon = iconMap[primaryCategory] || Code;
+              const catStyle = categoryColors[primaryCategory];
               
               return (
                 <motion.div
@@ -156,7 +157,7 @@ export default function Projects() {
                     <div className="flex items-center justify-between mb-6">
                       <div className={`flex items-center gap-2 px-3 py-1 rounded-md border text-[10px] font-mono tracking-widest ${catStyle}`}>
                         <Icon className="w-3 h-3" />
-                        {project.category?.toUpperCase()}
+                        {(project.categories?.[0] || "WebDev").toUpperCase()}
                       </div>
                       <div className="flex gap-3">
                         {project.github && (
@@ -216,7 +217,8 @@ export default function Projects() {
                     {/* Expansion Trigger */}
                     {(project.title.toLowerCase().includes("embedded") || 
                       project.title.toLowerCase().includes("sawl") ||
-                      project.title.toLowerCase().includes("rag") ||
+                      project.title.toLowerCase().includes("chigma") ||
+                      project.title.toLowerCase().includes("amfd") ||
                       project.title.toLowerCase().includes("vbs")) && (
                       <button
                         onClick={() => setSelectedProject(selectedProject === project.title ? null : project.title)}
@@ -241,10 +243,10 @@ export default function Projects() {
                             <ArchitectureDiagram type="vbs" />
                           ) : project.title.toLowerCase().includes("sawl") ? (
                             <ArchitectureDiagram type="sawl" />
-                          ) : project.title.toLowerCase().includes("drone") ? (
-                            <ArchitectureDiagram type="amfd" />
-                          ) : project.title.toLowerCase().includes("rag") ? (
+                          ) : project.title.toLowerCase().includes("chigma") ? (
                             <ArchitectureDiagram type="chigma" />
+                          ) : project.title.toLowerCase().includes("amfd") ? (
+                            <ArchitectureDiagram type="amfd" />
                           ) : null}
                         </div>
                       </motion.div>

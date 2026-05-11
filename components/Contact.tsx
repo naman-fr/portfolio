@@ -19,8 +19,8 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    addLog("Initializing secure SMTP tunnel...");
-    addLog("Validating packet headers...");
+    addLog("SYN_SENT: Initializing secure SMTP tunnel...");
+    addLog("SEQ_VERIFY: Validating transmission payload...");
 
     try {
       const res = await fetch("/api/contact", {
@@ -31,16 +31,19 @@ export default function Contact() {
 
       if (res.ok) {
         setStatus("success");
-        addLog("Data transmission successful.");
-        addLog("ACK received from namangautam172@gmail.com");
+        addLog("ACK_RECEIVED: Data transmission successful.");
+        addLog(`GATEWAY_RESPONSE: Delivered to ${resumeData.profile.contact.email}`);
         setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
       } else {
-        throw new Error("Target refused connection");
+        const errorData = await res.json();
+        throw new Error(errorData.error || "GATEWAY_REFUSED_CONNECTION");
       }
-    } catch (err) {
+    } catch (err: any) {
       setStatus("error");
-      addLog("ERROR: Connection timeout.");
-      addLog("Retrying in fallback mode...");
+      addLog(`ERR_RST: ${err.message || "Connection timeout."}`);
+      addLog("FAILOVER: Transmission aborted.");
+      setTimeout(() => setStatus("idle"), 5000);
     }
   };
 
@@ -166,7 +169,17 @@ export default function Contact() {
                     exit={{ opacity: 0 }}
                     className="p-4 bg-primary/10 border border-primary/20 rounded-xl text-primary text-[10px] font-mono text-center tracking-[0.3em]"
                   >
-                    ACCESS_GRANTED: TRANSMISSION_COMPLETE
+                    STATUS_200: TRANSMISSION_COMPLETE
+                  </motion.div>
+                )}
+                {status === "error" && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }} 
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-[10px] font-mono text-center tracking-[0.3em]"
+                  >
+                    STATUS_500: TRANSMISSION_FAILED
                   </motion.div>
                 )}
               </AnimatePresence>
