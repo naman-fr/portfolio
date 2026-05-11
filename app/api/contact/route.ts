@@ -12,6 +12,9 @@ export async function POST(req: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
+    if (process.env.NODE_ENV === 'development') {
+      console.log('DEBUG: RESEND_API_KEY detected:', !!apiKey);
+    }
     if (!apiKey) {
       if (process.env.NODE_ENV === 'development') {
         console.log('--- DEVELOPMENT MODE: MOCKING EMAIL ---');
