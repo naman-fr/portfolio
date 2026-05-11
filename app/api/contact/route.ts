@@ -1,7 +1,30 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
 
 export const dynamic = 'force-dynamic';
+
+function getLocalEnvKey(key: string): string | undefined {
+  if (process.env[key]) return process.env[key];
+  
+  try {
+    const envPaths = ['.env.local', '.env'];
+    for (const envPath of envPaths) {
+      const fullPath = path.join(process.cwd(), envPath);
+      if (fs.existsSync(fullPath)) {
+        const content = fs.readFileSync(fullPath, 'utf8');
+        const match = content.match(new RegExp(`^${key}=(.*)$`, 'm'));
+        if (match && match[1]) {
+          return match[1].trim().split('#')[0].trim();
+        }
+      }
+    }
+  } catch (e) {
+    console.error('Error reading local env:', e);
+  }
+  return undefined;
+}
 
 export async function POST(req: Request) {
   try {
@@ -11,7 +34,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'VALIDATION_ERROR: MISSING_PAYLOAD' }, { status: 400 });
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
+    const apiKey = getLocalEnvKey('RESEND_API_KEY');
     const isDev = process.env.NODE_ENV === 'development';
 
     if (isDev) {
