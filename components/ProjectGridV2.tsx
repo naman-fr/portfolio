@@ -16,7 +16,8 @@ export default function ProjectGridV2() {
 
   const filteredProjects = resumeData.projects.filter(project => {
     if (filter === "ALL") return true;
-    return project.category?.toUpperCase() === filter || project.type?.toUpperCase() === filter;
+    const projectCats = project.categories || [];
+    return projectCats.some(c => c.toUpperCase() === filter) || project.type?.toUpperCase() === filter;
   });
 
   useEffect(() => {
@@ -68,7 +69,7 @@ export default function ProjectGridV2() {
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => {
-              const isAI = project.category?.includes("AI") || project.type?.includes("AI");
+              const isAI = project.categories?.some(c => c.includes("AI")) || project.type?.includes("AI");
               const accentColor = isAI ? "border-primary/40" : "border-secondary/40";
               const glowColor = isAI ? "group-hover:shadow-[0_0_30px_rgba(0,255,136,0.15)]" : "group-hover:shadow-[0_0_30px_rgba(0,200,255,0.15)]";
               
