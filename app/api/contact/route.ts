@@ -5,6 +5,12 @@ export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
   try {
+    const { name, email, message } = await req.json();
+    
+    if (!name || !email || !message) {
+      return NextResponse.json({ error: 'VALIDATION_ERROR: MISSING_PAYLOAD' }, { status: 400 });
+    }
+
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       if (process.env.NODE_ENV === 'development') {
@@ -18,11 +24,6 @@ export async function POST(req: Request) {
     }
 
     const resend = new Resend(apiKey);
-    const { name, email, message } = await req.json();
-
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: 'VALIDATION_ERROR: MISSING_PAYLOAD' }, { status: 400 });
-    }
 
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
