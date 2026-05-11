@@ -6,7 +6,8 @@ import path from 'path';
 export const dynamic = 'force-dynamic';
 
 function getLocalEnvKey(key: string): string | undefined {
-  if (process.env[key]) return process.env[key];
+  const val = process.env[key];
+  if (val) return val.trim();
   
   try {
     const envPaths = ['.env.local', '.env'];
