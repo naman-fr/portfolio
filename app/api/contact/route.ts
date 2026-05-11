@@ -7,6 +7,13 @@ export async function POST(req: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
+      if (process.env.NODE_ENV === 'development') {
+        console.log('--- DEVELOPMENT MODE: MOCKING EMAIL ---');
+        console.log(`To: namangautam172@gmail.com`);
+        console.log(`From: ${name} <${email}>`);
+        console.log(`Message: ${message}`);
+        return NextResponse.json({ success: true, message: 'DEV_MOCK_SUCCESS' });
+      }
       return NextResponse.json({ error: 'SYSTEM_ERROR: SMTP_GATEWAY_NOT_CONFIGURED' }, { status: 500 });
     }
 
