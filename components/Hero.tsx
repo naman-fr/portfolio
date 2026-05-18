@@ -163,7 +163,7 @@ export default function Hero() {
               Initialize Portfolio
             </motion.button>
             <motion.a
-              href="https://www.linkedin.com/in/namangautam-691158299"
+              href="https://www.linkedin.com/in/naman-gautam-691158299/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 glass-hover font-mono font-bold rounded-lg flex items-center gap-2 border-2 border-terminal text-terminal"
