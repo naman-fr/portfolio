@@ -87,7 +87,7 @@ export default function Contact() {
               <div className="space-y-10">
                 {[
                   { icon: Mail, label: "ENCRYPTED_MAIL", value: resumeData.profile.contact.email, color: "text-primary" },
-                  { icon: Linkedin, label: "NETWORK_ID", value: "namangautam-691158299", color: "text-secondary" },
+                  { icon: Linkedin, label: "NETWORK_ID", value: "naman-gautam-691158299", color: "text-secondary" },
                   { icon: Github, label: "SOURCE_CONTROL", value: "naman-fr", color: "text-accent" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-6 group cursor-pointer">
