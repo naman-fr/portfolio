@@ -30,10 +30,10 @@ export default function CustomCursor() {
 
     const handleHover = () => {
       gsap.to(follower, {
-        scale: 2.5,
-        borderRadius: "4px",
-        backgroundColor: "rgba(0, 255, 136, 0.05)",
-        borderColor: "rgba(0, 255, 136, 0.8)",
+        scale: 2.2,
+        borderRadius: "16px",
+        backgroundColor: "rgba(242, 123, 80, 0.04)",
+        borderColor: "rgba(242, 123, 80, 0.6)",
         duration: 0.4,
         ease: "elastic.out(1, 0.3)",
       });
@@ -48,7 +48,7 @@ export default function CustomCursor() {
         scale: 1,
         borderRadius: "50%",
         backgroundColor: "transparent",
-        borderColor: "rgba(255, 255, 255, 0.4)",
+        borderColor: "rgba(223, 199, 179, 0.3)",
         duration: 0.4,
         ease: "power2.out",
       });

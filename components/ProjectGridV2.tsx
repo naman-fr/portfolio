@@ -57,7 +57,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
     if (!isHovered) return;
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % 3);
-    }, 3800);
+    }, 4200);
     return () => clearInterval(interval);
   }, [isHovered]);
 
@@ -69,10 +69,20 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
       title: project.title,
       content: (
         <div className="space-y-4">
-          <p className="text-gray-400 text-sm font-sans leading-relaxed line-clamp-4 min-h-[90px] font-light">
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, type: "spring", stiffness: 80 }}
+            className="text-gray-400 text-sm font-sans leading-relaxed line-clamp-4 min-h-[90px] font-light"
+          >
             {project.description}
-          </p>
-          <div className="flex items-center gap-2 text-primary font-mono text-[9px] uppercase tracking-widest mt-4">
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.22 }}
+            className="flex items-center gap-2 text-primary font-mono text-[9px] uppercase tracking-widest mt-4"
+          >
             <span>Scan project parameters</span>
             <motion.span
               animate={{ x: [0, 4, 0] }}
@@ -80,7 +90,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             >
               <ArrowRight className="w-3 h-3 inline" />
             </motion.span>
-          </div>
+          </motion.div>
         </div>
       ),
     },
@@ -91,7 +101,12 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
       title: "TECH SPECIFICATION",
       content: (
         <div className="space-y-4">
-          <div className="flex flex-wrap gap-1.5 max-h-[85px] overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.12, type: "spring", stiffness: 100 }}
+            className="flex flex-wrap gap-1.5 max-h-[85px] overflow-hidden"
+          >
             {project.tech.map((t: string) => (
               <span
                 key={t}
@@ -100,12 +115,17 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                 {t}
               </span>
             ))}
-          </div>
+          </motion.div>
           {project.highlight && (
-            <div className="mt-4 border-l-2 border-primary/40 pl-3 py-1 bg-primary/5 rounded-r">
+            <motion.div 
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 90 }}
+              className="mt-4 border-l-2 border-primary/40 pl-3 py-1 bg-primary/5 rounded-r"
+            >
               <span className="text-[9px] font-mono text-primary uppercase block tracking-wider font-bold">KEY RESULTS</span>
               <span className="text-xs text-white/80 line-clamp-2">{project.highlight}</span>
-            </div>
+            </motion.div>
           )}
         </div>
       ),
@@ -117,16 +137,26 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
       title: "SPEC & ARTIFACTS",
       content: (
         <div className="space-y-4 flex flex-col justify-between h-full">
-          <div className="space-y-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12 }}
+            className="space-y-2"
+          >
             <span className="text-[9px] font-mono text-white/30 uppercase block tracking-widest">
               DEPLOYMENT ENVIRONMENT
             </span>
             <p className="text-xs text-gray-300 line-clamp-2 font-mono">
               {project.industrySpecs || "Compiled architecture for standard runtime."}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 80 }}
+            className="pt-4 border-t border-white/5 flex items-center justify-between"
+          >
             <a
               href={project.github}
               target="_blank"
@@ -145,7 +175,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             <span className="text-[8px] font-mono text-white/20 uppercase tracking-widest">
               SCT_V{index + 10}
             </span>
-          </div>
+          </motion.div>
         </div>
       ),
     },
@@ -166,7 +196,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
           rotateY: springRotateY,
           transformStyle: "preserve-3d",
         }}
-        className={`group relative h-full w-full glass-premium rounded-[2rem] border border-white/5 overflow-hidden p-8 flex flex-col justify-between transition-all duration-500 hover:border-primary/20`}
+        className={`group relative h-full w-full glass-premium rounded-[2.2rem] border border-white/5 overflow-hidden p-8 flex flex-col justify-between transition-all duration-500 hover:border-primary/20`}
       >
         {/* Dynamic mouse-tracking border radial glow (Vercel Style) */}
         <div
@@ -197,24 +227,34 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
           </span>
         </div>
 
-        {/* Dynamic Carousel Slide Display */}
-        <div className="flex-1 flex flex-col justify-between relative overflow-hidden z-10" style={{ transform: "translateZ(40px)" }}>
+        {/* Dynamic Carousel Slide Display with Depth Parallax */}
+        <div className="flex-1 flex flex-col justify-between relative overflow-hidden z-10 animate-fade-in" style={{ transform: "translateZ(40px)" }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeSlide}
-              initial={{ opacity: 0, x: 12, scale: 0.98 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: -12, scale: 0.98 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
               className="flex-1 flex flex-col justify-start"
             >
               <div className="space-y-3 mb-5">
-                <span className="text-[9px] font-mono text-primary tracking-widest uppercase block">
+                <motion.span 
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.05, type: "spring", stiffness: 100 }}
+                  className="text-[9px] font-mono text-primary tracking-widest uppercase block"
+                >
                   {slides[activeSlide].subtitle}
-                </span>
-                <h3 className="text-xl font-display font-bold text-white tracking-tight leading-tight uppercase group-hover:text-primary transition-colors">
+                </motion.span>
+                <motion.h3 
+                  initial={{ opacity: 0, y: -12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, type: "spring", stiffness: 100 }}
+                  className="text-xl font-display font-bold text-white tracking-tight leading-tight uppercase group-hover:text-primary transition-colors"
+                >
                   {slides[activeSlide].title}
-                </h3>
+                </motion.h3>
               </div>
               <div className="flex-1">
                 {slides[activeSlide].content}
