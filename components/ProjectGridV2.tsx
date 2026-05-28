@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { resumeData } from "../data/resume";
@@ -14,23 +14,54 @@ const categories = ["ALL", "SYSTEMS", "AI/ML", "AGENTIC", "EMBEDDED", "WEBDEV"];
 function ProjectCard({ project, index }: { project: any; index: number }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const isAI = project.categories?.some((c: string) => c.includes("AI")) || project.type?.includes("AI");
+  const cardRef = useRef<HTMLDivElement>(null);
 
-  // Hover carousel effect: auto-advance slides when hovering
+  // 3D Tilt values
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useTransform(y, [-0.5, 0.5], [10, -10]);
+  const rotateY = useTransform(x, [-0.5, 0.5], [-10, 10]);
+  const springRotateX = useSpring(rotateX, { stiffness: 150, damping: 20 });
+  const springRotateY = useSpring(rotateY, { stiffness: 150, damping: 20 });
+
+  // Mouse tracking position for radial border glow
+  const [glowPos, setGlowPos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    
+    // Normalize coordinates to [-0.5, 0.5]
+    const relativeX = (e.clientX - rect.left) / rect.width - 0.5;
+    const relativeY = (e.clientY - rect.top) / rect.height - 0.5;
+    
+    x.set(relativeX);
+    y.set(relativeY);
+
+    // Track actual pixel coords for radial gradient glow
+    setGlowPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+    setIsHovered(false);
+    setActiveSlide(0);
+  };
+
+  // Hover carousel auto-advance
   useEffect(() => {
-    if (!isHovered) {
-      setActiveSlide(0);
-      return;
-    }
+    if (!isHovered) return;
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % 3);
-    }, 3500);
+    }, 3800);
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  // Slide content configuration
   const slides = [
-    // Slide 0: General Overview
     {
       id: "overview",
       icon: Layers,
@@ -38,11 +69,11 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
       title: project.title,
       content: (
         <div className="space-y-4">
-          <p className="text-gray-400 text-sm font-sans leading-relaxed line-clamp-4 min-h-[80px]">
+          <p className="text-gray-400 text-sm font-sans leading-relaxed line-clamp-4 min-h-[90px] font-light">
             {project.description}
           </p>
           <div className="flex items-center gap-2 text-primary font-mono text-[9px] uppercase tracking-widest mt-4">
-            <span>Hover to scan details</span>
+            <span>Scan project parameters</span>
             <motion.span
               animate={{ x: [0, 4, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
@@ -53,7 +84,6 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
         </div>
       ),
     },
-    // Slide 1: Tech Stack & Key Highlight
     {
       id: "tech",
       icon: Cpu,
@@ -80,7 +110,6 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
         </div>
       ),
     },
-    // Slide 2: Performance Specs & Source Access
     {
       id: "specs",
       icon: BarChart2,
@@ -123,93 +152,102 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
   ];
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      className={`group relative glass-premium rounded-3xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-primary/20 hover:shadow-[0_0_30px_rgba(242,123,80,0.06)] flex flex-col h-[380px] p-8`}
+    <div
+      ref={cardRef}
+      style={{ perspective: 1000 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setActiveSlide(0);
-      }}
+      className="h-[380px] w-full"
     >
-      {/* Subtle organic background gradient on hover */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.01] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      <motion.div
+        style={{
+          rotateX: springRotateX,
+          rotateY: springRotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className={`group relative h-full w-full glass-premium rounded-[2rem] border border-white/5 overflow-hidden p-8 flex flex-col justify-between transition-all duration-500 hover:border-primary/20`}
+      >
+        {/* Dynamic mouse-tracking border radial glow (Vercel Style) */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          style={{
+            background: `radial-gradient(350px circle at ${glowPos.x}px ${glowPos.y}px, rgba(242,123,80,0.06), transparent 80%)`,
+          }}
+        />
 
-      {/* Grid overlay */}
-      <div className="absolute inset-0 opacity-[0.01] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:15px_15px]" />
+        {/* Blueprint grid overlay */}
+        <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:20px_20px]" />
 
-      {/* Header bar of the card */}
-      <div className="flex items-center justify-between mb-6 z-10">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-white/[0.02] border border-white/5 text-primary group-hover:bg-primary/10 transition-colors duration-500">
-            {(() => {
-              const Icon = slides[activeSlide].icon;
-              return <Icon className="w-4 h-4" />;
-            })()}
+        {/* Card Top Action Row */}
+        <div className="flex items-center justify-between mb-4 z-10" style={{ transform: "translateZ(30px)" }}>
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-2xl bg-white/[0.02] border border-white/5 text-primary group-hover:bg-primary/10 transition-colors duration-500">
+              {(() => {
+                const Icon = slides[activeSlide].icon;
+                return <Icon className="w-4 h-4" />;
+              })()}
+            </div>
+            <span className="text-[8px] font-mono text-white/30 tracking-[0.25em] uppercase">
+              PAGE_0{activeSlide + 1}
+            </span>
           </div>
-          <span className="text-[8px] font-mono text-white/30 tracking-widest uppercase">
-            [ PAGE_0{activeSlide + 1} ]
+          <span className="text-[9px] font-mono tracking-widest uppercase text-white/30 px-2 py-0.5 rounded bg-white/[0.02] border border-white/5">
+            {project.type || "CORE"}
           </span>
         </div>
-        <span className="text-[9px] font-mono tracking-widest uppercase text-white/30 px-2 py-0.5 rounded bg-white/[0.02]">
-          {project.type || "CORE"}
-        </span>
-      </div>
 
-      {/* Slide Content Area with AnimatePresence */}
-      <div className="flex-1 flex flex-col justify-between relative overflow-hidden z-10">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeSlide}
-            initial={{ opacity: 0, x: 15 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -15 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="flex-1 flex flex-col"
-          >
-            <div className="space-y-3 mb-6">
-              <span className="text-[9px] font-mono text-primary tracking-widest uppercase block">
-                {slides[activeSlide].subtitle}
-              </span>
-              <h3 className="text-xl font-display font-bold text-white tracking-tight leading-tight uppercase group-hover:text-primary transition-colors">
-                {slides[activeSlide].title}
-              </h3>
-            </div>
-            <div className="flex-1">
-              {slides[activeSlide].content}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+        {/* Dynamic Carousel Slide Display */}
+        <div className="flex-1 flex flex-col justify-between relative overflow-hidden z-10" style={{ transform: "translateZ(40px)" }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSlide}
+              initial={{ opacity: 0, x: 12, scale: 0.98 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -12, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="flex-1 flex flex-col justify-start"
+            >
+              <div className="space-y-3 mb-5">
+                <span className="text-[9px] font-mono text-primary tracking-widest uppercase block">
+                  {slides[activeSlide].subtitle}
+                </span>
+                <h3 className="text-xl font-display font-bold text-white tracking-tight leading-tight uppercase group-hover:text-primary transition-colors">
+                  {slides[activeSlide].title}
+                </h3>
+              </div>
+              <div className="flex-1">
+                {slides[activeSlide].content}
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
-        {/* Carousel Slide Indicators */}
-        <div className="flex items-center justify-center gap-2 mt-6">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={(e) => {
-                e.stopPropagation();
-                setActiveSlide(i);
-              }}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                activeSlide === i
-                  ? "w-6 bg-primary shadow-[0_0_6px_var(--color-primary)]"
-                  : "w-1.5 bg-white/10 hover:bg-white/30"
-              }`}
-            />
-          ))}
+          {/* Dynamic dot trackers */}
+          <div className="flex items-center justify-center gap-2 mt-4">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveSlide(i);
+                }}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeSlide === i
+                    ? "w-6 bg-primary shadow-[0_0_8px_var(--color-primary)]"
+                    : "w-1.5 bg-white/10 hover:bg-white/30"
+                }`}
+              />
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Aesthetic corner decorations */}
-      <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none opacity-30">
-        <div className="absolute bottom-0 right-0 w-[1px] h-3 bg-primary" />
-        <div className="absolute bottom-0 right-0 h-[1px] w-3 bg-primary" />
-      </div>
-    </motion.div>
+        {/* Structural highlights */}
+        <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none opacity-20">
+          <div className="absolute bottom-0 right-0 w-[1px] h-3 bg-primary" />
+          <div className="absolute bottom-0 right-0 h-[1px] w-3 bg-primary" />
+        </div>
+      </motion.div>
+    </div>
   );
 }
 

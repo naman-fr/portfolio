@@ -21,6 +21,19 @@ export const resumeData = {
   },
   experience: [
     {
+      id: "pratham-software",
+      role: "Python Intern",
+      company: "Pratham Software (PSI)",
+      timeline: "May 2026 - Present",
+      tech: ["Python", "Data Analysis", "Backend Technologies"],
+      achievements: [
+        "Collaborating with the development team on real-world backend and data projects",
+        "Honing skills in industrial Python backend frameworks and database engineering",
+        "Eagerly participating in code optimizations, design sessions, and testing workflows",
+      ],
+      visualTheme: "backend",
+    },
+    {
       id: "rancho-labs",
       role: "Technical Associate / Intern",
       company: "Rancho Labs (IIT Delhi)",
