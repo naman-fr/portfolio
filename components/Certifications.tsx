@@ -41,7 +41,7 @@ export default function Certifications() {
     <section id="certifications" className="py-32 bg-transparent overflow-hidden relative z-10">
       <div className="max-w-7xl mx-auto px-4 mb-16">
         <header className="space-y-4">
-          <span className="text-primary font-mono text-sm tracking-[0.4em] uppercase">[ 06:_LICENSES_&_CERTIFICATIONS ]</span>
+          <span className="text-primary font-mono text-sm tracking-[0.4em] uppercase">[ 07:_LICENSES_&_CERTIFICATIONS ]</span>
           <h2 className="text-large font-bold text-white tracking-tighter uppercase">CREDENTIALS</h2>
         </header>
       </div>
@@ -53,36 +53,36 @@ export default function Certifications() {
             return (
               <div
                 key={`${cert.id}-${i}`}
-                className="group relative glass-premium p-10 rounded-3xl w-[480px] flex gap-8 border border-white/10 transition-all duration-700 hover:scale-[1.02]"
+                className="group relative glass-premium p-10 rounded-[2rem] w-[480px] flex gap-8 border border-white/5 transition-all duration-700 hover:scale-[1.02]"
               >
-                {/* Holographic Shimmer Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-[linear-gradient(45deg,transparent_25%,rgba(0,255,136,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-shimmer pointer-events-none" />
+                {/* Holographic Shimmer Effect - Coral themed */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-[linear-gradient(45deg,transparent_25%,rgba(242,123,80,0.06)_50%,transparent_75%)] bg-[length:250%_250%] animate-shimmer pointer-events-none" />
 
                 {/* Side Tag */}
-                <div className="absolute top-0 right-0 h-full w-8 border-l border-white/5 flex items-center justify-center bg-white/[0.02]">
-                  <span className="rotate-90 font-mono text-[8px] tracking-[0.5em] text-white/20 whitespace-nowrap">
+                <div className="absolute top-0 right-0 h-full w-8 border-l border-white/5 flex items-center justify-center bg-white/[0.01]">
+                  <span className="rotate-90 font-mono text-[7px] tracking-[0.5em] text-[#dfc7b3]/30 whitespace-nowrap">
                     SECURED_LEVEL_04
                   </span>
                 </div>
 
                 {/* Left Side: Icon & Verification */}
-                <div className="flex flex-col items-center justify-between py-2 border-r border-white/10 pr-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center border border-white/10 shadow-lg">
+                <div className="flex flex-col items-center justify-between py-2 border-r border-white/5 pr-8">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/5 flex items-center justify-center border border-white/5 shadow-lg">
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <div className="flex flex-col items-center gap-1">
                     <ShieldCheck className="w-4 h-4 text-primary animate-pulse" />
-                    <span className="text-[8px] font-mono text-primary tracking-widest font-bold">VERIFIED</span>
+                    <span className="text-[7px] font-mono text-primary tracking-widest font-bold">VERIFIED</span>
                   </div>
                 </div>
 
                 {/* Right Side: Content */}
                 <div className="flex-1 space-y-6">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest block">
+                    <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest block">
                       {cert.date}
                     </span>
-                    <h3 className="text-xl font-bold text-white tracking-tight leading-tight group-hover:text-primary transition-colors whitespace-normal">
+                    <h3 className="text-xl font-display font-bold text-white tracking-tight leading-tight group-hover:text-primary transition-colors whitespace-normal">
                       {cert.title.toUpperCase()}
                     </h3>
                     <p className="text-secondary font-mono text-xs uppercase tracking-widest font-bold">
@@ -91,9 +91,9 @@ export default function Certifications() {
                   </div>
 
                   {cert.id_code && (
-                    <div className="bg-black/40 p-3 rounded-xl border border-white/5 font-mono">
+                    <div className="bg-black/30 p-3 rounded-xl border border-white/5 font-mono">
                       <div className="text-[7px] text-white/20 uppercase mb-1">CERT_ID_HASH</div>
-                      <div className="text-[9px] text-white/50 truncate break-all">{cert.id_code}</div>
+                      <div className="text-[9px] text-white/40 truncate break-all">{cert.id_code}</div>
                     </div>
                   )}
 

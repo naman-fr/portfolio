@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { resumeData } from "../data/resume";
 import { Github, Linkedin, Mail, Phone, MapPin, Send } from "lucide-react";
 
@@ -55,55 +55,55 @@ export default function Contact() {
     >
       <div className="max-w-5xl w-full">
         <motion.div
-          className="glass-premium rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl relative"
+          className="glass-premium rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl relative"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Header Bar */}
-          <div className="bg-white/5 p-6 border-b border-white/10 flex items-center justify-between px-10">
-            <div className="flex gap-3">
-              <div className="w-3 h-3 rounded-full bg-red-500/50" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-              <div className="w-3 h-3 rounded-full bg-primary" />
+          <div className="bg-white/5 p-6 border-b border-white/5 flex items-center justify-between px-10">
+            <div className="flex gap-2">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
+              <div className="w-2.5 h-2.5 rounded-full bg-primary" />
             </div>
-            <div className="font-mono text-[10px] tracking-[0.4em] text-white/30 uppercase">
+            <div className="font-mono text-[9px] tracking-[0.4em] text-white/20 uppercase">
               SECURE_COMM_CHANNEL_v8.4
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Info Side */}
-            <div className="p-12 lg:p-16 border-r border-white/5 bg-white/[0.01]">
+            <div className="p-12 lg:p-16 border-r border-white/5 bg-white/[0.005]">
               <div className="mb-16">
-                <h2 className="text-6xl font-bold text-white mb-6 leading-none tracking-tighter uppercase">
+                <h2 className="text-5xl lg:text-6xl font-display font-extrabold text-white mb-6 leading-none tracking-tighter uppercase">
                   HELLO.
                 </h2>
-                <p className="text-primary font-mono text-[10px] uppercase tracking-[0.4em] opacity-60">
+                <p className="text-primary font-mono text-[9px] uppercase tracking-[0.4em] opacity-60">
                   [ ESTABLISHING_HANDSHAKE ]
                 </p>
               </div>
 
-              <div className="space-y-10">
+              <div className="space-y-8">
                 {[
                   { icon: Mail, label: "ENCRYPTED_MAIL", value: resumeData.profile.contact.email, color: "text-primary" },
-                  { icon: Linkedin, label: "NETWORK_ID", value: "naman-gautam-691158299", color: "text-secondary" },
+                  { icon: Linkedin, label: "NETWORK_ID", value: "naman-gautam-691158299", color: "text-[#dfc7b3]" },
                   { icon: Github, label: "SOURCE_CONTROL", value: "naman-fr", color: "text-accent" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-6 group cursor-pointer">
-                    <div className={`p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/50 transition-all duration-500 group-hover:bg-primary/5`}>
-                      <item.icon className={`w-5 h-5 ${item.color}`} />
+                    <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 group-hover:border-primary/30 transition-all duration-500 group-hover:bg-primary/5">
+                      <item.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-[9px] font-mono text-white/30 tracking-[0.3em] mb-1">{item.label}</div>
-                      <div className="font-mono text-sm text-white/80 group-hover:text-white transition-colors">{item.value}</div>
+                      <div className="text-[8px] font-mono text-white/30 tracking-[0.3em] mb-1">{item.label}</div>
+                      <div className="font-mono text-sm text-[#dfc7b3]/80 group-hover:text-white transition-colors">{item.value}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* System Monitor Widget */}
-              <div className="mt-16 p-8 bg-black/60 rounded-3xl border border-white/10 font-mono text-[10px] h-48 overflow-hidden relative group/monitor">
+              <div className="mt-16 p-8 bg-black/40 rounded-[2rem] border border-white/5 font-mono text-[10px] h-48 overflow-hidden relative group/monitor">
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-primary/20 animate-scan pointer-events-none" />
                 <div className="text-white/20 mb-6 flex justify-between">
                   <span>{"// SYSTEM_LOGS"}</span>
@@ -111,7 +111,7 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   {terminalLogs.map((log, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} className="text-white/50">
+                    <motion.div key={i} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} className="text-white/40">
                       <span className="text-primary/30 mr-2">HEX_{i}F:</span> {log}
                     </motion.div>
                   ))}
@@ -120,29 +120,29 @@ export default function Contact() {
             </div>
 
             {/* Form Side */}
-            <form onSubmit={handleSubmit} className="p-12 lg:p-16 space-y-10 bg-white/[0.02]">
+            <form onSubmit={handleSubmit} className="p-12 lg:p-16 space-y-8 bg-white/[0.01]">
               <div className="space-y-6">
                 {[
                   { label: "USER_IDENTIFIER", placeholder: "ENTER_NAME", type: "text", key: "name" },
                   { label: "RETURN_GATEWAY", placeholder: "EMAIL@PROTOCOL.IO", type: "email", key: "email" },
                 ].map((field) => (
                   <div key={field.key} className="space-y-3">
-                    <label className="block text-[9px] font-mono text-white/30 tracking-[0.4em] uppercase">{field.label}</label>
+                    <label className="block text-[8px] font-mono text-white/30 tracking-[0.4em] uppercase">{field.label}</label>
                     <input
                       type={field.type}
                       value={(formData as any)[field.key]}
                       onChange={(e) => setFormData({ ...formData, [field.key]: e.target.value })}
                       placeholder={field.placeholder}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl p-5 font-mono text-sm text-white focus:outline-none focus:border-primary/50 transition-all placeholder:text-white/10"
+                      className="w-full bg-white/[0.02] border border-white/5 rounded-xl p-5 font-mono text-sm text-white focus:outline-none focus:border-primary/30 transition-all placeholder:text-white/10 focus:bg-primary/[0.01]"
                       required
                     />
                   </div>
                 ))}
                 
                 <div className="space-y-3">
-                  <label className="block text-[9px] font-mono text-white/30 tracking-[0.4em] uppercase">TRANSMISSION_PAYLOAD</label>
+                  <label className="block text-[8px] font-mono text-white/30 tracking-[0.4em] uppercase">TRANSMISSION_PAYLOAD</label>
                   <textarea
-                    className="w-full bg-white/5 border border-white/10 rounded-xl p-5 font-mono text-sm text-white focus:outline-none focus:border-primary/50 transition-all h-40 resize-none placeholder:text-white/10"
+                    className="w-full bg-white/[0.02] border border-white/5 rounded-xl p-5 font-mono text-sm text-white focus:outline-none focus:border-primary/30 transition-all h-36 resize-none placeholder:text-white/10 focus:bg-primary/[0.01]"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="DESCRIBE_PROJECT_SCOPE..."
@@ -154,9 +154,9 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full py-5 bg-primary text-black font-mono text-xs font-bold tracking-[0.5em] rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,136,0.2)] disabled:opacity-50 uppercase"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="w-full py-5 bg-primary text-black font-mono text-xs font-bold tracking-[0.4em] rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(242,123,80,0.2)] disabled:opacity-50 uppercase"
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
               >
                 {status === "sending" ? "TRANSMITTING..." : "EXECUTE_CONNECT"}
               </motion.button>

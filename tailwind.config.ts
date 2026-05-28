@@ -9,18 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        obsidian: "#0A0A0A",
-        terminal: "#00FF41",
-        neural: "#7C3AED",
-        amber: "#F59E0B",
+        obsidian: "#0e0d0b",
+        terminal: "var(--color-primary)",
+        neural: "var(--color-secondary)",
+        amber: "var(--color-accent)",
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
         accent: "var(--color-accent)",
         base: "var(--color-base)",
       },
       fontFamily: {
-        mono: ["var(--font-mono)", "JetBrains Mono", "SF Mono", "Monaco", "Cascadia Code", "Fira Code", "monospace"],
-        sans: ["var(--font-sans)", "Inter", "SF Pro Display", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "sans-serif"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "SF Mono", "monospace"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Space Grotesk", "sans-serif"],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.05em' }],
@@ -50,8 +51,8 @@ const config: Config = {
           "to": { width: "100%" },
         },
         glow: {
-          "0%": { boxShadow: "0 0 5px #00FF41, 0 0 10px #00FF41" },
-          "100%": { boxShadow: "0 0 10px #00FF41, 0 0 20px #00FF41, 0 0 30px #00FF41" },
+          "0%": { boxShadow: "0 0 5px var(--color-primary), 0 0 10px var(--color-primary)" },
+          "100%": { boxShadow: "0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-primary)" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-1000px 0" },

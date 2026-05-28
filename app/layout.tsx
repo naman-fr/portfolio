@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Inter } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { DisplayModeProvider } from "../contexts/DisplayModeContext";
 
@@ -10,9 +10,16 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],
 });
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
@@ -37,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${jetbrainsMono.variable} ${inter.variable} font-sans bg-obsidian text-white antialiased overflow-x-hidden`}>
+      <body className={`${jetbrainsMono.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} font-sans bg-obsidian text-white antialiased overflow-x-hidden`}>
         <DisplayModeProvider>
           <SidebarNav />
           {children}

@@ -26,7 +26,7 @@ export default function Achievements() {
       <div className="max-w-7xl mx-auto">
         <header className="mb-24 space-y-4 text-center md:text-left">
           <span className="text-primary font-mono text-sm tracking-[0.4em] uppercase">[ 05:_HONOR_LOGS ]</span>
-          <h2 className="text-huge font-bold leading-none tracking-tighter uppercase text-white">ACHIEVEMENTS</h2>
+          <h2 className="text-large font-bold text-white tracking-tighter uppercase">ACHIEVEMENTS</h2>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -37,26 +37,27 @@ export default function Achievements() {
               <motion.div
                 key={achievement.title}
                 className="group relative h-full"
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.8, ease: "backOut" }}
               >
                 {/* Node Structure */}
-                <div className="glass-premium rounded-3xl p-10 h-full border border-white/5 flex flex-col items-center text-center group-hover:border-primary/20 transition-all duration-500 overflow-hidden">
+                <div className="glass-premium rounded-[2rem] p-10 h-full border border-white/5 flex flex-col items-center text-center group-hover:border-primary/20 hover:shadow-[0_0_20px_rgba(242,123,80,0.04)] transition-all duration-500 overflow-hidden">
+                  
                   {/* Icon Node */}
                   <div className="relative mb-8">
-                    <div className="w-20 h-20 rounded-full border border-primary/20 flex items-center justify-center bg-primary/5 group-hover:bg-primary/10 transition-colors duration-500">
-                      <Icon className="w-10 h-10 text-primary" />
+                    <div className="w-20 h-20 rounded-full border border-primary/10 flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5 group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-500">
+                      <Icon className="w-9 h-9 text-primary" />
                     </div>
                     {/* Pulsing Outer Ring */}
-                    <div className="absolute inset-[-10px] rounded-full border border-primary/10 group-hover:border-primary/30 animate-ping opacity-20" />
+                    <div className="absolute inset-[-8px] rounded-full border border-primary/5 group-hover:border-primary/20 animate-ping opacity-25" />
                   </div>
 
                   <div className="space-y-4 flex-1">
-                    <h3 className="text-2xl font-bold text-white tracking-tight uppercase group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-display font-bold text-white tracking-tight uppercase group-hover:text-primary transition-colors">
                       {achievement.title}
                     </h3>
-                    <p className="text-gray-500 text-sm font-mono leading-relaxed max-w-[280px]">
+                    <p className="text-gray-400 text-sm font-sans leading-relaxed max-w-[280px] font-light">
                       {achievement.description}
                     </p>
                   </div>
@@ -68,7 +69,7 @@ export default function Achievements() {
                           initial={{ width: 0 }}
                           animate={isInView ? { width: "100%" } : {}}
                           transition={{ duration: 2, delay: 0.5 }}
-                          className="h-full bg-gradient-to-r from-primary/20 to-primary shadow-[0_0_10px_rgba(0,255,136,0.5)]"
+                          className="h-full bg-gradient-to-r from-primary/30 to-primary shadow-[0_0_8px_var(--color-primary)]"
                         />
                       </div>
                       <Counter
@@ -81,8 +82,8 @@ export default function Achievements() {
                 </div>
 
                 {/* Index Decoration */}
-                <div className="absolute top-4 right-6 font-mono text-[10px] text-white/10 italic">
-                  LOG_IDX_{index}
+                <div className="absolute top-4 right-6 font-mono text-[9px] text-white/10 select-none">
+                  ACH_LOG_{index}
                 </div>
               </motion.div>
             );
@@ -119,8 +120,8 @@ function Counter({ value, suffix, isInView }: { value: string; suffix: string; i
   }, [isInView, target]);
 
   return (
-    <div className="text-4xl font-bold text-white tracking-tighter">
-      {count}<span className="text-primary">{suffix}</span>
+    <div className="text-4xl font-display font-bold text-white tracking-tighter">
+      {count}<span className="text-primary font-sans">{suffix}</span>
     </div>
   );
 }

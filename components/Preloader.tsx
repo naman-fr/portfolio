@@ -39,7 +39,7 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-[10000] bg-[#0a0a0a] flex flex-col items-center justify-center font-mono"
+          className="fixed inset-0 z-[10000] bg-[#0e0d0b] flex flex-col items-center justify-center font-mono"
         >
           <div className="relative w-64 h-1 bg-white/5 rounded-full overflow-hidden mb-8">
             <motion.div
@@ -63,14 +63,14 @@ export default function Preloader() {
             </div>
           </div>
 
-          {/* Glitch Overlay Effect */}
+          {/* Glow Overlay Effect */}
           <motion.div
             className="absolute inset-0 pointer-events-none opacity-20"
             animate={{
               background: [
-                "radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0) 0%, transparent 100%)",
-                "radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 100%)",
-                "radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0) 0%, transparent 100%)",
+                "radial-gradient(circle at 50% 50%, rgba(242, 123, 80, 0) 0%, transparent 100%)",
+                "radial-gradient(circle at 50% 50%, rgba(242, 123, 80, 0.08) 0%, transparent 100%)",
+                "radial-gradient(circle at 50% 50%, rgba(242, 123, 80, 0) 0%, transparent 100%)",
               ],
             }}
             transition={{ duration: 0.5, repeat: Infinity }}
