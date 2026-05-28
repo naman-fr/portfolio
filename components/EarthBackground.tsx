@@ -177,7 +177,7 @@ export default function EarthBackground() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,_rgba(242,123,80,0.06),_transparent_75%)]" />
       <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[radial-gradient(circle_at_center,_rgba(223,199,179,0.03),_transparent_70%)] rounded-full filter blur-3xl pointer-events-none" />
       
-      <Canvas eventSource={typeof window !== "undefined" ? document.getElementById("hero") || undefined : undefined}>
+      <Canvas>
         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
         
         <ambientLight intensity={0.6} />
