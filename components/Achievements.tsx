@@ -14,7 +14,7 @@ const iconMap: Record<string, any> = {
   award: Award,
 };
 
-function AchievementCard({ achievement, index, isFeatured, isInView }: { achievement: any; index: number; isFeatured: boolean; isInView: boolean }) {
+function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }: { achievement: any; index: number; isFeatured: boolean; isInView: boolean; isMobile: boolean }) {
   const Icon = iconMap[achievement.icon] || Trophy;
   const [isHovered, setIsHovered] = useState(false);
 
@@ -49,8 +49,10 @@ function AchievementCard({ achievement, index, isFeatured, isInView }: { achieve
   const currentTheme = themeGradients[index % themeGradients.length];
 
   // Rotate directions for fanning out
-  const rot1 = index % 2 === 0 ? -4 : 4;
-  const rot2 = index % 2 === 0 ? 2 : -2;
+  const rot1 = isMobile ? 0 : (index % 2 === 0 ? -4 : 4);
+  const rot2 = isMobile ? 0 : (index % 2 === 0 ? 2 : -2);
+  const shift1 = isMobile ? -14 : -26;
+  const shift2 = isMobile ? -7 : -13;
 
   return (
     <div
@@ -62,7 +64,7 @@ function AchievementCard({ achievement, index, isFeatured, isInView }: { achieve
       
       {/* Deepest card layer */}
       <motion.div
-        animate={isHovered ? { y: -26, scale: 0.94, opacity: 0.5, rotate: rot1 } : { y: 0, scale: 0.98, opacity: 0, rotate: 0 }}
+        animate={isHovered ? { y: shift1, scale: 0.94, opacity: 0.5, rotate: rot1 } : { y: 0, scale: 0.98, opacity: 0, rotate: 0 }}
         transition={{ type: "spring", stiffness: 180, damping: 15 }}
         className="absolute inset-0 w-full h-full rounded-[2.2rem] border border-white/5 bg-[#0c0b0a]/90 pointer-events-none z-0 shadow-lg"
       >
@@ -73,7 +75,7 @@ function AchievementCard({ achievement, index, isFeatured, isInView }: { achieve
 
       {/* Middle card layer */}
       <motion.div
-        animate={isHovered ? { y: -13, scale: 0.97, opacity: 0.8, rotate: rot2 } : { y: 0, scale: 0.99, opacity: 0, rotate: 0 }}
+        animate={isHovered ? { y: shift2, scale: 0.97, opacity: 0.8, rotate: rot2 } : { y: 0, scale: 0.99, opacity: 0, rotate: 0 }}
         transition={{ type: "spring", stiffness: 180, damping: 15 }}
         className="absolute inset-0 w-full h-full rounded-[2.2rem] border border-white/5 bg-[#0c0b0a]/90 pointer-events-none z-10 shadow-md"
       >
@@ -160,6 +162,14 @@ function AchievementCard({ achievement, index, isFeatured, isInView }: { achieve
 export default function Achievements() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { margin: "-100px", once: false });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <section
@@ -191,6 +201,7 @@ export default function Achievements() {
                   index={index}
                   isFeatured={isFeatured}
                   isInView={isInView}
+                  isMobile={isMobile}
                 />
               </motion.div>
             );

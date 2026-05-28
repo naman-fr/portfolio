@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, Suspense } from "react";
+import { useRef, Suspense, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, TorusKnot, PerspectiveCamera } from "@react-three/drei";
 import { motion } from "framer-motion";
@@ -78,6 +78,21 @@ function StaggeredText({ text, className, isOutline = false }: { text: string; c
 }
 
 export default function HeroV2() {
+  const [cameraZ, setCameraZ] = useState(5.5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCameraZ(7.5);
+      } else {
+        setCameraZ(5.5);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const scrollToProjects = () => {
     const element = document.getElementById("projects");
     if (element) {
@@ -97,7 +112,7 @@ export default function HeroV2() {
       {/* 3D Scene */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, 5.5]} />
+          <PerspectiveCamera makeDefault position={[0, 0, cameraZ]} />
           <ambientLight intensity={0.7} />
           <pointLight position={[10, 10, 10]} intensity={1.5} color="#f27b50" />
           <pointLight position={[-10, -10, -10]} intensity={0.8} color="#dfc7b3" />
@@ -130,9 +145,9 @@ export default function HeroV2() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 1.2, type: "spring", stiffness: 100 }}
-              className="inline-block px-8 py-3.5 rounded-full border border-primary/20 bg-[#0c0b0a]/30 backdrop-blur-md shadow-[0_0_25px_rgba(242,123,80,0.06)]"
+              className="inline-block px-4 sm:px-8 py-3 sm:py-3.5 rounded-2xl sm:rounded-full border border-primary/20 bg-[#0c0b0a]/30 backdrop-blur-md shadow-[0_0_25px_rgba(242,123,80,0.06)]"
             >
-              <p className="text-xs md:text-sm font-sans tracking-[0.16em] uppercase font-bold bg-gradient-to-r from-primary via-cream to-accent bg-clip-text text-transparent">
+              <p className="text-xs md:text-sm font-sans tracking-[0.08em] sm:tracking-[0.16em] uppercase font-bold bg-gradient-to-r from-primary via-cream to-accent bg-clip-text text-transparent">
                 {resumeData.profile.tagline.toUpperCase()}
               </p>
             </motion.div>

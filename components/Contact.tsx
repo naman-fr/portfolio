@@ -74,7 +74,7 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Info Side */}
-            <div className="p-12 lg:p-16 border-r border-white/5 bg-white/[0.005]">
+            <div className="p-6 sm:p-12 lg:p-16 border-b md:border-b-0 md:border-r border-white/5 bg-white/[0.005]">
               <div className="mb-16">
                 <motion.h2 
                   initial="hidden"
@@ -144,7 +144,7 @@ export default function Contact() {
             </div>
 
             {/* Form Side */}
-            <form onSubmit={handleSubmit} className="p-12 lg:p-16 space-y-8 bg-white/[0.01]">
+            <form onSubmit={handleSubmit} className="p-6 sm:p-12 lg:p-16 space-y-8 bg-white/[0.01]">
               <div className="space-y-6">
                 {[
                   { label: "USER_IDENTIFIER", placeholder: "ENTER_NAME", type: "text", key: "name" },

@@ -33,7 +33,7 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Node Marker in Center Line */}
-      <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
+      <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-10 md:top-1/2 md:-translate-y-1/2 z-20 flex items-center justify-center">
         {/* Pulsating Ring */}
         <motion.div
           animate={isInView ? { scale: [1, 1.4, 1], opacity: [0.3, 0.7, 0.3] } : {}}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { resumeData } from "../data/resume";
 import { ExternalLink, Award, ShieldCheck, Zap, Cloud, Trophy, ChevronLeft, ChevronRight } from "lucide-react";
@@ -15,6 +15,15 @@ const iconMap: Record<string, any> = {
 
 export default function Certifications() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const items = resumeData.certifications;
 
   const handlePrev = () => {
@@ -56,10 +65,10 @@ export default function Certifications() {
               if (absOffset > 2) return null;
 
               // Compute translations
-              const xTranslation = offset * 260; // Spread distance on desktop
-              const zTranslation = -absOffset * 150; // Push back on Z axis
+              const xTranslation = isMobile ? offset * 90 : offset * 260; // Spread distance
+              const zTranslation = isMobile ? -absOffset * 80 : -absOffset * 150; // Push back on Z axis (reduced on mobile)
               const rotateYAngle = offset * -25; // Tilt inwards
-              const scaleValue = 1 - absOffset * 0.12;
+              const scaleValue = isMobile ? (1 - absOffset * 0.15) : (1 - absOffset * 0.12);
 
               return (
                 <motion.div
@@ -76,7 +85,7 @@ export default function Certifications() {
                   exit={{ opacity: 0, scale: 0.7 }}
                   transition={{ type: "spring", stiffness: 140, damping: 18 }}
                   onClick={() => setActiveIndex(i)}
-                  className={`absolute w-[340px] sm:w-[440px] md:w-[480px] h-full cursor-pointer rounded-[2.2rem] p-6 sm:p-8 md:p-10 flex gap-4 sm:gap-6 border transition-all duration-500 overflow-hidden bg-[#0c0b0a]/95 glass-premium ${
+                  className={`absolute w-[290px] min-[375px]:w-[330px] sm:w-[440px] md:w-[480px] h-full cursor-pointer rounded-[2.2rem] p-6 sm:p-8 md:p-10 flex gap-4 sm:gap-6 border transition-all duration-500 overflow-hidden bg-[#0c0b0a]/95 glass-premium ${
                     isActive 
                       ? "border-primary/30 shadow-[0_20px_50px_rgba(242,123,80,0.15)]" 
                       : "border-white/5 opacity-55 hover:opacity-80"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo, Suspense } from "react";
+import { useRef, useMemo, Suspense, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
@@ -200,6 +200,24 @@ function PulsePacket({ curve, speed, offset, color }: { curve: THREE.QuadraticBe
 }
 
 export default function EarthBackground() {
+  const [cameraZ, setCameraZ] = useState(8);
+  const [groupPos, setGroupPos] = useState<[number, number, number]>([0, -0.5, 0]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCameraZ(9.5);
+        setGroupPos([0, -1.6, 0]);
+      } else {
+        setCameraZ(8);
+        setGroupPos([0, -0.5, 0]);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="fixed inset-0 w-screen h-screen z-0 pointer-events-none overflow-hidden bg-[#0e0d0b]">
       {/* Dynamic warm spotlight background ambient glow */}
@@ -207,7 +225,7 @@ export default function EarthBackground() {
       <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[radial-gradient(circle_at_center,_rgba(223,199,179,0.03),_transparent_70%)] rounded-full filter blur-3xl pointer-events-none" />
       
       <Canvas>
-        <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
+        <PerspectiveCamera makeDefault position={[0, 0, cameraZ]} fov={45} />
         
         <ambientLight intensity={0.65} />
         <pointLight position={[10, 10, 10]} intensity={1.5} color="#dfc7b3" />
@@ -215,7 +233,7 @@ export default function EarthBackground() {
 
         <Suspense fallback={null}>
           {/* We position the Globe slightly off-center and lower for better layout balance */}
-          <group position={[0, -0.5, 0]}>
+          <group position={groupPos}>
             <GlobeNetwork radius={3.2} />
           </group>
         </Suspense>

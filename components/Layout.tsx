@@ -59,11 +59,11 @@ export default function Layout({ children }: LayoutProps) {
 
         {/* Minimal Floating Nav Dock */}
         <motion.nav
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="fixed top-8 left-1/2 -translate-x-1/2 z-[100]"
+          className="fixed bottom-6 md:bottom-auto md:top-8 left-1/2 -translate-x-1/2 z-[100] w-[92vw] md:w-auto max-w-[440px] md:max-w-none"
         >
-          <div className="relative flex items-center gap-4 px-6 py-2.5 rounded-full bg-[#0a0908]/40 border border-white/5 backdrop-blur-md text-[9px] font-sans tracking-[0.2em] uppercase text-[#dfc7b3]">
+          <div className="relative flex items-center justify-around md:justify-start gap-1 md:gap-4 px-3 md:px-6 py-2.5 rounded-full bg-[#0a0908]/60 md:bg-[#0a0908]/40 border border-white/5 backdrop-blur-md text-[8px] md:text-[9px] font-sans tracking-[0.1em] md:tracking-[0.2em] uppercase text-[#dfc7b3] w-full md:w-auto">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -74,7 +74,7 @@ export default function Layout({ children }: LayoutProps) {
                     e.preventDefault();
                     document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className={`relative px-3 py-1.5 rounded-full transition-colors duration-300 hover:text-white ${isActive ? "text-primary font-bold" : "text-[#dfc7b3]/70"}`}
+                  className={`relative px-2 md:px-3 py-1.5 rounded-full transition-colors duration-300 hover:text-white ${isActive ? "text-primary font-bold" : "text-[#dfc7b3]/70"}`}
                 >
                   {isActive && (
                     <motion.div

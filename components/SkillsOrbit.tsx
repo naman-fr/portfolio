@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Text, Sphere, MeshDistortMaterial, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
@@ -77,11 +77,26 @@ const skills = [
 ].map(s => s.toUpperCase());
 
 export default function SkillsOrbit() {
+  const [cameraZ, setCameraZ] = useState(9.5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCameraZ(13.5);
+      } else {
+        setCameraZ(9.5);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section id="skills" className="h-screen py-32 bg-transparent relative overflow-hidden z-10">
       <div className="absolute inset-0 z-0">
         <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, 9.5]} />
+          <PerspectiveCamera makeDefault position={[0, 0, cameraZ]} />
           <ambientLight intensity={0.6} />
           <pointLight position={[10, 10, 10]} intensity={1.5} color="#f27b50" />
           <pointLight position={[-10, -10, -10]} intensity={1.0} color="#dfc7b3" />

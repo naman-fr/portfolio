@@ -24,9 +24,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   overflow-x: hidden;
   background-color: var(--color-base);
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
 }
 
 @layer base {
@@ -181,10 +186,15 @@ html {
 }
 
 .section-snap {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   min-height: 100vh;
   position: relative;
+}
+
+@media (min-width: 1024px) {
+  .section-snap {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 /* Warm Background Glows */
