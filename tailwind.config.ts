@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        obsidian: "#0e0d0b",
+        obsidian: "#0a0908",
         terminal: "var(--color-primary)",
         neural: "var(--color-secondary)",
         amber: "var(--color-accent)",
@@ -17,6 +17,11 @@ const config: Config = {
         secondary: "var(--color-secondary)",
         accent: "var(--color-accent)",
         base: "var(--color-base)",
+        terracotta: "var(--color-terracotta)",
+        cream: "var(--color-cream)",
+        emerald: "var(--color-emerald)",
+        copper: "var(--color-copper)",
+        sand: "var(--color-sand)",
       },
       fontFamily: {
         mono: ["var(--font-mono)", "JetBrains Mono", "SF Mono", "monospace"],

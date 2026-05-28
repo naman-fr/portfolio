@@ -31,6 +31,7 @@ interface ArcData {
   points: THREE.Vector3[];
   speed: number;
   offset: number;
+  color: string;
 }
 
 function GlobeNetwork({ radius }: { radius: number }) {
@@ -41,11 +42,30 @@ function GlobeNetwork({ radius }: { radius: number }) {
   const particleCount = 1200;
   const positions = useMemo(() => generateSpherePoints(particleCount, radius), [radius]);
 
+  // Generate colors attribute array (beige, coral, copper, cream)
+  const colors = useMemo(() => {
+    const arr = new Float32Array(particleCount * 3);
+    const colorOptions = [
+      new THREE.Color("#dfc7b3"), // Beige
+      new THREE.Color("#f27b50"), // Coral
+      new THREE.Color("#c9a080"), // Copper
+      new THREE.Color("#faf5ef"), // Cream
+    ];
+    for (let i = 0; i < particleCount; i++) {
+      const col = colorOptions[Math.floor(Math.random() * colorOptions.length)];
+      arr[i * 3] = col.r;
+      arr[i * 3 + 1] = col.g;
+      arr[i * 3 + 2] = col.b;
+    }
+    return arr;
+  }, [particleCount]);
+
   // Generate connection arcs between random points on the sphere
-  const arcCount = 12;
+  const arcCount = 15;
   const arcs = useMemo(() => {
     const generatedArcs: ArcData[] = [];
     const pointsArr: THREE.Vector3[] = [];
+    const colorsList = ["#f27b50", "#c9a080", "#dfc7b3"];
 
     // Map float array back to Vector3s
     for (let i = 0; i < particleCount; i++) {
@@ -72,19 +92,24 @@ function GlobeNetwork({ radius }: { radius: number }) {
       generatedArcs.push({
         curve,
         points: curve.getPoints(30),
-        speed: 0.2 + Math.random() * 0.4,
+        speed: 0.15 + Math.random() * 0.3,
         offset: Math.random() * 100,
+        color: colorsList[i % colorsList.length],
       });
     }
     return generatedArcs;
   }, [positions, radius]);
 
-  // Animate rotation of the globe
+  // Animate rotation of the globe with smooth cursor sway tracking (Parallax)
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
+    const targetX = state.pointer.y * 0.18;
+    const targetY = state.pointer.x * 0.18;
+    
     if (groupRef.current) {
-      groupRef.current.rotation.y = time * 0.04;
-      groupRef.current.rotation.x = Math.sin(time * 0.02) * 0.05;
+      groupRef.current.rotation.y += (targetY - groupRef.current.rotation.y) * 0.05;
+      groupRef.current.rotation.x += (targetX - groupRef.current.rotation.x) * 0.05;
+      groupRef.current.rotation.y += 0.001; // Continuous base rotation speed
     }
   });
 
@@ -97,12 +122,16 @@ function GlobeNetwork({ radius }: { radius: number }) {
             attach="attributes-position"
             args={[positions, 3]}
           />
+          <bufferAttribute
+            attach="attributes-color"
+            args={[colors, 3]}
+          />
         </bufferGeometry>
         <pointsMaterial
-          size={0.04}
-          color="#dfc7b3" // Beige secondary color
+          size={0.045}
+          vertexColors={true}
           transparent
-          opacity={0.45}
+          opacity={0.5}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -111,11 +140,11 @@ function GlobeNetwork({ radius }: { radius: number }) {
       {/* Network Rings */}
       <mesh rotation={[Math.PI / 2.5, 0, 0]}>
         <ringGeometry args={[radius * 1.05, radius * 1.055, 64]} />
-        <meshBasicMaterial color="#c9a080" transparent opacity={0.1} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#c9a080" transparent opacity={0.08} side={THREE.DoubleSide} />
       </mesh>
       <mesh rotation={[-Math.PI / 3, Math.PI / 4, 0]}>
         <ringGeometry args={[radius * 1.08, radius * 1.085, 64]} />
-        <meshBasicMaterial color="#dfc7b3" transparent opacity={0.05} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#dfc7b3" transparent opacity={0.04} side={THREE.DoubleSide} />
       </mesh>
 
       {/* Connection Arcs & Pulse Points */}
@@ -133,15 +162,15 @@ function GlobeNetwork({ radius }: { radius: number }) {
               />
             </bufferGeometry>
             <lineBasicMaterial
-              color="#f27b50" // Coral primary color
+              color={arc.color}
               transparent
-              opacity={0.2}
+              opacity={0.15}
               linewidth={1}
             />
           </line>
           
           {/* Animated Glowing Packet */}
-          <PulsePacket curve={arc.curve} speed={arc.speed} offset={arc.offset} />
+          <PulsePacket curve={arc.curve} speed={arc.speed} offset={arc.offset} color={arc.color} />
         </group>
       ))}
     </group>
@@ -149,7 +178,7 @@ function GlobeNetwork({ radius }: { radius: number }) {
 }
 
 // Subcomponent to animate a packet flowing along the arc path
-function PulsePacket({ curve, speed, offset }: { curve: THREE.QuadraticBezierCurve3; speed: number; offset: number }) {
+function PulsePacket({ curve, speed, offset, color }: { curve: THREE.QuadraticBezierCurve3; speed: number; offset: number; color: string }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -164,8 +193,8 @@ function PulsePacket({ curve, speed, offset }: { curve: THREE.QuadraticBezierCur
 
   return (
     <mesh ref={meshRef}>
-      <sphereGeometry args={[0.045, 8, 8]} />
-      <meshBasicMaterial color="#f27b50" toneMapped={false} />
+      <sphereGeometry args={[0.04, 8, 8]} />
+      <meshBasicMaterial color={color} toneMapped={false} />
     </mesh>
   );
 }
@@ -180,7 +209,7 @@ export default function EarthBackground() {
       <Canvas>
         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
         
-        <ambientLight intensity={0.6} />
+        <ambientLight intensity={0.65} />
         <pointLight position={[10, 10, 10]} intensity={1.5} color="#dfc7b3" />
         <pointLight position={[-10, -10, -10]} intensity={0.5} color="#f27b50" />
 

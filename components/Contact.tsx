@@ -76,9 +76,33 @@ export default function Contact() {
             {/* Info Side */}
             <div className="p-12 lg:p-16 border-r border-white/5 bg-white/[0.005]">
               <div className="mb-16">
-                <h2 className="text-5xl lg:text-6xl font-display font-extrabold text-white mb-6 leading-none tracking-tighter uppercase">
-                  HELLO.
-                </h2>
+                <motion.h2 
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: { staggerChildren: 0.05 }
+                    }
+                  }}
+                  className="text-5xl lg:text-6xl font-display font-extrabold text-white mb-6 leading-none tracking-tighter uppercase flex"
+                >
+                  {Array.from("HELLO.").map((char, i) => (
+                    <motion.span
+                      key={i}
+                      variants={{
+                        hidden: { opacity: 0, y: 20, rotateX: -30 },
+                        visible: { opacity: 1, y: 0, rotateX: 0 }
+                      }}
+                      transition={{ type: "spring", stiffness: 120, damping: 10 }}
+                      style={{ display: "inline-block" }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </motion.h2>
                 <p className="text-primary font-mono text-[9px] uppercase tracking-[0.4em] opacity-60">
                   [ ESTABLISHING_HANDSHAKE ]
                 </p>

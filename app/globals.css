@@ -7,11 +7,19 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   
-  --color-base: #0e0d0b;
-  --color-primary: #f27b50;
-  --color-secondary: #dfc7b3;
-  --color-accent: #c9a080;
-  --color-glass: rgba(244, 235, 208, 0.02);
+  --color-base: #0a0908;
+  --color-coral: #e76f51;
+  --color-terracotta: #d94e34;
+  --color-beige: #e5d3c0;
+  --color-cream: #faf5ef;
+  --color-copper: #c38e70;
+  --color-emerald: #5a8c76;
+  --color-sand: #f4ebd0;
+  
+  --color-primary: var(--color-coral);
+  --color-secondary: var(--color-beige);
+  --color-accent: var(--color-copper);
+  --color-glass: rgba(229, 211, 192, 0.02);
 }
 
 html {
