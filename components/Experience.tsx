@@ -3,69 +3,104 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { resumeData } from "../data/resume";
-import { Briefcase, Calendar, ChevronRight, RefreshCw, Layers } from "lucide-react";
+import { Briefcase, Calendar, ChevronRight, Layers, ArrowUpRight } from "lucide-react";
 import ScrollRevealHeading from "./ScrollRevealHeading";
 
-function ExperienceCard({ exp, index }: { exp: any; index: number }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+function TimelineItem({ exp, index }: { exp: any; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isHovered, setIsHovered] = useState(false);
 
   // Determine a color gradient based on the visualTheme to avoid single-color look
-  const themeColors: Record<string, string> = {
-    backend: "from-[#e76f51] to-[#c38e70]", // Coral to Copper
-    robotics: "from-[#c38e70] to-[#e5d3c0]", // Copper to Beige
-    radar: "from-[#d94e34] to-[#c38e70]", // Terracotta to Copper
-    circuit: "from-[#5a8c76] to-[#e5d3c0]", // Sage to Beige
-    network: "from-[#e76f51] to-[#5a8c76]", // Coral to Sage
+  const themeColors: Record<string, { accent: string; gradient: string; text: string; bg: string }> = {
+    backend: { accent: "#e76f51", gradient: "from-[#e76f51] to-[#c38e70]", text: "text-[#e76f51]", bg: "rgba(231,111,81,0.02)" },
+    robotics: { accent: "#c38e70", gradient: "from-[#c38e70] to-[#e5d3c0]", text: "text-[#c38e70]", bg: "rgba(195,142,112,0.02)" },
+    radar: { accent: "#d94e34", gradient: "from-[#d94e34] to-[#c38e70]", text: "text-[#d94e34]", bg: "rgba(217,78,52,0.02)" },
+    circuit: { accent: "#5a8c76", gradient: "from-[#5a8c76] to-[#e5d3c0]", text: "text-[#5a8c76]", bg: "rgba(90,140,118,0.02)" },
+    network: { accent: "#e76f51", gradient: "from-[#e76f51] to-[#5a8c76]", text: "text-[#e76f51]", bg: "rgba(231,111,81,0.02)" },
   };
 
-  const currentGradient = themeColors[exp.visualTheme] || "from-primary to-accent";
+  const theme = themeColors[exp.visualTheme] || themeColors.backend;
+  const isEven = index % 2 === 0;
 
   return (
     <div
-      className="h-[320px] w-full cursor-pointer relative"
-      style={{ perspective: 1500 }}
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-      onClick={() => setIsFlipped(!isFlipped)}
+      ref={ref}
+      className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-0 w-full min-h-[220px] select-none ${
+        isEven ? "md:flex-row-reverse" : "md:flex-row"
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
+      {/* Node Marker in Center Line */}
+      <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
+        {/* Pulsating Ring */}
+        <motion.div
+          animate={isInView ? { scale: [1, 1.4, 1], opacity: [0.3, 0.7, 0.3] } : {}}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute w-8 h-8 rounded-full border opacity-30"
+          style={{ borderColor: theme.accent }}
+        />
+        {/* Core Dot */}
+        <motion.div
+          animate={isInView ? { scale: 1 } : { scale: 0 }}
+          transition={{ type: "spring", stiffness: 150, delay: 0.1 }}
+          className="w-4 h-4 rounded-full border-2 bg-[#0e0d0b]"
+          style={{ borderColor: theme.accent }}
+        />
+      </div>
+
+      {/* Experience Detail Card */}
       <motion.div
-        style={{
-          transformStyle: "preserve-3d",
-        }}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full h-full relative"
+        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.15 }}
+        className={`w-full md:w-[45%] pl-16 md:pl-0 ${isEven ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"}`}
       >
-        {/* FRONT SIDE */}
-        <div
-          className="absolute inset-0 w-full h-full p-8 rounded-[2.2rem] glass-premium border border-white/5 flex flex-col justify-between overflow-hidden bg-[#0c0b0a]/80"
-          style={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
+        <motion.div
+          animate={isHovered ? { scale: 1.025, y: -2 } : { scale: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 18 }}
+          className={`group relative p-8 rounded-[2.2rem] glass-premium border border-white/5 transition-all duration-500 overflow-hidden bg-[#0c0b0a]/90 hover:border-primary/20`}
         >
-          {/* Subtle colored spotlight in the corner */}
-          <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${currentGradient} opacity-[0.04] blur-xl pointer-events-none`} />
+          {/* Card Hover Spotlight glow */}
+          <div
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+            style={{
+              background: `radial-gradient(280px circle at 50% 50%, ${theme.accent}0d, transparent 80%)`,
+            }}
+          />
 
-          <div className="space-y-4" style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}>
-            <div className="flex items-center justify-between" style={{ transform: "translateZ(20px)" }}>
-              <div className="flex items-center gap-1.5 text-primary font-mono text-[9px] tracking-widest font-bold bg-primary/5 border border-primary/10 px-3 py-1 rounded-full">
-                <Calendar className="w-3.5 h-3.5" />
-                <span>{exp.timeline}</span>
+          <div className={`space-y-4 flex flex-col ${isEven ? "md:items-end" : "md:items-start"}`}>
+            <div className="flex items-center gap-1.5 text-primary font-mono text-[9px] tracking-widest font-bold bg-primary/5 border border-primary/10 px-3 py-1 rounded-full w-fit">
+              <Calendar className="w-3.5 h-3.5" />
+              <span>{exp.timeline}</span>
+            </div>
+
+            <div className="space-y-1">
+              <h3 className="text-2xl font-display font-extrabold text-white tracking-tight uppercase leading-tight group-hover:text-primary transition-colors flex items-center gap-2">
+                {exp.company}
+                <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-40 transition-opacity" />
+              </h3>
+              <div className="flex items-center gap-2 text-xs font-mono text-[#dfc7b3]/70 justify-start">
+                <Briefcase className="w-3.5 h-3.5 text-primary/70" style={{ color: theme.accent }} />
+                <span className="uppercase tracking-widest">{exp.role}</span>
               </div>
-              <RefreshCw className="w-3.5 h-3.5 text-white/20 animate-spin-slow" />
             </div>
 
-            <h3 className="text-2xl font-display font-extrabold text-white tracking-tight uppercase leading-tight mt-2" style={{ transform: "translateZ(30px)" }}>
-              {exp.company}
-            </h3>
+            {/* Achievements Bullet outcomes */}
+            <ul className={`space-y-2.5 w-full ${isEven ? "md:text-right" : "md:text-left"}`}>
+              {exp.achievements.map((achievement: string, i: number) => (
+                <li key={i} className={`flex items-start gap-2.5 ${isEven ? "md:flex-row-reverse" : "md:flex-row"}`}>
+                  <ChevronRight className="w-3.5 h-3.5 mt-0.5 text-primary flex-shrink-0" style={{ color: theme.accent }} />
+                  <p className="text-gray-300 leading-relaxed text-xs font-light">
+                    {achievement}
+                  </p>
+                </li>
+              ))}
+            </ul>
 
-            <div className="flex items-center gap-2 text-xs font-mono text-[#dfc7b3]/70" style={{ transform: "translateZ(25px)" }}>
-              <Briefcase className="w-3.5 h-3.5 text-primary/70" style={{ color: exp.visualTheme === 'backend' ? '#e76f51' : undefined }} />
-              <span className="uppercase tracking-widest">{exp.role}</span>
-            </div>
-          </div>
-
-          <div style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}>
-            {/* Tech Badges Footer - color matched to experience type */}
-            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5" style={{ transform: "translateZ(10px)" }}>
+            {/* Tech Badges */}
+            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5 w-full">
               {exp.tech.map((tech: string) => (
                 <span
                   key={tech}
@@ -75,65 +110,20 @@ function ExperienceCard({ exp, index }: { exp: any; index: number }) {
                 </span>
               ))}
             </div>
-
-            {/* Tap/Hover instruction */}
-            <span className="text-[8px] font-mono text-white/20 tracking-wider block mt-4 uppercase animate-pulse" style={{ transform: "translateZ(15px)" }}>
-              Hover / tap to inspect outcomes ➜
-            </span>
           </div>
-        </div>
+        </motion.div>
+      </motion.div>
 
-        {/* BACK SIDE */}
-        <div
-          className="absolute inset-0 w-full h-full p-8 rounded-[2.2rem] glass-premium border border-primary/20 overflow-hidden bg-[#0c0b0a]/90 flex flex-col justify-between"
-          style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-            transformStyle: "preserve-3d",
-          }}
-        >
-          {/* Infinite marquee overlay in the background */}
-          <div className="absolute top-1/2 left-0 w-full overflow-hidden opacity-[0.02] select-none pointer-events-none">
-            <motion.div
-              initial={{ x: 0 }}
-              animate={{ x: "-50%" }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 16 }}
-              className="flex whitespace-nowrap gap-8 text-[40px] font-display font-extrabold tracking-widest uppercase text-primary"
-            >
-              <span>OUTCOMES_DELIVERED // SECURE_LEVEL_CHECK_OK // </span>
-              <span>OUTCOMES_DELIVERED // SECURE_LEVEL_CHECK_OK // </span>
-            </motion.div>
-          </div>
-
-          <div className="z-10 flex-1 flex flex-col justify-center" style={{ transform: "translateZ(60px)", transformStyle: "preserve-3d" }}>
-            <div className="flex items-center gap-2 mb-4" style={{ transform: "translateZ(15px)" }}>
-              <Layers className="w-3.5 h-3.5 text-primary" />
-              <span className="text-[9px] font-mono text-primary tracking-widest uppercase block">
-                Achievements log
-              </span>
-            </div>
-            
-            <ul className="space-y-3 overflow-y-auto max-h-[170px] pr-2 scrollbar-thin" style={{ transform: "translateZ(25px)" }}>
-              {exp.achievements.map((achievement: string, i: number) => (
-                <li key={i} className="flex items-start gap-2.5">
-                  <ChevronRight className="w-3.5 h-3.5 mt-0.5 text-primary flex-shrink-0" />
-                  <p className="text-gray-300 leading-relaxed text-xs font-light">
-                    {achievement}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="pt-3 border-t border-white/5 flex items-center justify-between z-10" style={{ transform: "translateZ(30px)" }}>
-            <span className="font-mono text-[7px] text-white/20 select-none">
-              SYS_TELEMETRY: [EXP_0{index + 1}]
-            </span>
-            <span className="text-[8px] font-mono text-primary uppercase tracking-widest animate-pulse">
-              Return ➜
-            </span>
-          </div>
-        </div>
+      {/* Date Marker Floating on opposite side (Desktop Only) */}
+      <motion.div
+        initial={{ opacity: 0, x: isEven ? -40 : 40 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.2 }}
+        className={`hidden md:block w-[45%] text-[#dfc7b3]/50 font-mono text-[10px] uppercase tracking-widest ${
+          isEven ? "pl-16 text-left" : "pr-16 text-right"
+        }`}
+      >
+        <span>SECURE_SESSION_LOG: [EXP_0{index + 1}]</span>
       </motion.div>
     </div>
   );
@@ -152,17 +142,17 @@ export default function Experience() {
       <div className="max-w-7xl mx-auto">
         <ScrollRevealHeading label="[ 03:_CAREER_LOGS ]" title="HISTORY" />
 
-        {/* Dynamic Card Flip Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Scroll Timeline Container */}
+        <div className="relative w-full space-y-16 md:space-y-24 mt-16 overflow-visible">
+          {/* Vertical Timeline Track Line */}
+          <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 bottom-4 w-[1px] pointer-events-none bg-gradient-to-b from-[#e76f51] via-[#c38e70]/30 to-transparent" />
+
           {resumeData.experience.map((exp, index) => (
-            <motion.div
+            <TimelineItem
               key={exp.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-            >
-              <ExperienceCard exp={exp} index={index} />
-            </motion.div>
+              exp={exp}
+              index={index}
+            />
           ))}
         </div>
       </div>

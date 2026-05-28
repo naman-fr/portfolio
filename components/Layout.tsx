@@ -6,6 +6,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import CustomCursor from "./CustomCursor";
 import Preloader from "./Preloader";
 import EarthBackground from "./EarthBackground";
+import CornerHUD from "./CornerHUD";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -48,6 +49,7 @@ export default function Layout({ children }: LayoutProps) {
       <Preloader />
       <div className="relative min-h-screen bg-transparent selection:bg-primary selection:text-black">
         <EarthBackground />
+        <CornerHUD />
         <div className="noise-overlay" />
         <CustomCursor />
         

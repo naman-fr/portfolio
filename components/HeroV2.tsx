@@ -125,16 +125,17 @@ export default function HeroV2() {
               <StaggeredText text="GAUTAM" className="block mt-1" isOutline={true} />
             </h1>
           </div>
-          
           <div className="max-w-2xl mx-auto space-y-8">
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 1.2 }}
-              className="text-sm md:text-base font-sans text-gray-400 tracking-wide uppercase leading-relaxed font-light"
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 1.2, type: "spring", stiffness: 100 }}
+              className="inline-block px-8 py-3.5 rounded-full border border-primary/20 bg-[#0c0b0a]/30 backdrop-blur-md shadow-[0_0_25px_rgba(242,123,80,0.06)]"
             >
-              {resumeData.profile.tagline.toUpperCase()}
-            </motion.p>
+              <p className="text-xs md:text-sm font-sans tracking-[0.16em] uppercase font-bold bg-gradient-to-r from-primary via-cream to-accent bg-clip-text text-transparent">
+                {resumeData.profile.tagline.toUpperCase()}
+              </p>
+            </motion.div>
             
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
