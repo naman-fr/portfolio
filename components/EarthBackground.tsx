@@ -66,7 +66,7 @@ function PokeModel({ isMobile }: { isMobile: boolean }) {
     <group ref={groupRef} position={[0, -0.2, 0]}>
       <Float speed={2.5} rotationIntensity={0.4} floatIntensity={1.5}>
         <Center>
-          <primitive object={scene} scale={isMobile ? 0.1 : 0.18} />
+          <primitive object={scene} scale={isMobile ? 0.035 : 0.06} />
         </Center>
       </Float>
       {/* Floating particles around the Pokeball */}

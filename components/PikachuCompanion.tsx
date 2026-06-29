@@ -4,17 +4,25 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function PikachuCompanion() {
-  const [action, setAction] = useState<"idle" | "jump" | "walk" | "flee">("idle");
+  const [action, setAction] = useState<"idle" | "jump" | "walk" | "flee" | "return">("idle");
   const [direction, setDirection] = useState(1); // 1 = right, -1 = left
   const [reappearKey, setReappearKey] = useState(0);
 
   useEffect(() => {
     if (action === "flee") {
-      // Reappear after 8 seconds
+      // Return after 6 seconds
+      const timer = setTimeout(() => {
+        setAction("return");
+      }, 6000);
+      return () => clearTimeout(timer);
+    }
+
+    if (action === "return") {
+      // Re-enter idle state after return animation completes (2 seconds)
       const timer = setTimeout(() => {
         setAction("idle");
         setReappearKey(prev => prev + 1);
-      }, 8000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
 
@@ -36,7 +44,7 @@ export default function PikachuCompanion() {
   }, [action]);
 
   const handlePress = () => {
-    if (action !== "flee") {
+    if (action !== "flee" && action !== "return") {
       setAction("flee");
     }
   };
@@ -64,11 +72,18 @@ export default function PikachuCompanion() {
       transition: { duration: 4, ease: "easeInOut" }
     },
     flee: {
-      x: direction * 250,
-      y: -50,
-      opacity: 0,
-      scaleX: direction,
-      transition: { duration: 0.6, ease: "backIn" }
+      x: 400, // Move completely off-screen to the right
+      y: 0,
+      opacity: 1,
+      scaleX: 1, // Face right when running away
+      transition: { duration: 0.8, ease: "power2.in" }
+    },
+    return: {
+      x: [400, 0], // Walk back on screen
+      y: 0,
+      opacity: 1,
+      scaleX: -1, // Face left when walking back
+      transition: { duration: 2, ease: "linear" }
     }
   };
 
@@ -88,8 +103,7 @@ export default function PikachuCompanion() {
         variants={variants}
         className="relative"
       >
-        {/* Scare indicator bubble on hover */}
-        {action !== "flee" && (
+        {action !== "flee" && action !== "return" && (
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-black text-white text-[7px] font-mono font-bold uppercase py-0.5 px-1.5 rounded opacity-0 hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-sm border border-white/20">
             BOO!
           </div>
