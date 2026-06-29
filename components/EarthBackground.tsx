@@ -26,10 +26,10 @@ function PokeModel() {
   });
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} position={[0, -0.5, 0]}>
       <Float speed={2.5} rotationIntensity={0.4} floatIntensity={1.5}>
         <Center>
-          <primitive object={scene} scale={2.5} />
+          <primitive object={scene} scale={0.4} />
         </Center>
       </Float>
       {/* Floating particles around the Pokeball */}

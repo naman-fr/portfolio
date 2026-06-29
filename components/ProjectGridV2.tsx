@@ -77,127 +77,155 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
       >
         {/* FRONT SIDE */}
         <div
-          className={`absolute inset-0 w-full h-full p-8 rounded-[1.5rem] bg-white border-2 border-[#1a1a1a] shadow-[6px_6px_0_0_rgba(0,0,0,0.1)] flex flex-col justify-between overflow-hidden transition-all duration-500 group ${theme.hoverBorder}`}
+          className={`absolute inset-0 w-full h-full p-4 rounded-[1.5rem] bg-[#e02424] border-[3px] border-[#1a1a1a] shadow-[8px_8px_0_0_rgba(0,0,0,0.2)] flex flex-col overflow-hidden transition-all duration-500 group`}
           style={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
         >
           {/* Holographic foil overlay (Pokemon touch) */}
           <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-[rgba(255,255,255,0.6)] to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-20" style={{ transform: "translateZ(1px)" }} />
-          {/* Subtle colored spotlight in the corner */}
-          <div 
-            className="absolute top-0 right-0 w-32 h-32 opacity-[0.06] blur-xl pointer-events-none rounded-full" 
-            style={{ background: `radial-gradient(circle, ${theme.accent}, transparent 70%)` }} 
-          />
-
-          {/* Top Row */}
-          <div className="flex items-center justify-between mb-4 z-10" style={{ transform: "translateZ(30px)" }}>
-            <span className={`text-[9px] font-mono ${theme.textClass} tracking-widest uppercase block font-bold`}>
-              {project.domain || "ENGINEERING"}
-            </span>
-            <span className="text-[9px] font-mono tracking-widest uppercase text-[#1a1a1a]/60 px-2 py-0.5 rounded-full bg-[#1a1a1a]/5 border border-[#1a1a1a]/10 font-bold">
-              {project.type || "CORE"}
-            </span>
+          
+          {/* Pokedex Top Lights */}
+          <div className="flex items-center gap-3 w-full pb-2 mb-2 z-10 shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[#1b9fe5] border-2 border-white shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.4)]" />
+            <div className="flex gap-2">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#e02424] border border-[#1a1a1a]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#f9db34] border border-[#1a1a1a]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#42a859] border border-[#1a1a1a]" />
+            </div>
           </div>
 
-          {/* Main Title & Description */}
-          <div className="flex-1 flex flex-col justify-center space-y-3 z-10" style={{ transform: "translateZ(45px)", transformStyle: "preserve-3d" }}>
-            <h3 className="text-2xl font-display font-bold text-[#1a1a1a] tracking-tight leading-tight uppercase group-hover:text-primary transition-colors">
-              {project.title}
-            </h3>
-            <p className="text-[#1a1a1a]/70 text-sm font-sans leading-relaxed line-clamp-4 min-h-[90px] font-medium">
-              {project.description}
-            </p>
-          </div>
+          {/* Inner Screen */}
+          <div className="flex-1 bg-[#fcfbf9] rounded-xl border-[3px] border-[#1a1a1a] shadow-inner p-4 sm:p-6 flex flex-col justify-between relative overflow-hidden">
+            {/* Subtle colored spotlight in the corner */}
+            <div 
+              className="absolute top-0 right-0 w-32 h-32 opacity-[0.06] blur-xl pointer-events-none rounded-full" 
+              style={{ background: `radial-gradient(circle, ${theme.accent}, transparent 70%)` }} 
+            />
 
-          {/* Bottom Row: Tech Tags */}
-          <div className="pt-4 border-t border-[#1a1a1a]/10 flex flex-wrap gap-1.5 z-10" style={{ transform: "translateZ(35px)" }}>
-            {project.tech.slice(0, 4).map((t: string) => (
-              <span
-                key={t}
-                className="text-[9px] font-mono bg-[#1a1a1a]/5 text-[#1a1a1a] border border-[#1a1a1a]/10 px-2 py-0.5 rounded-full uppercase tracking-tighter font-bold"
-              >
-                {t}
+            {/* Top Row */}
+            <div className="flex items-center justify-between mb-4 z-10" style={{ transform: "translateZ(30px)" }}>
+              <span className={`text-[9px] font-mono ${theme.textClass} tracking-widest uppercase block font-bold`}>
+                {project.domain || "ENGINEERING"}
               </span>
-            ))}
-          </div>
+              <span className="text-[9px] font-mono tracking-widest uppercase text-[#1a1a1a]/60 px-2 py-0.5 rounded-full bg-[#1a1a1a]/5 border border-[#1a1a1a]/10 font-bold">
+                {project.type || "CORE"}
+              </span>
+            </div>
 
-          <span className="text-[8px] font-mono text-[#1a1a1a]/40 tracking-wider block mt-4 uppercase font-bold animate-bounce" style={{ transform: "translateZ(20px)" }}>
-            Tap to flip ➜
-          </span>
+            {/* Main Title & Description */}
+            <div className="flex-1 flex flex-col justify-center space-y-3 z-10" style={{ transform: "translateZ(45px)", transformStyle: "preserve-3d" }}>
+              <h3 className="text-2xl font-display font-bold text-[#1a1a1a] tracking-tight leading-tight uppercase group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+              <p className="text-[#1a1a1a]/70 text-sm font-sans leading-relaxed line-clamp-4 min-h-[90px] font-medium">
+                {project.description}
+              </p>
+            </div>
+
+            {/* Bottom Row: Tech Tags */}
+            <div className="pt-4 border-t border-[#1a1a1a]/10 flex flex-wrap gap-1.5 z-10" style={{ transform: "translateZ(35px)" }}>
+              {project.tech.slice(0, 4).map((t: string) => (
+                <span
+                  key={t}
+                  className="text-[9px] font-mono bg-[#1a1a1a]/5 text-[#1a1a1a] border border-[#1a1a1a]/10 px-2 py-0.5 rounded-full uppercase tracking-tighter font-bold"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <span className="text-[8px] font-mono text-[#1a1a1a]/40 tracking-wider block mt-4 uppercase font-bold animate-bounce" style={{ transform: "translateZ(20px)" }}>
+              Tap to flip ➜
+            </span>
+          </div>
         </div>
 
         {/* BACK SIDE */}
         <div
-          className="absolute inset-0 w-full h-full p-8 rounded-[1.5rem] bg-white border-2 overflow-hidden flex flex-col justify-between shadow-[6px_6px_0_0_rgba(0,0,0,0.1)] group"
+          className="absolute inset-0 w-full h-full p-4 rounded-[1.5rem] bg-[#e02424] border-[3px] border-[#1a1a1a] shadow-[8px_8px_0_0_rgba(0,0,0,0.2)] flex flex-col overflow-hidden transition-all duration-500 group"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
             transformStyle: "preserve-3d",
-            borderColor: `${theme.accent}`,
           }}
         >
+          {/* Holographic foil overlay */}
           <div className="absolute inset-0 bg-gradient-to-bl from-white/0 via-[rgba(255,255,255,0.6)] to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-20" style={{ transform: "translateZ(1px)" }} />
-          {/* Top Title */}
-          <div className="z-10 flex items-center justify-between" style={{ transform: "translateZ(30px)" }}>
-            <span className="text-[9px] font-mono text-[#1a1a1a]/60 uppercase tracking-widest font-bold">
-              PROJECT DETAILS
-            </span>
-          </div>
-
-          {/* Highlights & Specs */}
-          <div className="z-10 flex-1 flex flex-col justify-center space-y-4" style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}>
-            {project.highlight && (
-              <div className="border-l-4 pl-3 py-1 bg-[#1a1a1a]/5 rounded-r" style={{ borderLeftColor: theme.accent, transform: "translateZ(10px)" }}>
-                <span className={`text-[9px] font-mono ${theme.textClass} uppercase block tracking-wider font-extrabold mb-1`}>HIGHLIGHT</span>
-                <span className="text-xs text-[#1a1a1a]/80 line-clamp-2 leading-relaxed font-medium">{project.highlight}</span>
-              </div>
-            )}
-
-            <div className="space-y-1" style={{ transform: "translateZ(15px)" }}>
-              <span className="text-[9px] font-mono text-[#1a1a1a]/60 uppercase block tracking-widest font-bold">
-                OVERVIEW
-              </span>
-              <p className="text-xs text-[#1a1a1a]/70 font-mono line-clamp-2 leading-relaxed">
-                {project.industrySpecs || "General project overview and description."}
-              </p>
-            </div>
-
-            <div className="space-y-1.5" style={{ transform: "translateZ(20px)" }}>
-              <span className="text-[9px] font-mono text-[#1a1a1a]/60 uppercase block tracking-widest font-bold">
-                TECH STACK
-              </span>
-              <div className="flex flex-wrap gap-1 max-h-[80px] overflow-hidden">
-                {project.tech.map((t: string) => (
-                  <span
-                    key={t}
-                    className="text-[8px] font-mono bg-[#1a1a1a]/5 text-[#1a1a1a] px-1.5 py-0.5 rounded-md border border-[#1a1a1a]/10 font-bold"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
+          
+          {/* Pokedex Top Lights */}
+          <div className="flex items-center gap-3 w-full pb-2 mb-2 z-10 shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[#1b9fe5] border-2 border-white shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.4)]" />
+            <div className="flex gap-2">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#e02424] border border-[#1a1a1a]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#f9db34] border border-[#1a1a1a]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#42a859] border border-[#1a1a1a]" />
             </div>
           </div>
 
-          {/* Bottom Action links */}
-          <div className="pt-4 border-t border-[#1a1a1a]/10 flex items-center justify-between z-10" style={{ transform: "translateZ(40px)" }}>
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`text-[10px] font-mono ${theme.textClass} hover:opacity-70 transition-opacity flex items-center gap-2 group/link`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: theme.accent }} />
-                <div className="absolute inset-0 w-2 h-2 rounded-full animate-ping opacity-50" style={{ backgroundColor: theme.accent }} />
-              </div>
-              <span className="tracking-widest flex items-center gap-1 font-bold">
-                VIEW SOURCE <Github className="w-3.5 h-3.5 inline" />
+          {/* Inner Screen */}
+          <div className="flex-1 bg-[#fcfbf9] rounded-xl border-[3px] border-[#1a1a1a] shadow-inner p-4 sm:p-6 flex flex-col justify-between relative overflow-hidden">
+            {/* Top Title */}
+            <div className="z-10 flex items-center justify-between" style={{ transform: "translateZ(30px)" }}>
+              <span className="text-[9px] font-mono text-[#1a1a1a]/60 uppercase tracking-widest font-bold">
+                PROJECT DETAILS
               </span>
-            </a>
-            <span className="text-[8px] font-mono text-[#1a1a1a] uppercase tracking-widest font-bold">
-              FLIP BACK ➜
-            </span>
+            </div>
+
+            {/* Highlights & Specs */}
+            <div className="z-10 flex-1 flex flex-col justify-center space-y-4" style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}>
+              {project.highlight && (
+                <div className="border-l-4 pl-3 py-1 bg-[#1a1a1a]/5 rounded-r" style={{ borderLeftColor: theme.accent, transform: "translateZ(10px)" }}>
+                  <span className={`text-[9px] font-mono ${theme.textClass} uppercase block tracking-wider font-extrabold mb-1`}>HIGHLIGHT</span>
+                  <span className="text-xs text-[#1a1a1a]/80 line-clamp-2 leading-relaxed font-medium">{project.highlight}</span>
+                </div>
+              )}
+
+              <div className="space-y-1" style={{ transform: "translateZ(15px)" }}>
+                <span className="text-[9px] font-mono text-[#1a1a1a]/60 uppercase block tracking-widest font-bold">
+                  OVERVIEW
+                </span>
+                <p className="text-xs text-[#1a1a1a]/70 font-mono line-clamp-2 leading-relaxed">
+                  {project.industrySpecs || "General project overview and description."}
+                </p>
+              </div>
+
+              <div className="space-y-1.5" style={{ transform: "translateZ(20px)" }}>
+                <span className="text-[9px] font-mono text-[#1a1a1a]/60 uppercase block tracking-widest font-bold">
+                  TECH STACK
+                </span>
+                <div className="flex flex-wrap gap-1 max-h-[80px] overflow-hidden">
+                  {project.tech.map((t: string) => (
+                    <span
+                      key={t}
+                      className="text-[8px] font-mono bg-[#1a1a1a]/5 text-[#1a1a1a] px-1.5 py-0.5 rounded-md border border-[#1a1a1a]/10 font-bold"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Action links */}
+            <div className="pt-4 border-t border-[#1a1a1a]/10 flex items-center justify-between z-10" style={{ transform: "translateZ(40px)" }}>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-[10px] font-mono ${theme.textClass} hover:opacity-70 transition-opacity flex items-center gap-2 group/link`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="relative">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: theme.accent }} />
+                  <div className="absolute inset-0 w-2 h-2 rounded-full animate-ping opacity-50" style={{ backgroundColor: theme.accent }} />
+                </div>
+                <span className="tracking-widest flex items-center gap-1 font-bold">
+                  VIEW SOURCE <Github className="w-3.5 h-3.5 inline" />
+                </span>
+              </a>
+              <span className="text-[8px] font-mono text-[#1a1a1a] uppercase tracking-widest font-bold">
+                FLIP BACK ➜
+              </span>
+            </div>
           </div>
         </div>
       </motion.div>
