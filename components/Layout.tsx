@@ -6,6 +6,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import CustomCursor from "./CustomCursor";
 import Preloader from "./Preloader";
 import EarthBackground from "./EarthBackground";
+import PikachuCompanion from "./PikachuCompanion";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -53,6 +54,7 @@ export default function Layout({ children }: LayoutProps) {
         <EarthBackground />
         <div className="noise-overlay" />
         <CustomCursor />
+        <PikachuCompanion />
         
         <main className="relative z-10">
           {children}
