@@ -55,27 +55,31 @@ export default function Contact() {
     >
       <div className="max-w-5xl w-full">
         <motion.div
-          className="bg-white rounded-[2rem] overflow-hidden border-2 border-[#1a1a1a] shadow-[8px_8px_0_0_rgba(0,0,0,0.15)] relative"
+          className="bg-[#fcfbf9] overflow-hidden border-[4px] border-[#1a1a1a] shadow-[12px_12px_0_0_#e02424] relative"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Header Bar */}
-          <div className="bg-[#1a1a1a]/5 p-6 border-b-2 border-[#1a1a1a]/10 flex items-center justify-between px-10">
+          <div className="bg-[#1a1a1a] text-white p-5 border-b-[4px] border-[#1a1a1a] flex items-center justify-between px-8 sm:px-10 shrink-0">
             <div className="flex gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
-              <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+              <div className="w-3.5 h-3.5 rounded-full bg-[#e02424] border border-white" />
+              <div className="w-3.5 h-3.5 rounded-full bg-[#f9db34] border border-white" />
             </div>
-            <div className="font-mono text-[9px] font-bold tracking-[0.4em] text-[#1a1a1a]/40 uppercase">
+            <div className="font-mono text-[10px] font-black tracking-[0.4em] text-white uppercase">
               SECURE_COMM_CHANNEL_v8.4
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Info Side */}
-            <div className="p-6 sm:p-12 lg:p-16 border-b-2 md:border-b-0 md:border-r-2 border-[#1a1a1a]/10 bg-white">
-              <div className="mb-16">
+            <div className="p-6 sm:p-10 lg:p-12 border-b-[4px] md:border-b-0 md:border-r-[4px] border-[#1a1a1a] bg-[#fcfbf9] relative">
+              {/* Decorative P5 background text */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl font-display font-black text-[#1a1a1a]/5 -z-10 -rotate-12 pointer-events-none uppercase">
+                CONTACT
+              </div>
+
+              <div className="mb-12">
                 <motion.h2 
                   initial="hidden"
                   whileInView="visible"
@@ -87,7 +91,7 @@ export default function Contact() {
                       transition: { staggerChildren: 0.05 }
                     }
                   }}
-                  className="text-5xl lg:text-6xl font-display font-extrabold text-[#1a1a1a] mb-6 leading-none tracking-tighter uppercase flex"
+                  className="text-6xl lg:text-7xl font-display font-black text-[#1a1a1a] mb-4 leading-none tracking-tighter uppercase flex"
                 >
                   {Array.from("HELLO.").map((char, i) => (
                     <motion.span
@@ -103,40 +107,43 @@ export default function Contact() {
                     </motion.span>
                   ))}
                 </motion.h2>
-                <p className="text-primary font-mono text-[9px] uppercase tracking-[0.4em] opacity-60">
+                <span className="inline-block bg-[#e02424] text-white font-mono text-[10px] font-black uppercase tracking-[0.3em] px-3 py-1 shadow-[3px_3px_0_0_#1a1a1a] transform -rotate-1">
                   [ ESTABLISHING_HANDSHAKE ]
-                </p>
+                </span>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {[
-                  { icon: Mail, label: "ENCRYPTED_MAIL", value: resumeData.profile.contact.email, color: "text-primary" },
-                  { icon: Linkedin, label: "NETWORK_ID", value: "naman-gautam-691158299", color: "text-[#dfc7b3]" },
-                  { icon: Github, label: "SOURCE_CONTROL", value: "naman-fr", color: "text-accent" },
+                  { icon: Mail, label: "ENCRYPTED_MAIL", value: resumeData.profile.contact.email, themeColor: "#e02424" },
+                  { icon: Linkedin, label: "NETWORK_ID", value: "naman-gautam-691158299", themeColor: "#1b9fe5" },
+                  { icon: Github, label: "SOURCE_CONTROL", value: "naman-fr", themeColor: "#e6a100" },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-6 group cursor-pointer">
-                    <div className="p-4 rounded-2xl bg-[#1a1a1a]/5 border-2 border-[#1a1a1a]/10 group-hover:border-primary/50 transition-all duration-500 group-hover:bg-primary/10">
-                      <item.icon className={`w-5 h-5 ${item.color.replace('text-[#dfc7b3]', 'text-[#1a1a1a]')}`} />
+                  <div key={i} className="flex items-center gap-5 group cursor-pointer">
+                    <div 
+                      className="p-3.5 border-[3px] border-[#1a1a1a] bg-white group-hover:bg-[#1a1a1a] group-hover:text-white transition-colors duration-300 shadow-[3px_3px_0_0_#1a1a1a]"
+                      style={{ color: item.themeColor }}
+                    >
+                      <item.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-[8px] font-mono font-bold text-[#1a1a1a]/40 tracking-[0.3em] mb-1">{item.label}</div>
-                      <div className="font-mono text-sm font-bold text-[#1a1a1a]/70 group-hover:text-primary transition-colors">{item.value}</div>
+                      <div className="text-[9px] font-mono font-black text-[#1a1a1a]/55 tracking-[0.25em] mb-1">{item.label}</div>
+                      <div className="font-mono text-sm font-black text-[#1a1a1a] group-hover:text-[#e02424] transition-colors">{item.value}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* System Monitor Widget */}
-              <div className="mt-16 p-8 bg-[#1a1a1a] rounded-[1.5rem] border-2 border-black/20 font-mono text-[10px] h-48 overflow-hidden relative group/monitor shadow-inner">
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-primary/20 animate-scan pointer-events-none" />
-                <div className="text-white/20 mb-6 flex justify-between">
+              <div className="mt-12 p-6 bg-[#1a1a1a] border-[3px] border-[#1a1a1a] font-mono text-[10px] h-48 overflow-hidden relative shadow-inner">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-[#e02424]/40 animate-scan pointer-events-none" />
+                <div className="text-white/30 mb-4 flex justify-between">
                   <span>{"// SYSTEM_LOGS"}</span>
-                  <span className="animate-pulse">ONLINE</span>
+                  <span className="text-[#e02424] font-black animate-pulse">ONLINE</span>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   {terminalLogs.map((log, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} className="text-white/40">
-                      <span className="text-primary/30 mr-2">HEX_{i}F:</span> {log}
+                    <motion.div key={i} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} className="text-white/60">
+                      <span className="text-[#e02424]/40 mr-2">HEX_{i}F:</span> {log}
                     </motion.div>
                   ))}
                 </div>
@@ -144,29 +151,29 @@ export default function Contact() {
             </div>
 
             {/* Form Side */}
-            <form onSubmit={handleSubmit} className="p-6 sm:p-12 lg:p-16 space-y-8 bg-[#fcfbf9]">
-              <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="p-6 sm:p-10 lg:p-12 space-y-6 bg-[#fcfbf9]">
+              <div className="space-y-5">
                 {[
                   { label: "USER_IDENTIFIER", placeholder: "ENTER_NAME", type: "text", key: "name" },
                   { label: "RETURN_GATEWAY", placeholder: "EMAIL@PROTOCOL.IO", type: "email", key: "email" },
                 ].map((field) => (
-                  <div key={field.key} className="space-y-3">
-                    <label className="block text-[8px] font-mono font-bold text-[#1a1a1a]/50 tracking-[0.4em] uppercase">{field.label}</label>
+                  <div key={field.key} className="space-y-2">
+                    <label className="block text-[9px] font-mono font-black text-[#1a1a1a]/65 tracking-[0.3em] uppercase">{field.label}</label>
                     <input
                       type={field.type}
                       value={(formData as any)[field.key]}
                       onChange={(e) => setFormData({ ...formData, [field.key]: e.target.value })}
                       placeholder={field.placeholder}
-                      className="w-full bg-white border-2 border-[#1a1a1a]/10 rounded-xl p-5 font-mono font-bold text-sm text-[#1a1a1a] focus:outline-none focus:border-primary/50 transition-all placeholder:text-[#1a1a1a]/20 focus:bg-primary/5 shadow-sm"
+                      className="w-full bg-white border-[3px] border-[#1a1a1a] p-4 font-mono font-bold text-sm text-[#1a1a1a] focus:outline-none focus:bg-[#f9db34]/15 focus:shadow-[4px_4px_0_0_#1a1a1a] transition-all placeholder:text-[#1a1a1a]/30 shadow-sm"
                       required
                     />
                   </div>
                 ))}
                 
-                <div className="space-y-3">
-                  <label className="block text-[8px] font-mono font-bold text-[#1a1a1a]/50 tracking-[0.4em] uppercase">TRANSMISSION_PAYLOAD</label>
+                <div className="space-y-2">
+                  <label className="block text-[9px] font-mono font-black text-[#1a1a1a]/65 tracking-[0.3em] uppercase">TRANSMISSION_PAYLOAD</label>
                   <textarea
-                    className="w-full bg-white border-2 border-[#1a1a1a]/10 rounded-xl p-5 font-mono font-bold text-sm text-[#1a1a1a] focus:outline-none focus:border-primary/50 transition-all h-36 resize-none placeholder:text-[#1a1a1a]/20 focus:bg-primary/5 shadow-sm"
+                    className="w-full bg-white border-[3px] border-[#1a1a1a] p-4 font-mono font-bold text-sm text-[#1a1a1a] focus:outline-none focus:bg-[#f9db34]/15 focus:shadow-[4px_4px_0_0_#1a1a1a] transition-all h-36 resize-none placeholder:text-[#1a1a1a]/30 shadow-sm"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="DESCRIBE_PROJECT_SCOPE..."
@@ -178,7 +185,7 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full py-5 bg-primary text-black font-mono text-xs font-bold tracking-[0.4em] rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(242,123,80,0.2)] disabled:opacity-50 uppercase"
+                className="w-full py-4.5 bg-[#e02424] text-white font-mono text-xs font-black tracking-[0.4em] border-[3px] border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition-all shadow-[4px_4px_0_0_#1a1a1a] transform -rotate-1 uppercase disabled:opacity-50"
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
               >
@@ -191,7 +198,7 @@ export default function Contact() {
                     initial={{ opacity: 0, y: 10 }} 
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="p-4 bg-primary/10 border border-primary/20 rounded-xl text-primary text-[10px] font-mono text-center tracking-[0.3em]"
+                    className="p-3 bg-[#42a859]/10 border-[2px] border-[#42a859] text-[#42a859] text-[9px] font-mono font-black text-center tracking-[0.25em]"
                   >
                     STATUS_200: TRANSMISSION_COMPLETE
                   </motion.div>
@@ -201,7 +208,7 @@ export default function Contact() {
                     initial={{ opacity: 0, y: 10 }} 
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-[10px] font-mono text-center tracking-[0.3em]"
+                    className="p-3 bg-[#e02424]/10 border-[2px] border-[#e02424] text-[#e02424] text-[9px] font-mono font-black text-center tracking-[0.25em]"
                   >
                     STATUS_500: TRANSMISSION_FAILED
                   </motion.div>
