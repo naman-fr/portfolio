@@ -37,7 +37,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="py-32 bg-transparent overflow-hidden relative z-10">
       <div className="max-w-7xl mx-auto px-4">
-        <ScrollRevealHeading label="[ 06:_LICENSES_&_CERTIFICATIONS ]" title="CREDENTIALS" />
+        <ScrollRevealHeading label="[ CREDENTIALS ]" title="CERTIFICATIONS" />
       </div>
 
       {/* 3D Coverflow Container */}
@@ -85,10 +85,10 @@ export default function Certifications() {
                   exit={{ opacity: 0, scale: 0.7 }}
                   transition={{ type: "spring", stiffness: 140, damping: 18 }}
                   onClick={() => setActiveIndex(i)}
-                  className={`absolute w-[290px] min-[375px]:w-[330px] sm:w-[440px] md:w-[480px] h-full cursor-pointer rounded-[2.2rem] p-6 sm:p-8 md:p-10 flex gap-4 sm:gap-6 border transition-all duration-500 overflow-hidden bg-[#0c0b0a]/95 glass-premium ${
+                  className={`absolute w-[290px] min-[375px]:w-[330px] sm:w-[440px] md:w-[480px] h-full cursor-pointer rounded-[1.5rem] p-6 sm:p-8 md:p-10 flex gap-4 sm:gap-6 border-2 transition-all duration-500 overflow-hidden bg-white ${
                     isActive 
-                      ? "border-primary/30 shadow-[0_20px_50px_rgba(242,123,80,0.15)]" 
-                      : "border-white/5 opacity-55 hover:opacity-80"
+                      ? "border-primary shadow-[6px_6px_0_0_rgba(0,0,0,0.15)]" 
+                      : "border-[#1a1a1a]/20 opacity-70 hover:opacity-100 hover:border-primary/50"
                   }`}
                   style={{
                     transformStyle: "preserve-3d",
@@ -101,15 +101,15 @@ export default function Certifications() {
                   )}
 
                   {/* Side Tag */}
-                  <div className="absolute top-0 right-0 h-full w-8 border-l border-white/5 flex items-center justify-center bg-white/[0.01]">
-                    <span className="rotate-90 font-mono text-[7px] tracking-[0.5em] text-[#dfc7b3]/30 whitespace-nowrap">
+                  <div className="absolute top-0 right-0 h-full w-8 border-l-2 border-[#1a1a1a]/10 flex items-center justify-center bg-[#1a1a1a]/[0.02]">
+                    <span className="rotate-90 font-mono text-[7px] tracking-[0.5em] text-[#1a1a1a]/40 whitespace-nowrap font-bold">
                       SECURED_LEVEL_04
                     </span>
                   </div>
 
                   {/* Left Side: Icon & Verification */}
-                  <div className="flex flex-col items-center justify-between py-2 border-r border-white/5 pr-4 sm:pr-6" style={{ transform: "translateZ(30px)" }}>
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/5 flex items-center justify-center border border-white/5 shadow-lg">
+                  <div className="flex flex-col items-center justify-between py-2 border-r-2 border-[#1a1a1a]/10 pr-4 sm:pr-6" style={{ transform: "translateZ(30px)" }}>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/5 flex items-center justify-center border-2 border-[#1a1a1a]/10 shadow-[2px_2px_0_0_rgba(0,0,0,0.05)]">
                       <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                     </div>
                     <div className="flex flex-col items-center gap-1">
@@ -121,10 +121,10 @@ export default function Certifications() {
                   {/* Right Side: Content */}
                   <div className="flex-1 space-y-4 sm:space-y-6" style={{ transform: "translateZ(40px)" }}>
                     <div className="space-y-1">
-                      <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest block">
+                      <span className="text-[9px] font-mono font-bold text-[#1a1a1a]/50 uppercase tracking-widest block">
                         {cert.date}
                       </span>
-                      <h3 className="text-base sm:text-lg md:text-xl font-display font-bold text-white tracking-tight leading-tight group-hover:text-primary transition-colors whitespace-normal">
+                      <h3 className="text-base sm:text-lg md:text-xl font-display font-bold text-[#1a1a1a] tracking-tight leading-tight group-hover:text-primary transition-colors whitespace-normal">
                         {cert.title.toUpperCase()}
                       </h3>
                       <p className="text-secondary font-mono text-xs uppercase tracking-widest font-bold">
@@ -133,9 +133,9 @@ export default function Certifications() {
                     </div>
 
                     {cert.id_code && (
-                      <div className="bg-black/30 p-2 sm:p-3 rounded-xl border border-white/5 font-mono">
-                        <div className="text-[7px] text-white/20 uppercase mb-0.5">CERT_ID_HASH</div>
-                        <div className="text-[9px] text-white/40 truncate break-all">{cert.id_code}</div>
+                      <div className="bg-[#1a1a1a]/5 p-2 sm:p-3 rounded-xl border-2 border-[#1a1a1a]/10 font-mono">
+                        <div className="text-[7px] font-bold text-[#1a1a1a]/40 uppercase mb-0.5">CERT_ID_HASH</div>
+                        <div className="text-[9px] font-bold text-[#1a1a1a]/60 truncate break-all">{cert.id_code}</div>
                       </div>
                     )}
 
@@ -152,7 +152,7 @@ export default function Certifications() {
                         href={resumeData.profile.contact.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[9px] font-mono text-white/40 flex items-center gap-2 hover:text-primary transition-colors"
+                        className="text-[9px] font-mono font-bold text-[#1a1a1a]/50 flex items-center gap-2 hover:text-primary transition-colors"
                       >
                         <ExternalLink className="w-3 h-3" />
                         VALIDATE_LINK
@@ -174,7 +174,7 @@ export default function Certifications() {
         <div className="flex items-center gap-6 mt-12 z-20">
           <button
             onClick={handlePrev}
-            className="w-12 h-12 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center text-white/50 hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 active:scale-95"
+            className="w-12 h-12 rounded-full border-2 border-[#1a1a1a]/20 bg-[#1a1a1a]/5 flex items-center justify-center text-[#1a1a1a]/50 hover:text-primary hover:border-primary/50 transition-all duration-300 active:scale-95 shadow-[2px_2px_0_0_rgba(0,0,0,0.1)]"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -185,7 +185,7 @@ export default function Certifications() {
               <button
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
-                className="h-1 bg-white/20 rounded-full transition-all duration-300"
+                className="h-1 bg-[#1a1a1a]/20 rounded-full transition-all duration-300"
                 style={{
                   width: idx === activeIndex ? "24px" : "6px",
                   backgroundColor: idx === activeIndex ? "var(--color-primary)" : undefined
@@ -196,7 +196,7 @@ export default function Certifications() {
 
           <button
             onClick={handleNext}
-            className="w-12 h-12 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center text-white/50 hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 active:scale-95"
+            className="w-12 h-12 rounded-full border-2 border-[#1a1a1a]/20 bg-[#1a1a1a]/5 flex items-center justify-center text-[#1a1a1a]/50 hover:text-primary hover:border-primary/50 transition-all duration-300 active:scale-95 shadow-[2px_2px_0_0_rgba(0,0,0,0.1)]"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

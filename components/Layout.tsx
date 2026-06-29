@@ -6,7 +6,6 @@ import ErrorBoundary from "./ErrorBoundary";
 import CustomCursor from "./CustomCursor";
 import Preloader from "./Preloader";
 import EarthBackground from "./EarthBackground";
-import CornerHUD from "./CornerHUD";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -47,9 +46,11 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <ErrorBoundary>
       <Preloader />
-      <div className="relative min-h-screen bg-transparent selection:bg-primary selection:text-black">
+      {/* GLOBAL P5 COMIC BORDER */}
+      <div className="fixed inset-0 z-50 pointer-events-none border-[12px] sm:border-[20px] border-[#1a1a1a]" />
+
+      <div className="relative min-h-screen bg-transparent selection:bg-primary selection:text-white">
         <EarthBackground />
-        <CornerHUD />
         <div className="noise-overlay" />
         <CustomCursor />
         
@@ -57,13 +58,13 @@ export default function Layout({ children }: LayoutProps) {
           {children}
         </main>
 
-        {/* Minimal Floating Nav Dock */}
+        {/* Minimal Floating Nav Dock - Pokemon/P5 Fusion */}
         <motion.nav
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="fixed bottom-6 md:bottom-auto md:top-8 left-1/2 -translate-x-1/2 z-[100] w-[92vw] md:w-auto max-w-[440px] md:max-w-none"
         >
-          <div className="relative flex items-center justify-around md:justify-start gap-1 md:gap-4 px-3 md:px-6 py-2.5 rounded-full bg-[#0a0908]/60 md:bg-[#0a0908]/40 border border-white/5 backdrop-blur-md text-[8px] md:text-[9px] font-sans tracking-[0.1em] md:tracking-[0.2em] uppercase text-[#dfc7b3] w-full md:w-auto">
+          <div className="relative flex items-center justify-around md:justify-start gap-1 md:gap-4 px-3 md:px-6 py-2.5 rounded-full bg-white/90 border-2 border-black/10 shadow-[4px_4px_0_0_rgba(0,0,0,0.05)] backdrop-blur-md text-[9px] md:text-[10px] font-sans tracking-[0.1em] md:tracking-[0.15em] uppercase text-[#1a1a1a] w-full md:w-auto font-bold">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -74,12 +75,12 @@ export default function Layout({ children }: LayoutProps) {
                     e.preventDefault();
                     document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className={`relative px-2 md:px-3 py-1.5 rounded-full transition-colors duration-300 hover:text-white ${isActive ? "text-primary font-bold" : "text-[#dfc7b3]/70"}`}
+                  className={`relative px-2 md:px-4 py-2 rounded-full transition-colors duration-300 hover:text-primary ${isActive ? "text-primary font-black" : "text-[#1a1a1a]/70"}`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activePill"
-                      className="absolute inset-0 bg-primary/10 border border-primary/20 rounded-full -z-10"
+                      className="absolute inset-0 bg-primary/10 border border-primary/20 rounded-full -z-10 shadow-inner"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}

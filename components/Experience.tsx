@@ -45,7 +45,7 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
         <motion.div
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ type: "spring", stiffness: 150, delay: 0.1 }}
-          className="w-4 h-4 rounded-full border-2 bg-[#0e0d0b]"
+          className="w-4 h-4 rounded-full border-2 bg-white"
           style={{ borderColor: theme.accent }}
         />
       </div>
@@ -60,7 +60,7 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
         <motion.div
           animate={isHovered ? { scale: 1.025, y: -2 } : { scale: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 18 }}
-          className={`group relative p-8 rounded-[2.2rem] glass-premium border border-white/5 transition-all duration-500 overflow-hidden bg-[#0c0b0a]/90 hover:border-primary/20`}
+          className={`group relative p-8 rounded-[1.5rem] bg-white border-2 border-[#1a1a1a] shadow-[6px_6px_0_0_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden hover:border-primary/50`}
         >
           {/* Card Hover Spotlight glow */}
           <div
@@ -77,11 +77,11 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
             </div>
 
             <div className="space-y-1">
-              <h3 className="text-2xl font-display font-extrabold text-white tracking-tight uppercase leading-tight group-hover:text-primary transition-colors flex items-center gap-2">
+              <h3 className="text-2xl font-display font-extrabold text-[#1a1a1a] tracking-tight uppercase leading-tight group-hover:text-primary transition-colors flex items-center gap-2">
                 {exp.company}
-                <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-40 transition-opacity" />
+                <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
-              <div className="flex items-center gap-2 text-xs font-mono text-[#dfc7b3]/70 justify-start">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#1a1a1a]/70 justify-start font-bold">
                 <Briefcase className="w-3.5 h-3.5 text-primary/70" style={{ color: theme.accent }} />
                 <span className="uppercase tracking-widest">{exp.role}</span>
               </div>
@@ -92,7 +92,7 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
               {exp.achievements.map((achievement: string, i: number) => (
                 <li key={i} className={`flex items-start gap-2.5 ${isEven ? "md:flex-row-reverse" : "md:flex-row"}`}>
                   <ChevronRight className="w-3.5 h-3.5 mt-0.5 text-primary flex-shrink-0" style={{ color: theme.accent }} />
-                  <p className="text-gray-300 leading-relaxed text-xs font-light">
+                  <p className="text-[#1a1a1a]/80 leading-relaxed text-xs font-medium">
                     {achievement}
                   </p>
                 </li>
@@ -100,11 +100,11 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
             </ul>
 
             {/* Tech Badges */}
-            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5 w-full">
+            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#1a1a1a]/10 w-full">
               {exp.tech.map((tech: string) => (
                 <span
                   key={tech}
-                  className="px-2 py-0.5 bg-white/[0.02] text-[#dfc7b3]/60 text-[9px] font-mono rounded tracking-tighter uppercase border border-white/5"
+                  className="px-2 py-0.5 bg-[#1a1a1a]/5 text-[#1a1a1a] font-bold text-[9px] font-mono rounded-md tracking-tighter uppercase border border-[#1a1a1a]/10"
                 >
                   {tech}
                 </span>
@@ -119,11 +119,11 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
         initial={{ opacity: 0, x: isEven ? -40 : 40 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.2 }}
-        className={`hidden md:block w-[45%] text-[#dfc7b3]/50 font-mono text-[10px] uppercase tracking-widest ${
+        className={`hidden md:block w-[45%] text-[#1a1a1a]/50 font-mono text-[10px] font-bold uppercase tracking-widest ${
           isEven ? "pl-16 text-left" : "pr-16 text-right"
         }`}
       >
-        <span>SECURE_SESSION_LOG: [EXP_0{index + 1}]</span>
+        <span>HISTORY_LOG: [EXP_0{index + 1}]</span>
       </motion.div>
     </div>
   );
@@ -140,7 +140,7 @@ export default function Experience() {
       className="min-h-screen py-32 px-4 relative bg-transparent z-10"
     >
       <div className="max-w-7xl mx-auto">
-        <ScrollRevealHeading label="[ 03:_CAREER_LOGS ]" title="HISTORY" />
+        <ScrollRevealHeading label="[ CAREER ]" title="HISTORY" />
 
         {/* Scroll Timeline Container */}
         <div className="relative w-full space-y-16 md:space-y-24 mt-16 overflow-visible">

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        obsidian: "#0a0908",
+        obsidian: "#fcfbf9",
         terminal: "var(--color-primary)",
         neural: "var(--color-secondary)",
         amber: "var(--color-accent)",

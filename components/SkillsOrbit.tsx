@@ -26,14 +26,15 @@ function OrbitingIcon({ index, total, label }: { index: number; total: number; l
       <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
         <mesh>
           <octahedronGeometry args={[0.3, 0]} />
-          <meshStandardMaterial color="#dfc7b3" wireframe roughness={0.2} metalness={0.8} />
+          <meshStandardMaterial color="#e02424" roughness={0.3} metalness={0.7} />
         </mesh>
         <Text
           position={[0, 0.7, 0]}
           fontSize={0.28}
-          color="#dfc7b3"
+          color="#1a1a1a"
           anchorX="center"
           anchorY="middle"
+          fontWeight="bold"
         >
           {label}
         </Text>
@@ -56,7 +57,7 @@ function CentralNode() {
     <Sphere args={[1.3, 64, 64]}>
       <MeshDistortMaterial
         ref={materialRef}
-        color="#f27b50" // Coral
+        color="#e02424" // P5 Red
         speed={1.5}
         distort={0.3}
         radius={1}
@@ -97,9 +98,9 @@ export default function SkillsOrbit() {
       <div className="absolute inset-0 z-0">
         <Canvas>
           <PerspectiveCamera makeDefault position={[0, 0, cameraZ]} />
-          <ambientLight intensity={0.6} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#f27b50" />
-          <pointLight position={[-10, -10, -10]} intensity={1.0} color="#dfc7b3" />
+          <ambientLight intensity={1.2} />
+          <pointLight position={[10, 10, 10]} intensity={2.0} color="#e02424" />
+          <pointLight position={[-10, -10, -10]} intensity={1.5} color="#ffffff" />
           
           <CentralNode />
           
@@ -111,10 +112,10 @@ export default function SkillsOrbit() {
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center pointer-events-none">
         <div className="text-center space-y-4">
-          <span className="text-secondary font-mono text-sm tracking-[0.4em] uppercase">[ 04:_INTELLIGENCE_STACK ]</span>
-          <h2 className="text-huge font-bold text-white tracking-tighter uppercase leading-none">CORE</h2>
-          <p className="text-[#dfc7b3]/60 font-mono text-[9px] uppercase tracking-widest mt-8">
-            [ DISTRIBUTED_CORES_&_AGENTIC_MODELS ]
+          <span className="text-[#1a1a1a] font-mono font-bold text-sm tracking-[0.4em] uppercase border-b-2 border-black pb-1 inline-block">[ SKILLS // BADGES ]</span>
+          <h2 className="text-huge font-bold text-[#1a1a1a] tracking-tighter uppercase leading-none" style={{ textShadow: "4px 4px 0px rgba(0,0,0,0.1)" }}>TECH STACK</h2>
+          <p className="text-[#1a1a1a]/60 font-mono text-[10px] font-bold uppercase tracking-widest mt-8">
+            [ MY ARSENAL ]
           </p>
         </div>
       </div>

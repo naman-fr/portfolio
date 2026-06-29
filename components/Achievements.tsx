@@ -66,10 +66,10 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
       <motion.div
         animate={isHovered ? { y: shift1, scale: 0.94, opacity: 0.5, rotate: rot1 } : { y: 0, scale: 0.98, opacity: 0, rotate: 0 }}
         transition={{ type: "spring", stiffness: 180, damping: 15 }}
-        className="absolute inset-0 w-full h-full rounded-[2.2rem] border border-white/5 bg-[#0c0b0a]/90 pointer-events-none z-0 shadow-lg"
+        className="absolute inset-0 w-full h-full rounded-[1.5rem] border-2 border-black bg-white pointer-events-none z-0 shadow-[4px_4px_0_0_rgba(0,0,0,0.1)]"
       >
-        <div className="absolute bottom-4 left-8 font-mono text-[7px] text-white/10">
-          STACK_LEVEL_02 // SYSTEM_SECURE
+        <div className="absolute bottom-4 left-8 font-mono text-[7px] font-bold text-[#1a1a1a]/40">
+          STACK_LEVEL_02
         </div>
       </motion.div>
 
@@ -77,10 +77,10 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
       <motion.div
         animate={isHovered ? { y: shift2, scale: 0.97, opacity: 0.8, rotate: rot2 } : { y: 0, scale: 0.99, opacity: 0, rotate: 0 }}
         transition={{ type: "spring", stiffness: 180, damping: 15 }}
-        className="absolute inset-0 w-full h-full rounded-[2.2rem] border border-white/5 bg-[#0c0b0a]/90 pointer-events-none z-10 shadow-md"
+        className="absolute inset-0 w-full h-full rounded-[1.5rem] border-2 border-black bg-white pointer-events-none z-10 shadow-[4px_4px_0_0_rgba(0,0,0,0.1)]"
       >
-        <div className="absolute top-4 right-8 font-mono text-[7px] text-white/10">
-          SYS_METRIC: SCT_0{index + 10}
+        <div className="absolute top-4 right-8 font-mono font-bold text-[7px] text-[#1a1a1a]/40">
+          ACH_0{index + 10}
         </div>
       </motion.div>
 
@@ -89,7 +89,7 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
         style={{ transformStyle: "preserve-3d" }}
         animate={isHovered ? { scale: 1.015, y: -2 } : { scale: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 220, damping: 18 }}
-        className={`relative h-full w-full glass-premium rounded-[2.2rem] p-8 lg:p-10 border border-white/5 flex flex-col justify-between transition-all duration-500 ${currentTheme.border} z-20 bg-[#0a0908]/95 hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)]`}
+        className={`relative h-full w-full bg-white rounded-[1.5rem] p-8 lg:p-10 border-2 border-[#1a1a1a] flex flex-col justify-between transition-all duration-500 z-20 shadow-[6px_6px_0_0_rgba(0,0,0,0.1)]`}
       >
         {/* Dynamic ambient hover glow */}
         <div
@@ -102,43 +102,43 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
         {/* Top bar */}
         <div className="flex items-start justify-between z-10">
           <div className="relative">
-            <div className={`w-14 h-14 rounded-2xl border border-white/5 flex items-center justify-center bg-gradient-to-br from-white/5 to-white/[0.01] group-hover:from-white/10 group-hover:to-white/5 transition-all duration-500`}>
+            <div className={`w-14 h-14 rounded-2xl border-2 border-[#1a1a1a]/10 flex items-center justify-center bg-[#1a1a1a]/5 transition-all duration-500`}>
               <Icon className={`w-7 h-7 ${currentTheme.accent}`} />
             </div>
-            <div className={`absolute inset-[-4px] rounded-2xl border ${currentTheme.accent}/10 group-hover:border-${currentTheme.accent}/35 animate-pulse opacity-40`} />
+            <div className={`absolute inset-[-4px] rounded-2xl border-2 ${currentTheme.accent}/10 group-hover:border-2 animate-pulse opacity-40`} />
           </div>
 
-          <div className="font-mono text-[8px] text-white/20 select-none">
-            ACH_LOG_0{index + 1}
+          <div className="font-mono text-[8px] font-bold text-[#1a1a1a]/30 select-none">
+            ACHIEVEMENT_0{index + 1}
           </div>
         </div>
 
         {/* Body content */}
         <div className={`space-y-3 z-10 ${isFeatured ? 'max-w-2xl' : 'max-w-xs'}`}>
-          <h3 className="text-xl lg:text-2xl font-display font-extrabold text-white tracking-tight uppercase transition-colors flex items-center gap-2 group-hover:text-primary">
+          <h3 className="text-xl lg:text-2xl font-display font-extrabold text-[#1a1a1a] tracking-tight uppercase transition-colors flex items-center gap-2 group-hover:text-primary">
             {achievement.title}
-            {isFeatured && <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-primary transition-colors" />}
+            {isFeatured && <ArrowUpRight className="w-4 h-4 text-[#1a1a1a]/30 group-hover:text-primary transition-colors" />}
           </h3>
-          <p className="text-gray-400 text-sm font-sans leading-relaxed font-light line-clamp-3">
+          <p className="text-[#1a1a1a]/70 text-sm font-sans leading-relaxed font-medium line-clamp-3">
             {achievement.description}
           </p>
         </div>
 
         {/* Stat counter section */}
         {achievement.stat && (
-          <div className="w-full flex items-center justify-between gap-8 z-10 pt-4 border-t border-white/5">
-            <div className="h-1 flex-1 bg-white/5 rounded-full overflow-hidden relative">
+          <div className="w-full flex items-center justify-between gap-8 z-10 pt-4 border-t border-[#1a1a1a]/10">
+            <div className="h-1 flex-1 bg-[#1a1a1a]/10 rounded-full overflow-hidden relative">
               <motion.div 
                 initial={{ width: 0 }}
                 animate={isInView ? { width: "100%" } : {}}
                 transition={{ duration: 1.8, delay: 0.3 }}
-                className={`h-full bg-gradient-to-r from-primary/30 to-primary shadow-[0_0_8px_var(--color-primary)]`}
+                className={`h-full bg-gradient-to-r from-primary/30 to-primary`}
               />
               {/* Shimmer sweep effect */}
               <motion.div
                 animate={{ x: ["-100%", "200%"] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none"
               />
             </div>
             <motion.div 
@@ -178,7 +178,7 @@ export default function Achievements() {
       className="min-h-screen py-32 px-4 bg-transparent relative z-10"
     >
       <div className="max-w-7xl mx-auto">
-        <ScrollRevealHeading label="[ 05:_HONOR_LOGS ]" title="ACHIEVEMENTS" />
+        <ScrollRevealHeading label="[ HIGHLIGHTS ]" title="ACHIEVEMENTS" />
 
         {/* Bento Grid Deck Stack Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[340px] pt-8">
@@ -238,7 +238,7 @@ function Counter({ value, suffix, isInView }: { value: string; suffix: string; i
   }, [isInView, target]);
 
   return (
-    <div className="text-3xl font-display font-extrabold text-white tracking-tighter">
+    <div className="text-3xl font-display font-extrabold text-[#1a1a1a] tracking-tighter">
       {count}<span className="text-primary font-sans">{suffix}</span>
     </div>
   );

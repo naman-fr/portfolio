@@ -23,11 +23,11 @@ function HeroVisual() {
     <Float speed={3} rotationIntensity={0.6} floatIntensity={1.0}>
       <TorusKnot ref={meshRef} args={[1.1, 0.35, 120, 16]} scale={1.25}>
         <meshStandardMaterial
-          color="#f27b50" // Coral
-          roughness={0.15}
-          metalness={0.9}
-          emissive="#f27b50"
-          emissiveIntensity={0.15}
+          color="#e02424" // P5 Red
+          roughness={0.2}
+          metalness={0.8}
+          emissive="#ff003c"
+          emissiveIntensity={0.2}
         />
       </TorusKnot>
     </Float>
@@ -105,8 +105,8 @@ export default function HeroV2() {
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-transparent z-10">
       {/* Background Spotlights */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(242,123,80,0.06),_transparent_75%)]" />
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(224,36,36,0.1),_transparent_75%)]" />
       </div>
 
       {/* 3D Scene */}
@@ -114,8 +114,8 @@ export default function HeroV2() {
         <Canvas>
           <PerspectiveCamera makeDefault position={[0, 0, cameraZ]} />
           <ambientLight intensity={0.7} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#f27b50" />
-          <pointLight position={[-10, -10, -10]} intensity={0.8} color="#dfc7b3" />
+          <pointLight position={[10, 10, 10]} intensity={1.5} color="#e02424" />
+          <pointLight position={[-10, -10, -10]} intensity={0.8} color="#ffffff" />
           <Suspense fallback={null}>
             <HeroVisual />
           </Suspense>
@@ -130,13 +130,13 @@ export default function HeroV2() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-primary font-mono text-[9px] tracking-[0.6em] uppercase block mb-4"
+              className="text-[#1a1a1a] font-mono text-[10px] tracking-[0.4em] uppercase block mb-4 font-bold border-2 border-black inline-block px-3 py-1 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-2"
             >
-              [ SYSTEM_READY_V2.026 // INTEL_CORE ]
+              [ HELLO THERE // WELCOME ]
             </motion.span>
             
-            <h1 className="text-[10vw] lg:text-[8vw] font-display font-extrabold text-white uppercase tracking-tighter leading-[0.82] flex flex-col items-center">
-              <StaggeredText text="NAMAN" className="block text-white" />
+            <h1 className="text-[10vw] lg:text-[8vw] font-display font-extrabold text-[#1a1a1a] uppercase tracking-tighter leading-[0.82] flex flex-col items-center">
+              <StaggeredText text="NAMAN" className="block text-[#1a1a1a]" />
               <StaggeredText text="GAUTAM" className="block mt-1" isOutline={true} />
             </h1>
           </div>
@@ -145,9 +145,9 @@ export default function HeroV2() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 1.2, type: "spring", stiffness: 100 }}
-              className="inline-block px-4 sm:px-8 py-3 sm:py-3.5 rounded-2xl sm:rounded-full border border-primary/20 bg-[#0c0b0a]/30 backdrop-blur-md shadow-[0_0_25px_rgba(242,123,80,0.06)]"
+              className="inline-block px-4 sm:px-8 py-3 sm:py-3.5 rounded-full border-2 border-black bg-white shadow-[4px_4px_0_0_rgba(0,0,0,0.1)]"
             >
-              <p className="text-xs md:text-sm font-sans tracking-[0.08em] sm:tracking-[0.16em] uppercase font-bold bg-gradient-to-r from-primary via-cream to-accent bg-clip-text text-transparent">
+              <p className="text-xs md:text-sm font-sans tracking-[0.08em] sm:tracking-[0.16em] uppercase font-bold text-[#1a1a1a]">
                 {resumeData.profile.tagline.toUpperCase()}
               </p>
             </motion.div>
@@ -156,15 +156,15 @@ export default function HeroV2() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.0, duration: 1 }}
-              className="flex items-center justify-center gap-4 text-[9px] font-mono text-primary/60"
+              className="flex items-center justify-center gap-4 text-[10px] font-mono text-[#1a1a1a] font-bold"
             >
-              <span className="w-10 h-[1px] bg-primary/20" />
+              <span className="w-10 h-[2px] bg-black" />
               <span className="tracking-widest">ROBOTICS</span>
-              <span className="w-1.5 h-1.5 bg-primary/30 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-primary border border-black rounded-full animate-bounce" />
               <span className="tracking-widest">AI_SYSTEMS</span>
-              <span className="w-1.5 h-1.5 bg-primary/30 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-primary border border-black rounded-full animate-bounce" />
               <span className="tracking-widest">EMBEDDED</span>
-              <span className="w-10 h-[1px] bg-primary/20" />
+              <span className="w-10 h-[2px] bg-black" />
             </motion.div>
           </div>
         </div>
@@ -188,8 +188,8 @@ export default function HeroV2() {
         transition={{ duration: 2, repeat: Infinity }}
       >
         <div className="flex flex-col items-center gap-4">
-          <span className="text-[7px] font-mono text-white/20 tracking-[0.4em] rotate-90 origin-left translate-x-2">SCROLL</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-primary/60 via-white/5 to-transparent" />
+          <span className="text-[9px] font-mono font-bold text-[#1a1a1a] tracking-[0.4em] rotate-90 origin-left translate-x-3">SCROLL</span>
+          <div className="w-[2px] h-12 bg-gradient-to-b from-primary via-black to-transparent" />
         </div>
       </motion.div>
     </section>

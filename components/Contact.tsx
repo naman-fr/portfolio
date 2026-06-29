@@ -55,26 +55,26 @@ export default function Contact() {
     >
       <div className="max-w-5xl w-full">
         <motion.div
-          className="glass-premium rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl relative"
+          className="bg-white rounded-[2rem] overflow-hidden border-2 border-[#1a1a1a] shadow-[8px_8px_0_0_rgba(0,0,0,0.15)] relative"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Header Bar */}
-          <div className="bg-white/5 p-6 border-b border-white/5 flex items-center justify-between px-10">
+          <div className="bg-[#1a1a1a]/5 p-6 border-b-2 border-[#1a1a1a]/10 flex items-center justify-between px-10">
             <div className="flex gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
               <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
               <div className="w-2.5 h-2.5 rounded-full bg-primary" />
             </div>
-            <div className="font-mono text-[9px] tracking-[0.4em] text-white/20 uppercase">
+            <div className="font-mono text-[9px] font-bold tracking-[0.4em] text-[#1a1a1a]/40 uppercase">
               SECURE_COMM_CHANNEL_v8.4
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Info Side */}
-            <div className="p-6 sm:p-12 lg:p-16 border-b md:border-b-0 md:border-r border-white/5 bg-white/[0.005]">
+            <div className="p-6 sm:p-12 lg:p-16 border-b-2 md:border-b-0 md:border-r-2 border-[#1a1a1a]/10 bg-white">
               <div className="mb-16">
                 <motion.h2 
                   initial="hidden"
@@ -87,7 +87,7 @@ export default function Contact() {
                       transition: { staggerChildren: 0.05 }
                     }
                   }}
-                  className="text-5xl lg:text-6xl font-display font-extrabold text-white mb-6 leading-none tracking-tighter uppercase flex"
+                  className="text-5xl lg:text-6xl font-display font-extrabold text-[#1a1a1a] mb-6 leading-none tracking-tighter uppercase flex"
                 >
                   {Array.from("HELLO.").map((char, i) => (
                     <motion.span
@@ -115,19 +115,19 @@ export default function Contact() {
                   { icon: Github, label: "SOURCE_CONTROL", value: "naman-fr", color: "text-accent" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-6 group cursor-pointer">
-                    <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 group-hover:border-primary/30 transition-all duration-500 group-hover:bg-primary/5">
-                      <item.icon className="w-5 h-5" />
+                    <div className="p-4 rounded-2xl bg-[#1a1a1a]/5 border-2 border-[#1a1a1a]/10 group-hover:border-primary/50 transition-all duration-500 group-hover:bg-primary/10">
+                      <item.icon className={`w-5 h-5 ${item.color.replace('text-[#dfc7b3]', 'text-[#1a1a1a]')}`} />
                     </div>
                     <div>
-                      <div className="text-[8px] font-mono text-white/30 tracking-[0.3em] mb-1">{item.label}</div>
-                      <div className="font-mono text-sm text-[#dfc7b3]/80 group-hover:text-white transition-colors">{item.value}</div>
+                      <div className="text-[8px] font-mono font-bold text-[#1a1a1a]/40 tracking-[0.3em] mb-1">{item.label}</div>
+                      <div className="font-mono text-sm font-bold text-[#1a1a1a]/70 group-hover:text-primary transition-colors">{item.value}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* System Monitor Widget */}
-              <div className="mt-16 p-8 bg-black/40 rounded-[2rem] border border-white/5 font-mono text-[10px] h-48 overflow-hidden relative group/monitor">
+              <div className="mt-16 p-8 bg-[#1a1a1a] rounded-[1.5rem] border-2 border-black/20 font-mono text-[10px] h-48 overflow-hidden relative group/monitor shadow-inner">
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-primary/20 animate-scan pointer-events-none" />
                 <div className="text-white/20 mb-6 flex justify-between">
                   <span>{"// SYSTEM_LOGS"}</span>
@@ -144,29 +144,29 @@ export default function Contact() {
             </div>
 
             {/* Form Side */}
-            <form onSubmit={handleSubmit} className="p-6 sm:p-12 lg:p-16 space-y-8 bg-white/[0.01]">
+            <form onSubmit={handleSubmit} className="p-6 sm:p-12 lg:p-16 space-y-8 bg-[#fcfbf9]">
               <div className="space-y-6">
                 {[
                   { label: "USER_IDENTIFIER", placeholder: "ENTER_NAME", type: "text", key: "name" },
                   { label: "RETURN_GATEWAY", placeholder: "EMAIL@PROTOCOL.IO", type: "email", key: "email" },
                 ].map((field) => (
                   <div key={field.key} className="space-y-3">
-                    <label className="block text-[8px] font-mono text-white/30 tracking-[0.4em] uppercase">{field.label}</label>
+                    <label className="block text-[8px] font-mono font-bold text-[#1a1a1a]/50 tracking-[0.4em] uppercase">{field.label}</label>
                     <input
                       type={field.type}
                       value={(formData as any)[field.key]}
                       onChange={(e) => setFormData({ ...formData, [field.key]: e.target.value })}
                       placeholder={field.placeholder}
-                      className="w-full bg-white/[0.02] border border-white/5 rounded-xl p-5 font-mono text-sm text-white focus:outline-none focus:border-primary/30 transition-all placeholder:text-white/10 focus:bg-primary/[0.01]"
+                      className="w-full bg-white border-2 border-[#1a1a1a]/10 rounded-xl p-5 font-mono font-bold text-sm text-[#1a1a1a] focus:outline-none focus:border-primary/50 transition-all placeholder:text-[#1a1a1a]/20 focus:bg-primary/5 shadow-sm"
                       required
                     />
                   </div>
                 ))}
                 
                 <div className="space-y-3">
-                  <label className="block text-[8px] font-mono text-white/30 tracking-[0.4em] uppercase">TRANSMISSION_PAYLOAD</label>
+                  <label className="block text-[8px] font-mono font-bold text-[#1a1a1a]/50 tracking-[0.4em] uppercase">TRANSMISSION_PAYLOAD</label>
                   <textarea
-                    className="w-full bg-white/[0.02] border border-white/5 rounded-xl p-5 font-mono text-sm text-white focus:outline-none focus:border-primary/30 transition-all h-36 resize-none placeholder:text-white/10 focus:bg-primary/[0.01]"
+                    className="w-full bg-white border-2 border-[#1a1a1a]/10 rounded-xl p-5 font-mono font-bold text-sm text-[#1a1a1a] focus:outline-none focus:border-primary/50 transition-all h-36 resize-none placeholder:text-[#1a1a1a]/20 focus:bg-primary/5 shadow-sm"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="DESCRIBE_PROJECT_SCOPE..."

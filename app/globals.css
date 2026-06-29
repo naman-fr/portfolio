@@ -7,19 +7,19 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   
-  --color-base: #0a0908;
-  --color-coral: #e76f51;
-  --color-terracotta: #d94e34;
-  --color-beige: #e5d3c0;
-  --color-cream: #faf5ef;
-  --color-copper: #c38e70;
-  --color-emerald: #5a8c76;
-  --color-sand: #f4ebd0;
+  --color-base: #fcfbf9;
+  --color-coral: #e02424; /* P5 Red */
+  --color-terracotta: #1a1a1a; /* Dark Contrast */
+  --color-beige: #f0f0f0;
+  --color-cream: #ffffff;
+  --color-copper: #ff003c;
+  --color-emerald: #4ade80; /* Pokemon green */
+  --color-sand: #e2e8f0;
   
   --color-primary: var(--color-coral);
-  --color-secondary: var(--color-beige);
+  --color-secondary: var(--color-terracotta);
   --color-accent: var(--color-copper);
-  --color-glass: rgba(229, 211, 192, 0.02);
+  --color-glass: rgba(255, 255, 255, 0.7);
 }
 
 html {
@@ -36,11 +36,9 @@ html {
 
 @layer base {
   body {
-    @apply bg-[#0e0d0b] text-[#f4ebd0]/90 antialiased selection:bg-primary selection:text-black;
-    background-image: 
-      linear-gradient(to bottom, rgba(242, 123, 80, 0.012) 1px, transparent 1px),
-      linear-gradient(to right, rgba(242, 123, 80, 0.012) 1px, transparent 1px);
-    background-size: 60px 60px;
+    @apply bg-[#fcfbf9] text-[#1a1a1a] antialiased selection:bg-primary selection:text-white;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.08) 2px, transparent 2px);
+    background-size: 24px 24px;
     font-family: var(--font-sans);
     font-feature-settings: "liga" 1, "kern" 1;
     text-rendering: optimizeLegibility;
@@ -69,11 +67,11 @@ html {
   }
   
   .glass {
-    @apply backdrop-blur-md bg-white/5 border border-white/10;
+    @apply backdrop-blur-md bg-white/70 border border-black/10 shadow-sm;
   }
   
   .glass-hover {
-    @apply glass hover:bg-white/10 hover:border-white/20 transition-all duration-300;
+    @apply glass hover:bg-white/90 hover:border-black/20 hover:shadow-md transition-all duration-300;
   }
   
   .neon-glow {
@@ -90,9 +88,10 @@ html {
   /* Glassmorphism V2 */
   .glass-premium {
     background: var(--color-glass);
-    backdrop-filter: blur(12px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 1.5rem; /* Pokemon rounded */
   }
 
   /* Noise Overlay */
@@ -119,40 +118,44 @@ html {
     line-height: 1;
   }
 
-  /* Magnetic Button Base */
+  /* Magnetic Button Base - P5 Style */
   .btn-magnetic {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 3rem;
-    border-radius: 999px;
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.5rem;
     background: transparent;
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
-    font-weight: 600;
-    transition: background 0.3s, color 0.3s;
+    border: 3px solid #1a1a1a;
+    color: #1a1a1a;
+    font-weight: 800;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     overflow: hidden;
+    transform: skew(-5deg); /* P5 angle */
   }
 
   .btn-magnetic::before {
     content: "";
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: 0;
+    left: -100%;
     width: 100%;
     height: 100%;
     background: var(--color-primary);
-    transition: top 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+    transition: left 0.4s cubic-bezier(0.7, 0, 0.3, 1);
     z-index: -1;
+    transform: skew(10deg);
   }
 
   .btn-magnetic:hover {
-    color: var(--color-base);
+    color: white;
+    transform: skew(-5deg) scale(1.05);
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
   }
 
   .btn-magnetic:hover::before {
-    top: 0;
+    left: 0;
   }
 
   /* Lenis smooth scroll fix */
@@ -205,7 +208,7 @@ html {
   transform: translateX(-50%);
   width: 80vw;
   height: 40vh;
-  background: radial-gradient(circle, rgba(242, 123, 80, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(224, 36, 36, 0.08) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
 }
@@ -216,8 +219,9 @@ html {
 }
 
 .stroke-text {
-  -webkit-text-stroke: 1px rgba(244, 235, 208, 0.3);
-  text-stroke: 1px rgba(244, 235, 208, 0.3);
+  -webkit-text-stroke: 1.5px #1a1a1a;
+  text-stroke: 1.5px #1a1a1a;
+  color: transparent;
 }
 
 @keyframes scan {
