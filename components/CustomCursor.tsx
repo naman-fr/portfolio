@@ -6,12 +6,14 @@ import gsap from "gsap";
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
+  const spriteRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const cursor = cursorRef.current;
     const follower = followerRef.current;
+    const sprite = spriteRef.current;
 
-    if (!cursor || !follower) return;
+    if (!cursor || !follower || !sprite) return;
 
     const moveCursor = (e: MouseEvent) => {
       gsap.to(cursor, {
@@ -23,7 +25,13 @@ export default function CustomCursor() {
       gsap.to(follower, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.45,
+        duration: 0.35,
+        ease: "power3.out",
+      });
+      gsap.to(sprite, {
+        x: e.clientX + 18,
+        y: e.clientY + 18,
+        duration: 0.55,
         ease: "power3.out",
       });
     };
@@ -64,6 +72,10 @@ export default function CustomCursor() {
         scale: 0,
         duration: 0.15,
       });
+      gsap.to(sprite, {
+        scale: 1.3,
+        duration: 0.25,
+      });
     };
 
     const handleUnhover = () => {
@@ -89,6 +101,10 @@ export default function CustomCursor() {
       gsap.to(cursor, {
         scale: 1,
         duration: 0.15,
+      });
+      gsap.to(sprite, {
+        scale: 1,
+        duration: 0.25,
       });
     };
 
@@ -128,6 +144,16 @@ export default function CustomCursor() {
         <span 
           id="cursor-label" 
           className="opacity-0 font-mono text-[6px] tracking-wider text-primary font-bold text-center pointer-events-none"
+        />
+      </div>
+      <div
+        ref={spriteRef}
+        className="fixed top-0 left-0 w-12 h-12 pointer-events-none z-[10000] -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center"
+      >
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif"
+          alt="Pikachu cursor follower"
+          className="w-8 h-8 object-contain drop-shadow-[2px_2px_0_rgba(0,0,0,0.15)]"
         />
       </div>
     </>

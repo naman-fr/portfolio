@@ -54,6 +54,43 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
   const shift1 = isMobile ? -14 : -26;
   const shift2 = isMobile ? -7 : -13;
 
+  const cardThemes = [
+    {
+      bgCard: "bg-[#f9db34]", // Yellow / Electric
+      stripeBg: "bg-[#e6a100]",
+      typeText: "⚡ ELECTRIC",
+      typeColor: "text-[#e6a100]",
+      progressColor: "from-[#e02424] to-[#f9db34]",
+      badgeIcon: "⚡",
+    },
+    {
+      bgCard: "bg-[#63b3ed]", // Blue / Water
+      stripeBg: "bg-[#2b6cb0]",
+      typeText: "💧 WATER",
+      typeColor: "text-[#2b6cb0]",
+      progressColor: "from-[#2b6cb0] to-[#00f5d4]",
+      badgeIcon: "💧",
+    },
+    {
+      bgCard: "bg-[#fc8181]", // Red / Fire
+      stripeBg: "bg-[#c53030]",
+      typeText: "🔥 FIRE",
+      typeColor: "text-[#c53030]",
+      progressColor: "from-[#c53030] to-[#ff7300]",
+      badgeIcon: "🔥",
+    },
+    {
+      bgCard: "bg-[#68d391]", // Green / Grass
+      stripeBg: "bg-[#2f855a]",
+      typeText: "🍃 GRASS",
+      typeColor: "text-[#2f855a]",
+      progressColor: "from-[#2f855a] to-[#8bac0f]",
+      badgeIcon: "🍃",
+    },
+  ];
+
+  const cardTheme = cardThemes[index % cardThemes.length];
+
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
@@ -81,7 +118,7 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
         style={{ transformStyle: "preserve-3d" }}
         animate={isHovered ? { scale: 1.015, y: -4 } : { scale: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 220, damping: 18 }}
-        className={`relative h-full w-full bg-[#f9db34] rounded-2xl p-3.5 border-[4px] border-[#1a1a1a] flex flex-col justify-between transition-all duration-500 z-20 shadow-[8px_8px_0_0_#1a1a1a]`}
+        className={`relative h-full w-full ${cardTheme.bgCard} rounded-2xl p-3.5 border-[4px] border-[#1a1a1a] flex flex-col justify-between transition-all duration-500 z-20 shadow-[8px_8px_0_0_#1a1a1a]`}
       >
         {/* Holographic foil overlay (Pokemon touch) */}
         <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-[rgba(255,255,255,0.4)] to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-20 rounded-xl" />
@@ -96,8 +133,8 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
             </h3>
             <div className="flex items-center gap-1.5">
               <span className="text-[9px] font-mono font-black text-[#1a1a1a]/60">LV.99</span>
-              <div className="w-5 h-5 rounded-full bg-[#e02424] border-2 border-[#1a1a1a] flex items-center justify-center shadow-sm">
-                <span className="text-[8px] font-mono font-black text-white">★</span>
+              <div className={`w-5 h-5 rounded-full border-2 border-[#1a1a1a] flex items-center justify-center shadow-sm bg-white`}>
+                <span className="text-[8px] font-mono font-black">{cardTheme.badgeIcon}</span>
               </div>
             </div>
           </div>
@@ -105,19 +142,19 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
           {/* Illustration Window / Icon Frame */}
           <div className="h-[100px] bg-gradient-to-br from-[#1a1a1a]/5 to-[#1a1a1a]/15 rounded-lg border-[3px] border-[#1a1a1a] flex items-center justify-center relative overflow-hidden shrink-0 shadow-inner">
             <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(249,219,52,0.1)_50%,transparent_75%)] bg-[length:250%_250%] animate-shimmer pointer-events-none" />
-            <Icon className={`w-10 h-10 ${currentTheme.accent} drop-shadow-[2px_2px_0px_#1a1a1a]`} />
+            <Icon className={`w-10 h-10 ${cardTheme.typeColor} drop-shadow-[2px_2px_0px_#1a1a1a]`} />
           </div>
 
           {/* Card Info Stripe */}
-          <div className="bg-[#e02424] text-white text-[7px] font-mono font-black tracking-widest text-center uppercase py-0.5 border-y-2 border-[#1a1a1a] my-2 -mx-4 shrink-0">
+          <div className={`${cardTheme.stripeBg} text-white text-[7px] font-mono font-black tracking-widest text-center uppercase py-0.5 border-y-2 border-[#1a1a1a] my-2 -mx-4 shrink-0`}>
             NO. {index + 1} ACHIEVEMENT POKÉDEX METER
           </div>
 
           {/* Description / Attack details */}
           <div className="flex-1 flex flex-col justify-center space-y-1.5 min-h-[60px] overflow-hidden">
             <div className="flex items-center justify-between">
-              <span className="text-[9px] font-mono font-black text-[#e02424]">⚔ ACHIEVED</span>
-              <span className="text-[8px] font-mono font-black text-[#1a1a1a]/50">ATK / 120</span>
+              <span className={`text-[9px] font-mono font-black ${cardTheme.typeColor}`}>⚔ ACHIEVED</span>
+              <span className="text-[8px] font-mono font-black text-[#1a1a1a]/50">{cardTheme.typeText} / 120HP</span>
             </div>
             <p className="text-[#1a1a1a]/80 text-[11px] font-sans leading-snug font-medium line-clamp-3">
               {achievement.description}
@@ -132,7 +169,7 @@ function AchievementCard({ achievement, index, isFeatured, isInView, isMobile }:
                   initial={{ width: 0 }}
                   animate={isInView ? { width: "100%" } : {}}
                   transition={{ duration: 1.8, delay: 0.3 }}
-                  className={`h-full bg-gradient-to-r from-[#e02424] to-[#f9db34]`}
+                  className={`h-full bg-gradient-to-r ${cardTheme.progressColor}`}
                 />
               </div>
               <motion.div 

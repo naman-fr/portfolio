@@ -109,19 +109,6 @@ export default function HeroV2() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(224,36,36,0.1),_transparent_75%)]" />
       </div>
 
-      {/* 3D Scene */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, cameraZ]} />
-          <ambientLight intensity={0.7} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#e02424" />
-          <pointLight position={[-10, -10, -10]} intensity={0.8} color="#ffffff" />
-          <Suspense fallback={null}>
-            <HeroVisual />
-          </Suspense>
-        </Canvas>
-      </div>
-
       {/* Hero Typography */}
       <div className="relative z-10 text-center px-4 w-full max-w-5xl mx-auto">
         <div className="space-y-8">

@@ -45,7 +45,7 @@ function FloatingShape({ position, color, type, speedFactor = 1 }: { position: [
   );
 }
 
-function PokeModel() {
+function PokeModel({ isMobile }: { isMobile: boolean }) {
   const { scene } = useGLTF("/poke.glb");
   const groupRef = useRef<THREE.Group>(null);
   
@@ -66,7 +66,7 @@ function PokeModel() {
     <group ref={groupRef} position={[0, -0.2, 0]}>
       <Float speed={2.5} rotationIntensity={0.4} floatIntensity={1.5}>
         <Center>
-          <primitive object={scene} scale={0.06} />
+          <primitive object={scene} scale={isMobile ? 0.22 : 0.4} />
         </Center>
       </Float>
       {/* Floating particles around the Pokeball */}
@@ -86,15 +86,18 @@ function PokeModel() {
 export default function EarthBackground() {
   const [cameraZ, setCameraZ] = useState(8);
   const [groupPos, setGroupPos] = useState<[number, number, number]>([0, -0.5, 0]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) {
+      const mobile = window.innerWidth < 1024;
+      setIsMobile(mobile);
+      if (mobile) {
         setCameraZ(9.5);
-        setGroupPos([0, -1.6, 0]);
+        setGroupPos([0, -2.4, 0]); // Pushed way down on mobile to avoid overlapping hero text
       } else {
         setCameraZ(8);
-        setGroupPos([0, -0.5, 0]);
+        setGroupPos([2.5, 0.4, 0]); // Pushed to the right on desktop to clear text space
       }
     };
     handleResize();
@@ -120,7 +123,7 @@ export default function EarthBackground() {
 
         <Suspense fallback={null}>
           <group position={groupPos}>
-            <PokeModel />
+            <PokeModel isMobile={isMobile} />
           </group>
         </Suspense>
       </Canvas>

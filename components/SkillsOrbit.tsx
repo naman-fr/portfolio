@@ -5,10 +5,76 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Html, Sphere, MeshDistortMaterial, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 
+const badgeColors = ["#8a8a8a", "#1b9fe5", "#e6a100", "#42a859", "#ff7300", "#9b5de5", "#ff4d4d", "#00bfa6"];
+
+function BadgeMesh({ type }: { type: number }) {
+  const index = type % 8;
+  const color = badgeColors[index];
+  
+  if (index === 0) {
+    return (
+      <mesh>
+        <boxGeometry args={[0.26, 0.26, 0.26]} />
+        <meshStandardMaterial color={color} roughness={0.3} metalness={0.7} />
+      </mesh>
+    );
+  } else if (index === 1) {
+    return (
+      <mesh>
+        <sphereGeometry args={[0.2, 16, 16]} />
+        <meshStandardMaterial color={color} roughness={0.1} metalness={0.9} />
+      </mesh>
+    );
+  } else if (index === 2) {
+    return (
+      <mesh>
+        <coneGeometry args={[0.18, 0.36, 4]} />
+        <meshStandardMaterial color={color} roughness={0.2} metalness={0.8} />
+      </mesh>
+    );
+  } else if (index === 3) {
+    return (
+      <mesh>
+        <octahedronGeometry args={[0.24, 0]} />
+        <meshStandardMaterial color={color} roughness={0.2} metalness={0.7} />
+      </mesh>
+    );
+  } else if (index === 4) {
+    return (
+      <mesh>
+        <torusGeometry args={[0.15, 0.05, 8, 16]} />
+        <meshStandardMaterial color={color} roughness={0.2} metalness={0.8} />
+      </mesh>
+    );
+  } else if (index === 5) {
+    return (
+      <mesh>
+        <dodecahedronGeometry args={[0.22, 0]} />
+        <meshStandardMaterial color={color} roughness={0.2} metalness={0.9} />
+      </mesh>
+    );
+  } else if (index === 6) {
+    return (
+      <mesh>
+        <coneGeometry args={[0.2, 0.38, 8]} />
+        <meshStandardMaterial color={color} roughness={0.1} metalness={0.9} />
+      </mesh>
+    );
+  } else {
+    return (
+      <mesh>
+        <tetrahedronGeometry args={[0.24, 0]} />
+        <meshStandardMaterial color={color} roughness={0.2} metalness={0.8} />
+      </mesh>
+    );
+  }
+}
+
 function OrbitingIcon({ index, total, label }: { index: number; total: number; label: string }) {
   const meshRef = useRef<THREE.Group>(null);
   const radius = 4.2;
   const angle = (index / total) * Math.PI * 2;
+  const activeColor = badgeColors[index % badgeColors.length];
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
@@ -24,13 +90,13 @@ function OrbitingIcon({ index, total, label }: { index: number; total: number; l
   return (
     <group ref={meshRef}>
       <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-        <mesh>
-          <octahedronGeometry args={[0.3, 0]} />
-          <meshStandardMaterial color="#e02424" roughness={0.3} metalness={0.7} />
-        </mesh>
+        <BadgeMesh type={index} />
         <Html position={[0, 0.5, 0]} center zIndexRange={[100, 0]}>
-          <div className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border-2 border-[#e02424] shadow-[2px_2px_0_0_#1a1a1a] flex items-center justify-center pointer-events-none whitespace-nowrap">
-            <span className="text-[#e02424] font-mono font-black text-[10px] tracking-widest">{label}</span>
+          <div 
+            className="bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full border-2 shadow-[2px_2px_0_0_#1a1a1a] flex items-center justify-center pointer-events-none whitespace-nowrap"
+            style={{ borderColor: activeColor }}
+          >
+            <span className="font-mono font-black text-[10px] tracking-widest" style={{ color: activeColor }}>{label}</span>
           </div>
         </Html>
       </Float>
