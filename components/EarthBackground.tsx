@@ -69,16 +69,6 @@ function PokeModel({ isMobile }: { isMobile: boolean }) {
           <primitive object={scene} scale={isMobile ? 0.025 : 0.04} />
         </Center>
       </Float>
-      {/* Floating particles around the Pokeball */}
-      <Sparkles count={80} scale={8} size={4} speed={0.3} opacity={0.8} color="#e02424" />
-      <Sparkles count={50} scale={10} size={3} speed={0.2} opacity={0.6} color="#f9db34" />
-      <Sparkles count={30} scale={6} size={5} speed={0.4} opacity={0.5} color="#ffffff" />
-      
-      {/* Anime / Persona style floating 3D markers */}
-      <FloatingShape position={[-2.2, 1.5, -1]} color="#f9db34" type="star" speedFactor={1.2} />
-      <FloatingShape position={[2.4, -0.8, -2]} color="#e02424" type="diamond" speedFactor={0.8} />
-      <FloatingShape position={[-1.8, -1.2, -1.5]} color="#1b9fe5" type="ring" speedFactor={1.5} />
-      <FloatingShape position={[2.0, 1.8, -1.2]} color="#ffffff" type="star" speedFactor={0.9} />
     </group>
   );
 }
@@ -94,10 +84,10 @@ export default function EarthBackground() {
       setIsMobile(mobile);
       if (mobile) {
         setCameraZ(9.5);
-        setGroupPos([0, -2.4, 0]); // Pushed way down on mobile to avoid overlapping hero text
+        setGroupPos([0, -1.8, 0]); // Centered but pushed down on mobile
       } else {
         setCameraZ(8);
-        setGroupPos([2.5, 0.4, 0]); // Pushed to the right on desktop to clear text space
+        setGroupPos([0, -0.5, 0]); // Centered on desktop
       }
     };
     handleResize();
