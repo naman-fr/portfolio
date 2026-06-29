@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Text, Sphere, MeshDistortMaterial, PerspectiveCamera } from "@react-three/drei";
+import { Float, Html, Sphere, MeshDistortMaterial, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 
 function OrbitingIcon({ index, total, label }: { index: number; total: number; label: string }) {
@@ -28,16 +28,11 @@ function OrbitingIcon({ index, total, label }: { index: number; total: number; l
           <octahedronGeometry args={[0.3, 0]} />
           <meshStandardMaterial color="#e02424" roughness={0.3} metalness={0.7} />
         </mesh>
-        <Text
-          position={[0, 0.7, 0]}
-          fontSize={0.28}
-          color="#1a1a1a"
-          anchorX="center"
-          anchorY="middle"
-          fontWeight="bold"
-        >
-          {label}
-        </Text>
+        <Html position={[0, 0.5, 0]} center zIndexRange={[100, 0]}>
+          <div className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border-2 border-[#e02424] shadow-[2px_2px_0_0_#1a1a1a] flex items-center justify-center pointer-events-none whitespace-nowrap">
+            <span className="text-[#e02424] font-mono font-black text-[10px] tracking-widest">{label}</span>
+          </div>
+        </Html>
       </Float>
     </group>
   );
@@ -112,11 +107,15 @@ export default function SkillsOrbit() {
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center pointer-events-none">
         <div className="text-center space-y-4">
-          <span className="text-[#1a1a1a] font-mono font-bold text-sm tracking-[0.4em] uppercase border-b-2 border-black pb-1 inline-block">[ SKILLS // BADGES ]</span>
-          <h2 className="text-huge font-bold text-[#1a1a1a] tracking-tighter uppercase leading-none" style={{ textShadow: "4px 4px 0px rgba(0,0,0,0.1)" }}>TECH STACK</h2>
-          <p className="text-[#1a1a1a]/60 font-mono text-[10px] font-bold uppercase tracking-widest mt-8">
-            [ MY ARSENAL ]
-          </p>
+          <span className="text-[#e02424] font-mono font-bold text-sm tracking-[0.4em] uppercase border-b-2 border-[#e02424]/30 pb-1 inline-block bg-white/80 px-4 py-1 rounded-t-lg shadow-sm">[ SKILLS // BADGES ]</span>
+          <div className="bg-white/90 p-6 rounded-3xl border-4 border-[#1a1a1a] shadow-[8px_8px_0_0_#e02424] inline-block pointer-events-auto backdrop-blur-md">
+            <h2 className="text-5xl md:text-7xl font-display font-black text-[#1a1a1a] tracking-tighter uppercase leading-none">
+              TECH STACK
+            </h2>
+            <p className="text-[#e02424] font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest mt-4">
+              [ MY ARSENAL ]
+            </p>
+          </div>
         </div>
       </div>
     </section>

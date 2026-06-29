@@ -70,7 +70,7 @@ function ProfileCard({ profile, index, isInView }: { profile: any; index: number
       href={profile.profileUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block w-full"
+      className="group relative block w-full cursor-pointer"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.08, duration: 0.8, ease: "easeOut" }}
@@ -78,96 +78,80 @@ function ProfileCard({ profile, index, isInView }: { profile: any; index: number
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.div
-        animate={isHovered ? { height: 290, y: -4 } : { height: 210, y: 0 }}
+        animate={isHovered ? { height: 320, y: -4 } : { height: 230, y: 0 }}
         transition={{ type: "spring", stiffness: 220, damping: 20 }}
-        className="glass-premium rounded-[2.2rem] p-8 border border-white/5 flex flex-col justify-between hover:border-primary/20 transition-all duration-500 overflow-hidden relative"
+        className="bg-[#c2c2c2] rounded-2xl p-4 border-[4px] border-[#1a1a1a] flex flex-col justify-between hover:shadow-[12px_12px_0_0_#e02424] transition-all duration-500 overflow-hidden relative shadow-[8px_8px_0_0_#1a1a1a]"
       >
-        {/* Animated Background Mesh Grid on Hover */}
-        <div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(to right, ${theme.accent}0a 1px, transparent 1px), linear-gradient(to bottom, ${theme.accent}0a 1px, transparent 1px)`,
-            backgroundSize: "12px 12px"
-          }}
-        />
+        {/* Game Boy Top Logo */}
+        <div className="flex justify-between items-center pb-2 mb-2 border-b-[3px] border-[#1a1a1a] shrink-0 font-mono text-[9px] font-black text-[#1a1a1a]">
+          <span>🎮 DOT_MATRIX_SCREEN</span>
+          <span>BATTERY 🔴</span>
+        </div>
 
-        {/* Diagonal Light Sweep Effect */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 bg-[linear-gradient(135deg,transparent_45%,rgba(255,255,255,0.02)_50%,transparent_55%)] bg-[length:250%_250%] group-hover:bg-[position:100%_100%] bg-[position:0%_0%] pointer-events-none" />
+        {/* Retro Game Boy Green Screen */}
+        <div className="flex-1 bg-[#8bac0f] border-[3px] border-[#1a1a1a] p-4 rounded-lg flex flex-col justify-between relative overflow-hidden font-mono text-[#0f380f] shadow-inner select-none">
+          {/* Glitch Overlay Effect */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(15,56,15,0.05)_50%,transparent_50%)] bg-[length:100%_4px] pointer-events-none" />
 
-        {/* Hover Radial Spotlight */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{
-            background: `radial-gradient(220px circle at 50% 50%, ${theme.glow}, transparent 85%)`
-          }}
-        />
+          {/* Top Header Row */}
+          <div className="flex items-center justify-between gap-4 w-full z-10">
+            <div className="space-y-1">
+              <span className="text-[9px] font-black tracking-widest uppercase opacity-80 block">
+                {profile.title}
+              </span>
+              <h3 className="text-lg font-black tracking-tight uppercase leading-none">
+                {profile.platform}
+              </h3>
+            </div>
 
-        {/* Top Header Row */}
-        <div className="flex items-center justify-between gap-4 w-full z-10">
-          <div className="space-y-1">
-            <span className="text-[9px] font-mono tracking-widest uppercase block opacity-40">
-              {profile.title}
+            <div 
+              className="w-10 h-10 rounded-lg border-2 border-[#0f380f] bg-[#9bbc0f] flex items-center justify-center transition-colors"
+            >
+              <Icon className="w-5 h-5 text-[#0f380f]" />
+            </div>
+          </div>
+
+          {/* Rating Row (Fixed) */}
+          <div className="z-10 mt-2 flex justify-between items-baseline">
+            <span className="text-2xl font-black tracking-tighter">
+              {profile.rating}
             </span>
-            <h3 className="text-xl font-display font-extrabold text-white tracking-tight uppercase group-hover:text-primary transition-colors">
-              {profile.platform}
-            </h3>
+            <span className="text-[9px] font-black border-2 border-[#0f380f] px-1 rounded">RATING</span>
           </div>
 
-          <div 
-            className="w-12 h-12 rounded-2xl border border-white/5 bg-[#0e0d0b] flex items-center justify-center transition-all duration-500"
-            style={{ 
-              borderColor: isHovered ? theme.accent + "40" : undefined,
-              boxShadow: isHovered ? `0 0 15px ${theme.accent}15` : undefined 
-            }}
+          {/* Expandable Drawer Content */}
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={isHovered ? { opacity: 1, height: "auto", marginTop: 12 } : { opacity: 0, height: 0, marginTop: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="z-10 w-full space-y-3 overflow-hidden text-[#0f380f]"
           >
-            <Icon 
-              className="w-6 h-6 text-[#dfc7b3] transition-colors" 
-              style={{ color: isHovered ? theme.accent : undefined }} 
-            />
+            <p className="text-[10px] font-bold leading-relaxed border-t border-[#0f380f]/20 pt-2">
+              {theme.desc}
+            </p>
+            
+            {/* Custom Horizontal Progress Bar with Retro Accent */}
+            <div className="h-2 bg-[#9bbc0f] rounded overflow-hidden relative border-2 border-[#0f380f]">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={isHovered ? { width: "100%" } : { width: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="h-full bg-[#0f380f]"
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Game Boy Buttons Area (Desktop/Hover Only) */}
+        <div className="flex justify-between items-center mt-3 z-10 shrink-0 font-mono text-[8px] font-black text-[#1a1a1a] select-none">
+          <div className="flex gap-2">
+            <div className="w-4 h-4 rounded-full bg-[#1a1a1a]" />
+            <div className="w-4 h-4 rounded-full bg-[#1a1a1a]" />
           </div>
-        </div>
-
-        {/* Rating Row (Fixed) */}
-        <div className="z-10 mt-2">
-          <span className="text-3xl font-display font-extrabold text-white tracking-tighter block">
-            {profile.rating}
-          </span>
-        </div>
-
-        {/* Expandable Drawer Content */}
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={isHovered ? { opacity: 1, height: "auto", marginTop: 16 } : { opacity: 0, height: 0, marginTop: 0 }}
-          transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="z-10 w-full space-y-4 overflow-hidden"
-        >
-          <p className="text-xs text-gray-400 font-light leading-relaxed">
-            {theme.desc}
-          </p>
-          
-          {/* Custom Horizontal Progress Bar with Glowing Accent */}
-          <div className="h-1 bg-white/5 rounded-full overflow-hidden relative">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={isHovered ? { width: "100%" } : { width: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="h-full"
-              style={{
-                background: `linear-gradient(to right, ${theme.accent}40, ${theme.accent})`,
-                boxShadow: `0 0 8px ${theme.accent}`,
-              }}
-            />
+          <div className="flex gap-3">
+            <span className="border border-[#1a1a1a] px-1.5 py-0.5 rounded rotate-12">SELECT</span>
+            <span className="border border-[#1a1a1a] px-1.5 py-0.5 rounded rotate-12">START</span>
           </div>
-        </motion.div>
-
-        {/* Corner Link Identifier */}
-        <div className="absolute top-4 right-6 opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-10">
-          <ExternalLink className="w-3.5 h-3.5 text-white" />
-        </div>
-
-        {/* Bottom Identifier */}
-        <div className="absolute bottom-4 left-8 font-mono text-[8px] text-white/10 select-none z-10">
-          SYS_LOG_CP_0{index + 1}
         </div>
       </motion.div>
     </motion.a>

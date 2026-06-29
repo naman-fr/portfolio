@@ -85,9 +85,9 @@ export default function Certifications() {
                   exit={{ opacity: 0, scale: 0.7 }}
                   transition={{ type: "spring", stiffness: 140, damping: 18 }}
                   onClick={() => setActiveIndex(i)}
-                  className={`absolute w-[290px] min-[375px]:w-[330px] sm:w-[440px] md:w-[480px] h-full cursor-pointer rounded-[1.5rem] p-4 sm:p-5 flex flex-col gap-3 border-[3px] transition-all duration-500 overflow-hidden bg-[#e02424] ${
+                  className={`absolute w-[290px] min-[375px]:w-[330px] sm:w-[440px] md:w-[480px] h-full cursor-pointer p-0 flex flex-col border-[4px] transition-all duration-500 overflow-hidden bg-[#fcfbf9] ${
                     isActive 
-                      ? "border-[#1a1a1a] shadow-[8px_8px_0_0_rgba(0,0,0,0.2)]" 
+                      ? "border-[#1a1a1a] shadow-[12px_12px_0_0_#e02424]" 
                       : "border-[#1a1a1a]/50 opacity-70 hover:opacity-100 hover:border-[#1a1a1a]"
                   }`}
                   style={{
@@ -95,86 +95,62 @@ export default function Certifications() {
                     pointerEvents: isActive ? "auto" : "none",
                   }}
                 >
-                  {/* Pokedex Top Lights */}
-                  <div className="flex items-center gap-3 w-full pb-2 border-b-[3px] border-[#1a1a1a]/20 mb-2 z-10 shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-[#1b9fe5] border-2 border-white shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.4)]" />
-                    <div className="flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-[#e02424] border border-[#1a1a1a]" />
-                      <div className="w-3 h-3 rounded-full bg-[#f9db34] border border-[#1a1a1a]" />
-                      <div className="w-3 h-3 rounded-full bg-[#42a859] border border-[#1a1a1a]" />
-                    </div>
+                  {/* Persona 5 Header Block */}
+                  <div className="bg-[#e02424] text-white p-5 font-display font-black text-2xl sm:text-3xl uppercase tracking-tighter border-b-[4px] border-[#1a1a1a] flex justify-between items-center relative overflow-hidden shrink-0">
+                    {/* Angled background strip */}
+                    <div className="absolute top-0 right-10 w-48 h-48 bg-[#1a1a1a] -rotate-45 transform origin-center shadow-lg" />
+                    <span className="relative z-10 leading-none" style={{ transform: "rotate(-2deg)" }}>{cert.title.toUpperCase()}</span>
+                    <Icon className="w-10 h-10 relative z-10 text-white transform rotate-12" />
                   </div>
 
-                  {/* Inner Screen Area */}
-                  <div className="flex-1 bg-[#fcfbf9] rounded-xl border-[3px] border-[#1a1a1a] overflow-hidden flex flex-row relative shadow-inner p-4 sm:p-5 gap-4 sm:gap-6">
-                    {/* Holographic Shimmer Effect - Coral themed */}
-                    {isActive && (
-                      <div className="absolute inset-0 opacity-100 transition-opacity duration-1000 bg-[linear-gradient(45deg,transparent_25%,rgba(224,36,36,0.04)_50%,transparent_75%)] bg-[length:250%_250%] animate-shimmer pointer-events-none" />
-                    )}
-
-                    {/* Side Tag */}
-                    <div className="absolute top-0 right-0 h-full w-8 border-l-2 border-[#1a1a1a]/10 flex items-center justify-center bg-[#1a1a1a]/[0.02]">
-                      <span className="rotate-90 font-mono text-[7px] tracking-[0.5em] text-[#1a1a1a]/40 whitespace-nowrap font-bold">
-                        SECURED_LEVEL_04
-                      </span>
+                  {/* Persona Inner Content */}
+                  <div className="flex-1 p-5 sm:p-6 flex flex-col relative z-10 gap-4">
+                    {/* Giant background text motif */}
+                    <div className="absolute bottom-4 right-2 text-7xl font-display font-black text-[#1a1a1a]/5 -z-10 -rotate-12 pointer-events-none">
+                      CONFIDANT
                     </div>
 
-                    {/* Left Side: Icon & Verification */}
-                    <div className="flex flex-col items-center justify-between py-2 border-r-2 border-[#1a1a1a]/10 pr-4 sm:pr-6" style={{ transform: "translateZ(30px)" }}>
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/5 flex items-center justify-center border-2 border-[#1a1a1a]/10 shadow-[2px_2px_0_0_rgba(0,0,0,0.05)]">
-                        <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
+                    <div className="flex justify-between items-start">
+                      <div className="bg-[#1a1a1a] text-white px-3 py-1.5 inline-block self-start font-mono font-bold text-xs uppercase transform -rotate-2 shadow-[4px_4px_0_0_#e02424]">
+                        {cert.date}
                       </div>
-                      <div className="flex flex-col items-center gap-1">
-                        <ShieldCheck className="w-4 h-4 text-primary animate-pulse" />
-                        <span className="text-[7px] font-mono text-primary tracking-widest font-bold">VERIFIED</span>
-                      </div>
+                      
+                      {isActive && (
+                        <div className="flex items-center gap-1 bg-white border-2 border-[#1a1a1a] px-2 py-1 transform rotate-2 shadow-[2px_2px_0_0_#1a1a1a]">
+                          <ShieldCheck className="w-3 h-3 text-[#e02424] animate-pulse" />
+                          <span className="text-[8px] font-black text-[#1a1a1a] tracking-widest">VERIFIED</span>
+                        </div>
+                      )}
                     </div>
 
-                    {/* Right Side: Content */}
-                    <div className="flex-1 space-y-4 sm:space-y-6" style={{ transform: "translateZ(40px)" }}>
-                      <div className="space-y-1">
-                        <span className="text-[9px] font-mono font-bold text-[#1a1a1a]/50 uppercase tracking-widest block">
-                          {cert.date}
+                    <div className="font-mono text-sm uppercase font-black text-[#1a1a1a] bg-white p-3 border-l-8 border-[#e02424] shadow-[4px_4px_0_0_rgba(0,0,0,0.05)]">
+                      {cert.org}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {cert.skills.map((skill) => (
+                        <span key={skill} className="px-2 py-1 bg-white text-[10px] font-mono font-black text-[#1a1a1a] border-2 border-[#1a1a1a] uppercase transform rotate-1 hover:-rotate-1 transition-transform">
+                          {skill}
                         </span>
-                        <h3 className="text-base sm:text-lg md:text-xl font-display font-bold text-[#1a1a1a] tracking-tight leading-tight group-hover:text-primary transition-colors whitespace-normal">
-                          {cert.title.toUpperCase()}
-                        </h3>
-                        <p className="text-secondary font-mono text-xs uppercase tracking-widest font-bold">
-                          {cert.org}
-                        </p>
-                      </div>
+                      ))}
+                    </div>
 
+                    <div className="mt-auto space-y-4">
                       {cert.id_code && (
-                        <div className="bg-[#1a1a1a]/5 p-2 sm:p-3 rounded-xl border-2 border-[#1a1a1a]/10 font-mono">
-                          <div className="text-[7px] font-bold text-[#1a1a1a]/40 uppercase mb-0.5">CERT_ID_HASH</div>
-                          <div className="text-[9px] font-bold text-[#1a1a1a]/60 truncate break-all">{cert.id_code}</div>
+                        <div className="bg-[#f9db34] p-3 border-[3px] border-[#1a1a1a] font-mono transform rotate-1 shadow-[4px_4px_0_0_#1a1a1a]">
+                          <div className="text-[9px] font-black text-[#1a1a1a] uppercase mb-1">CERT_ID_HASH</div>
+                          <div className="text-xs font-bold text-[#1a1a1a] truncate break-all">{cert.id_code}</div>
                         </div>
                       )}
 
-                      <div className="flex flex-wrap gap-1.5">
-                        {cert.skills.map((skill) => (
-                          <span key={skill} className="px-2 py-0.5 bg-primary/5 text-[9px] font-mono text-primary/60 border border-primary/10 rounded uppercase">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="pt-2 flex items-center justify-between">
-                        <a 
-                          href={resumeData.profile.contact.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[9px] font-mono font-bold text-[#1a1a1a]/50 flex items-center gap-2 hover:text-primary transition-colors"
-                        >
-                          <ExternalLink className="w-3 h-3" />
-                          VALIDATE_LINK
-                        </a>
-                        <div className="flex gap-1">
-                          <div className="w-1 h-4 bg-primary/20 rounded-full" />
-                          <div className="w-1 h-4 bg-primary/40 rounded-full" />
-                          <div className="w-1 h-4 bg-primary/60 rounded-full" />
-                        </div>
-                      </div>
+                      <a 
+                        href={resumeData.profile.contact.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-[#1a1a1a] text-white px-4 py-2 font-mono font-black text-[10px] uppercase tracking-widest border-2 border-transparent hover:border-[#e02424] hover:bg-white hover:text-[#e02424] transition-colors transform -rotate-1 shadow-[4px_4px_0_0_#e02424]"
+                      >
+                        VALIDATE_LINK <ExternalLink className="w-4 h-4" />
+                      </a>
                     </div>
                   </div>
                 </motion.div>

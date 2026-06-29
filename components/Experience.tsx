@@ -60,7 +60,7 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
         <motion.div
           animate={isHovered ? { scale: 1.025, y: -2 } : { scale: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 18 }}
-          className={`group relative p-8 rounded-[1.5rem] bg-white border-2 border-[#1a1a1a] shadow-[6px_6px_0_0_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden hover:border-primary/50`}
+          className={`group relative p-0 bg-[#fcfbf9] border-[4px] border-[#1a1a1a] shadow-[8px_8px_0_0_#e02424] transition-all duration-500 overflow-hidden hover:shadow-[12px_12px_0_0_#1a1a1a]`}
         >
           {/* Card Hover Spotlight glow */}
           <div
@@ -70,8 +70,22 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
             }}
           />
 
-          <div className={`space-y-4 flex flex-col ${isEven ? "md:items-end" : "md:items-start"}`}>
-            <div className="flex items-center gap-1.5 text-primary font-mono text-[9px] tracking-widest font-bold bg-primary/5 border border-primary/10 px-3 py-1 rounded-full w-fit">
+          {/* Anime/Persona Header Tape */}
+          <div className="bg-[#1a1a1a] text-white px-6 py-2 border-b-[4px] border-[#1a1a1a] flex justify-between items-center transform -skew-x-12 -mx-4 -mt-2">
+            <span className="font-mono text-[10px] font-black uppercase tracking-widest skew-x-12 ml-4">CONFIDENTIAL_LOG // {index + 1}</span>
+            <div className="flex gap-1 skew-x-12 mr-4">
+              <div className="w-3 h-3 bg-[#e02424] border border-white" />
+              <div className="w-3 h-3 bg-[#f9db34] border border-white" />
+            </div>
+          </div>
+
+          <div className={`p-6 sm:p-8 space-y-4 flex flex-col relative z-10 ${isEven ? "md:items-end" : "md:items-start"}`}>
+            {/* Giant background text motif */}
+            <div className="absolute top-12 left-4 text-8xl font-display font-black text-[#1a1a1a]/5 -z-10 rotate-6 pointer-events-none">
+              {exp.timeline.split(' ')[0]}
+            </div>
+
+            <div className="flex items-center gap-1.5 text-white font-mono text-[10px] tracking-widest font-black bg-[#e02424] border-2 border-[#1a1a1a] px-3 py-1 shadow-[2px_2px_0_0_#1a1a1a] w-fit transform -rotate-1">
               <Calendar className="w-3.5 h-3.5" />
               <span>{exp.timeline}</span>
             </div>
@@ -100,11 +114,11 @@ function TimelineItem({ exp, index }: { exp: any; index: number }) {
             </ul>
 
             {/* Tech Badges */}
-            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#1a1a1a]/10 w-full">
+            <div className="flex flex-wrap gap-1.5 pt-4 border-t-[3px] border-[#1a1a1a]/10 w-full">
               {exp.tech.map((tech: string) => (
                 <span
                   key={tech}
-                  className="px-2 py-0.5 bg-[#1a1a1a]/5 text-[#1a1a1a] font-bold text-[9px] font-mono rounded-md tracking-tighter uppercase border border-[#1a1a1a]/10"
+                  className="px-2 py-0.5 bg-white text-[#1a1a1a] font-black text-[9px] font-mono tracking-tighter uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0_0_rgba(0,0,0,0.15)] transform hover:-translate-y-0.5 transition-transform"
                 >
                   {tech}
                 </span>
